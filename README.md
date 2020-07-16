@@ -7,28 +7,30 @@ _Don't Wait — Vote_ is a criminal justice ballot guide that holds politicians 
 ```
 .
 ├── public/
-│   ├── index.html
-│   ├── favicon.ico
-│   ├── apiKeys.js
-│   ├── manifest.json
-│   ├── robots.txt
+│   ├── index.html        // The app's 'entry point' to static html
+│   ├── favicon.ico       // The tab icon
+│   ├── apiKeys.js        // Safe storage for API keys, should NEVER appear in Github
+│   ├── manifest.json     // Setting for Web App Manifest
+│   ├── robots.txt        // Instructions for web crawlers, import for search engines
 |   └── ...
-├── src/
-│   ├── Components
+|
+├── src/                  // 'src' stands for source, where we keep the app
+│   ├── Components        // The pieces of the app's visual interface
 │   │   └── ...
-│   ├── Hooks
+│   ├── Hooks             // Stateful logic, mostly about data manipulation
 │   │   └── ...
-│   ├── Icons
+│   ├── Icons             // All logos, images, and icons
 │   │   └── ...
-│   ├── Utils
+│   ├── Contexts          // Where we store variables for global use
 │   │   └── ...
-|   ├── App
-│   │   ├── App.js
-│   │   └── App.css
-│   ├── Index.js
-│   └── Index.css
-├── README.md
-├── package.json
+│   ├── Utils             // Helper functions to do repeated tasks
+│   │   └── ...
+|   ├── App               // The "top-level" component, houses everything elese
+│   │   └── App.jsx
+│   └── Index.js          // The root, it holds App.jsx
+|
+├── package.json          // A list of dependencies that the web app requires
+├── README.md             // The instruction manual!
 └── ...
 ```
 
@@ -38,29 +40,33 @@ _Don't Wait — Vote_ is a criminal justice ballot guide that holds politicians 
 
 _Please check this [Observable Notebook](https://observablehq.com/@elibenton/ballotready-api) before going any further! It contains everything you need to know about how this web app is going to work!_
 
-### Getting Started
+### Starting From Scratch! (for the first timers ❤️)
 
-1. Clone the repo
+**First:** _Download a code editor_
 
-`git clone _________`
+We're going to use [VSCode](https://code.visualstudio.com/) because it has great presets for web development.
 
-2. Add all the dependencies
+**Second:** _Clone the repo_
 
-`cd voter-quotient`
+Once you're in VSCode, type the command `control (⌃)` + `~`. This will bring up a new Terminal window, where you can enter the necessary commands! Go ahead and enter the one below (feel free to copy and paste).
 
-then
+`git clone https://github.com/colanderworld/voter-quotient.git`
 
-`yarn` or `npm install -g`
+**Third:** _Add all the dependencies_
 
-3. Run the development server
+Type `cd voter-quotient` to go inside the `voter-quotient` directory.
 
-`yarn start`
+Then type `yarn` or `npm install -g` to add all the dependencies.
 
-_**Note:** I use VSCode because of it's wonderful web dev autocomplete and Git integration. I also recommend a few super helpful plugins!_
+**Forth:** _Run the development server_
 
-- **Prettier** to "format on save" and keep my code looking consistent
-- **Git Graph** because I need to visualize git branches
-- **Emmet** for powerful snippets and smart code wrapping
+Type `yarn start` and navigate to `localhost:3000` in your web browser!
+
+_**Note:** I also recommend a few super helpful plugins!_
+
+- **[Emmet](https://www.emmet.io/) (built in)** for powerful snippets and smart code wrapping
+- **[Prettier](https://github.com/prettier/prettier-vscode)** to "format on save" and keep my code looking consistent
+- **[Git Graph](https://github.com/mhutchie/vscode-git-graph)** because I need to visualize git branches
 - **[FiraCode](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions)** for it's font ligature support
 
 ### 📚 Tools & ⚓️ Hooks
@@ -106,20 +112,23 @@ The general structure of a component in this codebase looks like this.
 
 ```jsx
 import React, {useContext } from 'react'
+import { Box , ResponsiveContext } from 'grommet'
 // ... more imports ...
 
 export default (props go here) => {
-  // ... component logic with react hooks ...
+// ... component logic with react hooks ...
 
   return (
-    <Box>
-      <StyledComponent/>
-    </Box>
+    <ResponsiveContext.Consumer>
+      <Box>
+        <StyledComponent/>
+      </Box>
+    </ResponsiveContext.Consumer>
   )
 }
 
 // often there is no need for styled components
-const StyledComponent = styled(component)`
+const StyledComponent = styled(Component)`
   font-size: 1em;
 `
 
