@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Box, Button, Drop, Grommet } from "grommet";
+import { Box, Button, Drop, Grommet, Text } from "grommet";
 import { grommet } from "grommet/themes";
 
 export default ({ message }) => {
@@ -19,14 +19,15 @@ export default ({ message }) => {
         />
 
         {ref.current && over && (
-          <Drop align={{ left: "right" }} target={ref.current} plain>
+          <Drop align={{ bottom: "top" }} target={ref.current} plain>
             <Box
               margin="xsmall"
               pad="small"
-              background="dark-4"
-              round={{ size: "small" }}
+              //   background="dark-4"
+              border={{ size: "xsmall", color: "black" }}
+              round={{ size: "xsmall" }}
             >
-              {message}
+              <Text size="small">{message}</Text>
             </Box>
           </Drop>
         )}

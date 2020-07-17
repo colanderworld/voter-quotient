@@ -39,6 +39,7 @@ export default ({
     <ResponsiveContext.Consumer>
       {(size) => (
         <AccordionPanel
+          focusIndicator={false}
           pad={{ top: "small", bottom: "2px" }}
           label={
             <Box
