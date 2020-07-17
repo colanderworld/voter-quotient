@@ -16,6 +16,7 @@ const fetcher = (...args) =>
   }).then((res) => res.json());
 
 export const Response = ({ lat, lng }) => {
+  console.log(`🤯 Recieved ${lat} and ${lng}`);
   // useEffect(() => {
   //   API.subscribe()
   //   return function cleanup() {
@@ -24,18 +25,17 @@ export const Response = ({ lat, lng }) => {
   // })
 
   const { data, error } = useSWR(
-    `https://api.civicengine.com/positions?` +
+    () =>
+      `https://api.civicengine.com/positions?` +
       `lat=${lat}&` +
       `lon=${lng}&` +
       `include_candidates=${1}&` +
       `include_endorsements=${1}&` +
       `include_office_holders=${1}&` +
       `include_volunteer_urls=${1}`,
-    fetcher
+    fetcher,
+    { suspense: false }
   );
-
-  console.log("Data:" + data.positions);
-  console.log("Error:" + error);
 
   if (error)
     return (
@@ -73,6 +73,9 @@ export const Response = ({ lat, lng }) => {
       positionDescription: d.description,
     })
   );
+
+  console.log("Data:" + data.positions);
+  console.log("Error:" + error);
 
   const filteredPositons = groupedPositions.filter(({ tagged }) => tagged);
 

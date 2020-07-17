@@ -18,8 +18,10 @@ import { ResponsiveContext, Box } from "grommet";
 import { Context } from "../Contexts/LatLng";
 import { navigate } from "@reach/router";
 
+import { Response } from "../Components/Response";
+
 export default (address) => {
-  const { setLatlng } = useContext(Context);
+  const { setLatlng, latlng } = useContext(Context);
   const {
     value,
     suggestions: { status, data },
@@ -50,7 +52,7 @@ export default (address) => {
     setValue(description, false);
     clearSuggestions();
     address = description;
-    navigate(`/lookup`);
+    // navigate(`/lookup`);
 
     // Get latitude and longitude via utility functions
     getGeocode({ address: description })
@@ -62,6 +64,8 @@ export default (address) => {
       .catch((error) => {
         console.log("😱 Error: ", error);
       });
+
+    return <Response lat={latlng.lat} lng={latlng.lng} />;
   };
 
   const renderSuggestions = () =>
