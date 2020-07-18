@@ -2,15 +2,25 @@ import React from "react";
 // import voteLogo from '../Icons/v4a_head-1.jpg'
 import voteLogoColor from "../Icons/v4a_head-1_Color.png";
 import colanderLogo from "../Icons/tinhat_america.png";
-import {
-  Footer,
-  Box,
-  Avatar,
-  Anchor,
-  ResponsiveContext,
-  Button,
-} from "grommet";
-// import { Router, Link } from '@reach/router'
+import { Footer, Box, Avatar, ResponsiveContext, Button } from "grommet";
+import { Router, Link } from "@reach/router";
+import { WifiNone } from "grommet-icons";
+import styled from "styled-components";
+
+const NavLink = styled(Link)`
+  /* font-family: 'IBM Plex Mono'; */
+  font-size: 1.2em;
+  line-height: 1.3em;
+  color: black;
+  text-decoration: none;
+  font-weight: ${({ weight }) => weight};
+
+  :hover {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: gold;
+  }
+`;
 
 const FooterDiv = () => {
   return (
@@ -23,57 +33,21 @@ const FooterDiv = () => {
           background={{ dark: "black", light: "white" }}
         >
           <Box>
-            {/* <Anchor
-              href="/"
-              color="Black"
-              style={{ fontSize: "1.2em", lineHeight: "1.3em" }}
-            >
+            <NavLink weight={600} to="/">
               Home
-            </Anchor> */}
-            <Anchor
-              href="about"
-              color="Black"
-              style={{
-                fontSize: "1.2em",
-                lineHeight: "1.3em",
-                fontWeight: 400,
-              }}
-            >
-              About Us
-            </Anchor>
-            <Anchor
-              href="methods"
-              color="Black"
-              style={{
-                fontSize: "1.3em",
-                lineHeight: "1.3em",
-                fontWeight: 400,
-              }}
-            >
+            </NavLink>
+            <NavLink weight={400} to="about">
+              About
+            </NavLink>
+            <NavLink weight={400} to="methods">
               Methods
-            </Anchor>
-            <Anchor
-              href="PUT-SURVEY-LINK-HERE"
-              color="Black"
-              style={{
-                fontSize: "1.3em",
-                lineHeight: "1.3em",
-                fontWeight: 400,
-              }}
-            >
+            </NavLink>
+            <NavLink weight={400} to="PUT-SURVEY-LINK-HERE">
               Survey
-            </Anchor>
-            <Anchor
-              href="questions"
-              color="Black"
-              style={{
-                fontSize: "1.3em",
-                lineHeight: "1.3em",
-                fontWeight: 400,
-              }}
-            >
+            </NavLink>
+            <NavLink weight={400} to="questions">
               F.A.Q.
-            </Anchor>
+            </NavLink>
           </Box>
           <Box direction={size === "small" ? "column" : "row"} gap="small">
             {/* <Button
