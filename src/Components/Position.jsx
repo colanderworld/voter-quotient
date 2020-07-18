@@ -52,7 +52,7 @@ export default ({
           label={
             <Box
               // focusIndicator={false}
-              margin={size === "small" ? { horizontal: "small" } : null}
+              margin={size === "small" && { horizontal: "small" }}
               direction="row"
               gap="xsmall"
               justify="between"

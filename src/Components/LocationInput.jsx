@@ -4,6 +4,7 @@ import { Button } from "grommet";
 import { Location } from "grommet-icons";
 import { Context } from "../Contexts/LatLng";
 import { Response } from "../Components/Response";
+import { navigate } from "@reach/router";
 
 export default () => {
   const { setLatlng } = useContext(Context);
@@ -22,6 +23,7 @@ export default () => {
         !error && console.log(`📍${latitude}, ${longitude}`);
         setLatlng({ lat: latitude, lng: longitude });
         console.log(`Context! ${latitude}, ${longitude}`);
+        navigate(`/lookup`);
         return <Response lat={latitude} lng={longitude} />;
       }}
       hoverIndicator={{ background: "blue" }}
