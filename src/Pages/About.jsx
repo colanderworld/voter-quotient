@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Box,
-  Markdown,
-  ResponsiveContext,
-  Heading,
-  Avatar,
-  Text,
-} from "grommet";
+import { Box, ResponsiveContext, Heading, Avatar, Text } from "grommet";
+import { User } from "grommet-icons";
 
-import Eli from "../Icons/eli-serious.jpg";
+import Eli from "../Icons/eli-scared.jpg";
 import Lucas from "../Icons/lucas.jpg";
 import Deven from "../Icons/deven.jpg";
 import Madhi from "../Icons/madhi.jpg";
@@ -19,7 +13,7 @@ export default () => {
       {(size) => (
         <Box
           width={{ max: "800px" }}
-          margin={size === "small" ? "small" : null}
+          margin={size === "small" ? "small" : { bottom: "xlarge" }}
         >
           <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
@@ -49,34 +43,124 @@ export default () => {
                 size="xlarge"
                 border={{ size: "thin", color: "black" }}
                 flex={false}
+                alignSelf="center"
               />
               <Box direction="column" alignSelf="center" gap="xsmall">
                 <Text size="30px" weight="bold">
                   Lucas Carmel
                 </Text>
                 <Text>
-                  This is a super good bio of Mr. Lucas man! He does things like
+                  This is a super good bio of Lucas dude! He does things like
                   voting in elections and talking about baseball. His all time
-                  favorite people D. Jeter as his dog, Astra, may she rest in
-                  peace!
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
                 </Text>
               </Box>
             </Box>
-            <Avatar
-              src={Deven}
-              size="xlarge"
-              border={{ size: "thin", color: "black" }}
-            />
-            <Avatar
-              src={Madhi}
-              size="xlarge"
-              border={{ size: "thin", color: "black" }}
-            />
-            <Avatar
-              src={Eli}
-              size="xlarge"
-              border={{ size: "thin", color: "black" }}
-            />
+            <Box direction="row" gap="medium">
+              <Avatar
+                src={Madhi}
+                size="xlarge"
+                border={{ size: "thin", color: "black" }}
+                flex={false}
+                alignSelf="center"
+              />
+              <Box direction="column" gap="xsmall">
+                <Text size="30px" weight="bold">
+                  Madhi Fariss
+                </Text>
+                <Text>
+                  This is a super good bio of Madhi dude! He does things like
+                  voting in elections and talking about baseball. His all time
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
+                </Text>
+              </Box>
+            </Box>
+            <Box direction="row" gap="medium">
+              <Avatar
+                src={Deven}
+                size="xlarge"
+                border={{ size: "thin", color: "black" }}
+                flex={false}
+                alignSelf="center"
+              />
+              <Box direction="column" alignSelf="center" gap="xsmall">
+                <Text size="30px" weight="bold">
+                  Deven Kirschenbaum
+                </Text>
+                <Text>
+                  This is a super good bio of Deven dude! He does things like
+                  voting in elections and talking about baseball. His all time
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
+                </Text>
+              </Box>
+            </Box>
+            <Box direction="row" gap="medium">
+              <Avatar
+                src={Eli}
+                size="xlarge"
+                border={{ size: "thin", color: "black" }}
+                flex={false}
+                alignSelf="center"
+              />
+              <Box direction="column" alignSelf="center" gap="xsmall">
+                <Text size="30px" weight="bold">
+                  Eli Cohen
+                </Text>
+                <Text>
+                  This is a super good bio of Eli dude! He does things like
+                  voting in elections and talking about baseball. His all time
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
+                </Text>
+              </Box>
+            </Box>
+            <Box direction="row" gap="medium">
+              <Avatar
+                // src={}
+                size="xlarge"
+                border={{ size: "thin", color: "black" }}
+                flex={false}
+                alignSelf="center"
+              >
+                <User size="46px" />
+              </Avatar>
+              <Box direction="column" alignSelf="center" gap="xsmall">
+                <Text size="30px" weight="bold">
+                  Alanna Browdy
+                </Text>
+                <Text>
+                  This is a super good bio of Alanna dude! He does things like
+                  voting in elections and talking about baseball. His all time
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
+                </Text>
+              </Box>
+            </Box>
+            <Box direction="row" gap="medium">
+              <Avatar
+                // src={}
+                size="xlarge"
+                border={{ size: "thin", color: "black" }}
+                flex={false}
+                alignSelf="center"
+              >
+                <User size="46px" />
+              </Avatar>
+              <Box direction="column" alignSelf="center" gap="xsmall">
+                <Text size="30px" weight="bold">
+                  Lars Schwaebe
+                </Text>
+                <Text>
+                  This is a super good bio of Lars dude! He does things like
+                  voting in elections and talking about baseball. His all time
+                  favorite people Derek Jeter and the best dog ever, Astra, may
+                  she rest in peace!
+                </Text>
+              </Box>
+            </Box>
           </Box>
         </Box>
       )}

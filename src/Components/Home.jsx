@@ -1,21 +1,10 @@
 import React, { useContext } from "react";
-import {
-  Box,
-  Heading,
-  Button,
-  ResponsiveContext,
-  Markdown,
-  Text,
-} from "grommet";
+import { Box, Heading, ResponsiveContext, Text } from "grommet";
 import AddressInput from "../Components/AddressInput";
 import { Response } from "../Components/Response";
 import LocationInput from "../Components/LocationInput";
-import Header from "../Components/Header";
-
-import TooltipButton from "../Components/TooltipButton";
-
 import { Context } from "../Contexts/LatLng";
-import { Router } from "@reach/router";
+import { Underline } from "grommet-icons";
 
 const Home = () => {
   const { latlng } = useContext(Context);
@@ -29,7 +18,6 @@ const Home = () => {
           overflow={{ horizontal: "hidden" }}
           align="center"
         >
-          {/* <Header /> */}
           <Heading
             responsive={true}
             textAlign="center"
@@ -46,10 +34,10 @@ const Home = () => {
           </Heading>
 
           {size === "small" ? <LocationInput /> : <AddressInput />}
-          <Text size="medium" margin={{ top: "large" }}>
+          <Text size="medium" margin="large">
             <i>
-              <b>Disclaimer:</b> This is a demo app—and as such—will show you
-              the same result no matter what you type!
+              <b>Disclaimer:</b> This is <u>only</u> a mockup, and as such, will
+              show the same result no matter what you type!
             </i>
           </Text>
         </Box>

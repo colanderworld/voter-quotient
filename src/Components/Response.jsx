@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Accordion } from "grommet";
+import { Accordion, ResponsiveContext } from "grommet";
 import Position from "./Position";
 import useSWR from "swr";
 import fetch from "unfetch";
@@ -130,15 +130,20 @@ export const Response = ({ data }) => {
   /////////
 
   return (
-    <Accordion
-      multiple={true}
-      width="large"
-      margin="xsmall"
-      animate={true}
-      focusIndicator={false}
-      margin={{ top: "xlarge" }}
-    >
-      {sortedPositions}
-    </Accordion>
+    <ResponsiveContext.Consumer>
+      {(size) => (
+        <Accordion
+          multiple={true}
+          width={size !== "small" ? "large" : null}
+          responsive={true}
+          margin="xsmall"
+          animate={true}
+          focusIndicator={false}
+          margin={{ top: "xlarge" }}
+        >
+          {sortedPositions}
+        </Accordion>
+      )}
+    </ResponsiveContext.Consumer>
   );
 };

@@ -48,26 +48,27 @@ export default ({
     <ResponsiveContext.Consumer>
       {(size) => (
         <AccordionPanel
-          // focusIndicator={false}
-          pad={{ top: "small", bottom: "2px" }}
+          pad={{ top: "small" }}
           label={
             <Box
-              // focusIndicator={false}
               margin={size === "small" && { horizontal: "small" }}
-              direction="row"
-              gap="xsmall"
+              direction={size === "small" ? "column" : "row"}
               justify="between"
               align="baseline"
               flex="grow"
               style={{ boxShadow: null }}
             >
-              <Box direction="row" gap="xsmall" align="center">
-                <Text style={{ fontSize: "1.6em" }}>
+              <Box direction="row" gap="xsmall">
+                <Text style={{ fontSize: "1.6em", lineHeight: "1.5em" }}>
                   <b>{normPositionName}</b>
                 </Text>
                 <Star color="gold" size="30px" />
               </Box>
-              <Box direction="row" alignSelf="end" align="baseline">
+              <Box
+                direction="row"
+                alignSelf={size === "small" ? "start" : "end"}
+                align="baseline"
+              >
                 <MetaInfo
                   positionName={positionName}
                   positionDescription={positionDescription}

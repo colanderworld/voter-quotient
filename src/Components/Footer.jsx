@@ -3,26 +3,10 @@ import React from "react";
 import voteLogoColor from "../Icons/v4a_head-1_Color.png";
 import colanderLogo from "../Icons/tinhat_america.png";
 import { Footer, Box, Avatar, ResponsiveContext, Button } from "grommet";
-import { Router, Link } from "@reach/router";
-import { WifiNone } from "grommet-icons";
+import { Link } from "@reach/router";
 import styled from "styled-components";
 
-const NavLink = styled(Link)`
-  /* font-family: 'IBM Plex Mono'; */
-  font-size: 1.2em;
-  line-height: 1.3em;
-  color: black;
-  text-decoration: none;
-  font-weight: ${({ weight }) => weight};
-
-  :hover {
-    font-style: italic;
-    text-decoration: underline;
-    text-decoration-color: gold;
-  }
-`;
-
-const FooterDiv = () => {
+export default () => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -42,50 +26,22 @@ const FooterDiv = () => {
             <NavLink weight={400} to="methods">
               Methods
             </NavLink>
-            <NavLink weight={400} to="PUT-SURVEY-LINK-HERE">
-              Survey
-            </NavLink>
             <NavLink weight={400} to="questions">
               F.A.Q.
             </NavLink>
           </Box>
           <Box direction={size === "small" ? "column" : "row"} gap="small">
-            {/* <Button
-							size={size === 'small' ? 'medium' : 'large'}
-							label='Survey'
-						/> */}
-            <form
-              action="https://www.paypal.com/cgi-bin/webscr"
-              method="post"
-              target="_top"
-            >
-              <input type="hidden" name="cmd" value="_s-xclick" />
-              <input
-                type="hidden"
-                name="hosted_button_id"
-                value="HYXH5AQF472ML"
-              />
-              <input
-                type="image"
-                src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-                border="0"
-                name="submit"
-                title="PayPal - The safer, easier way to pay online!"
-                alt="Donate with PayPal button"
-              />
-              <img
-                alt=""
-                border="0"
-                src="https://www.paypal.com/en_US/i/scr/pixel.gif"
-                width="1"
-                height="1"
-              />
-            </form>
-            {/* <Button
-							primary
-							size={size === 'small' ? 'medium' : 'large'}
-							label='Donate'
-						/> */}
+            <Button
+              primary
+              size={size === "small" ? "medium" : "large"}
+              label="Donate"
+              href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
+            />
+            <Button
+              size={size === "small" ? "medium" : "large"}
+              label="Survey"
+              href="PUT-SURVEY-LINK-HERE"
+            />
           </Box>
           <Box direction="column" align="center" gap="small">
             <Box
@@ -110,4 +66,17 @@ const FooterDiv = () => {
     </ResponsiveContext.Consumer>
   );
 };
-export default FooterDiv;
+
+const NavLink = styled(Link)`
+  font-size: 1.2em;
+  line-height: 1.3em;
+  color: black;
+  text-decoration: none;
+  font-weight: ${({ weight }) => weight};
+
+  :hover {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: gold;
+  }
+`;

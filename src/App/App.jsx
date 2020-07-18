@@ -5,14 +5,11 @@ import About from "../Pages/About";
 import Methods from "../Pages/Methods";
 import Contact from "../Pages/Contact";
 import Questions from "../Pages/Questions";
-
 import secondTheme from "../Utils/secondTheme.json";
-
 import Home from "../Components/Home";
-import FooterDiv from "../Components/Footer";
+import Footer from "../Components/Footer";
 import { Response } from "../Components/Response";
 import DummyData from "../Components/DummyData";
-// import Header from '../Components/Header'
 
 const App = () => {
   return (
@@ -37,7 +34,7 @@ const App = () => {
                 <Questions path="questions" />
               </Router>
             </Box>
-            <FooterDiv />
+            <Footer />
           </Main>
         )}
       </ResponsiveContext.Consumer>
