@@ -48,6 +48,7 @@ export default ({
     <ResponsiveContext.Consumer>
       {(size) => (
         <AccordionPanel
+          // focusIndicator={false}
           pad={{ top: "small", bottom: "2px" }}
           label={
             <Box
@@ -58,6 +59,7 @@ export default ({
               justify="between"
               align="baseline"
               flex="grow"
+              style={{ boxShadow: null }}
             >
               <Box direction="row" gap="xsmall" align="center">
                 <Text style={{ fontSize: "1.6em" }}>

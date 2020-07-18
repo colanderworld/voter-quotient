@@ -135,6 +135,7 @@ export const Response = ({ data }) => {
       width="large"
       margin="xsmall"
       animate={true}
+      focusIndicator={false}
       margin={{ top: "xlarge" }}
     >
       {sortedPositions}
