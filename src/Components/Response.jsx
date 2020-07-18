@@ -5,6 +5,7 @@ import Position from './Position'
 export const Response = ({ data }) => {
 	const sortedPositions = data.map(
 		({
+			normPositionName,
 			positionName,
 			positionDescription,
 			division,
@@ -14,6 +15,7 @@ export const Response = ({ data }) => {
 		}) => (
 			<Position
 				key={positionName}
+				normPositionName={normPositionName}
 				positionName={positionName}
 				positionDescription={positionDescription}
 				division={division}

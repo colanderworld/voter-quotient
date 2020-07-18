@@ -18,13 +18,14 @@ import Barry from '../Icons/barry.jpg'
 export const DummyData = [
 	{
 		// First Position
-		positionName: 'Mr. Potato Head!',
+		normPositionName: 'U.S. Representative',
 		positionDescription:
 			'The Governor of Colorado is the chief executive of the U.S. state of Colorado. The governor is the head of the executive branch of Colorado state government and is charged with enforcing state laws. The governor has the power to either approve or veto bills passed by the Colorado General Assembly, to convene the legislature, and to grant pardons, except in cases of treason or impeachment. The governor is also the commander-in-chief of the state military forces.',
-		division: 'Location #1',
-		divisionDescription: '',
+		division: 'Federal',
+		divisionDescription: 'This is a Federal position, meaning it ',
+		positionName: "Massachusetts's 7th",
 		divisionColor: 'green', // colors should always be lowercase
-		voteMargin: '123,456', // vote margin should be in quotes because of the comma, i.e. '123,456'
+		voteMargin: '9,123,456', // vote margin should be in quotes because of the comma, i.e. '123,456'
 		candidateArray: [
 			// First Candidate
 			{
@@ -41,8 +42,8 @@ export const DummyData = [
 						KeyEndorsement: true,
 					},
 					{
-						Group: 'Color of Change',
-						Color: 'green',
+						Group: 'National Rifle Association',
+						Color: 'red',
 						Logo: null,
 						KeyEndorsement: true,
 					},
@@ -53,32 +54,8 @@ export const DummyData = [
 						KeyEndorsement: true,
 					},
 					{
-						Group: 'Color of Change',
-						Color: 'green',
-						Logo: null,
-						KeyEndorsement: true,
-					},
-					{
 						Group: 'National Rifle Association',
 						Color: 'red',
-						Logo: null,
-						KeyEndorsement: true,
-					},
-					{
-						Group: 'Color of Change',
-						Color: 'green',
-						Logo: null,
-						KeyEndorsement: true,
-					},
-					{
-						Group: 'National Rifle Association',
-						Color: 'red',
-						Logo: null,
-						KeyEndorsement: true,
-					},
-					{
-						Group: 'Color of Change',
-						Color: 'green',
 						Logo: null,
 						KeyEndorsement: true,
 					},
@@ -111,7 +88,97 @@ export const DummyData = [
 		// Second Position - You can copy and paste each element infinitely
 		positionName: 'Position #2',
 		positionDescription: '',
-		division: 'Location #2',
+		division: 'County',
+		divisionDescription: '',
+		divisionColor: 'blue',
+		voteMargin: '654,321',
+		candidateArray: [
+			{
+				candidateName: '',
+				candidateParty: '',
+				candidatePhoto: null,
+				endorsements: [
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: false,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+				],
+			},
+		],
+	},
+	{
+		// Second Position - You can copy and paste each element infinitely
+		positionName: 'Position #2',
+		positionDescription: '',
+		division: 'County',
+		divisionDescription: '',
+		divisionColor: 'blue',
+		voteMargin: '654,321',
+		candidateArray: [
+			{
+				candidateName: '',
+				candidateParty: '',
+				candidatePhoto: null,
+				endorsements: [
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: false,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+				],
+			},
+		],
+	},
+	{
+		// Second Position - You can copy and paste each element infinitely
+		positionName: 'Position #2',
+		positionDescription: '',
+		division: 'County',
+		divisionDescription: '',
+		divisionColor: 'blue',
+		voteMargin: '654,321',
+		candidateArray: [
+			{
+				candidateName: '',
+				candidateParty: '',
+				candidatePhoto: null,
+				endorsements: [
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: false,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+				],
+			},
+		],
+	},
+	{
+		// Second Position - You can copy and paste each element infinitely
+		positionName: 'Position #2',
+		positionDescription: '',
+		division: 'County',
 		divisionDescription: '',
 		divisionColor: 'blue',
 		voteMargin: '654,321',
