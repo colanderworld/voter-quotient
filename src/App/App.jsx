@@ -16,10 +16,18 @@ const App = () => {
       <ResponsiveContext.Consumer>
         {(size) => (
           <Main fill={true}>
-            <Router>
-              <Home path="/" />
-              <Response data={DummyData} path="lookup" />
-            </Router>
+            <Box
+              direction="column"
+              flex="grow"
+              fill={size === "small" && "vertical"}
+              overflow={{ horizontal: "hidden" }}
+              align="center"
+            >
+              <Router>
+                <Home path="/" />
+                <Response data={DummyData} path="lookup" />
+              </Router>
+            </Box>
             <FooterDiv />
           </Main>
         )}

@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import { Box, Heading, Button, ResponsiveContext } from "grommet";
+import {
+  Box,
+  Heading,
+  Button,
+  ResponsiveContext,
+  Markdown,
+  Text,
+} from "grommet";
 import AddressInput from "../Components/AddressInput";
 import { Response } from "../Components/Response";
 import LocationInput from "../Components/LocationInput";
@@ -22,7 +29,7 @@ const Home = () => {
           overflow={{ horizontal: "hidden" }}
           align="center"
         >
-          <Header />
+          {/* <Header /> */}
           <Heading
             responsive={true}
             textAlign="center"
@@ -37,7 +44,14 @@ const Home = () => {
             Dont Wait{" "}
             <span style={{ display: size === "small" && "none" }}>—</span> Vote
           </Heading>
+
           {size === "small" ? <LocationInput /> : <AddressInput />}
+          <Text size="medium" margin={{ top: "large" }}>
+            <i>
+              <b>Disclaimer:</b> This is a demo app—and as such—will show you
+              the same result no matter what you type!
+            </i>
+          </Text>
         </Box>
       )}
     </ResponsiveContext.Consumer>
