@@ -7,6 +7,7 @@ import secondTheme from "../Utils/secondTheme.json";
 import Home from "../Components/Home";
 import FooterDiv from "../Components/Footer";
 import { Response } from "../Components/Response";
+import DummyData from "../Components/DummyData";
 // import Header from '../Components/Header'
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
           <Main fill={true}>
             <Router>
               <Home path="/" />
-              <Response path="lookup" />
+              <Response data={DummyData} path="lookup" />
             </Router>
             <FooterDiv />
           </Main>

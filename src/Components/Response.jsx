@@ -17,8 +17,8 @@ const fetcher = (...args) =>
     headers: { "x-api-key": ballotReadyKeyAstra },
   }).then((res) => res.json());
 
-export const Response = ({ lat, lng }) => {
-  console.log(`🤯 Recieved ${lat} and ${lng}`);
+export const Response = ({ data }) => {
+  // console.log(`🤯 Recieved ${lat} and ${lng}`);
   // useEffect(() => {
   //   API.subscribe()
   //   return function cleanup() {
