@@ -1,6 +1,29 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Router } from '@reach/router'
 import { Grommet, Box, ResponsiveContext, Main } from 'grommet'
+=======
+import FooterDiv from '../Components/Footer'
+import AddressInput from '../Components/AddressInput'
+// import HeaderDiv from '../Components/Header'
+// import TakeAction from '../Components/TakeAction'
+import { Response } from '../Components/Response'
+
+// import Test from '../Components/Test'
+
+import {
+	Grommet,
+	Box,
+	ResponsiveContext,
+	Main,
+	Heading,
+	Button,
+	// Layer,
+} from 'grommet'
+import { Location } from 'grommet-icons'
+
+import { DummyData } from '../Components/DummyData'
+>>>>>>> demo
 
 import secondTheme from '../Utils/secondTheme.json'
 
@@ -14,7 +37,30 @@ const App = () => {
 			<ResponsiveContext.Consumer>
 				{(size) => (
 					<Main fill={true}>
+<<<<<<< HEAD
 						<Home />
+=======
+						<Box
+							direction='column'
+							flex='grow'
+							overflow={{ horizontal: 'hidden' }}
+							align='center'
+							justify='start'>
+							<Heading>
+								{size === 'small' ? (
+									<Button
+										primary
+										label='Use Current Location'
+										icon={<Location />}
+									/>
+								) : (
+									<AddressInput />
+								)}
+							</Heading>
+							<Response data={DummyData} />
+							{/* <TakeAction /> */}
+						</Box>
+>>>>>>> demo
 						<FooterDiv />
 					</Main>
 				)}

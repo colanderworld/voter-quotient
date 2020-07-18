@@ -1,16 +1,11 @@
 import React from 'react'
-import { Box, Avatar, Text } from 'grommet'
-
-const getInitials = (name) =>
-	name
-		.replace(/[^A-Za-z0-9À-ÿ ]/gi, '') // taking care of accented characters as well
-		.replace(/ +/gi, ' ') // replace multiple spaces to one
-		.split(/ /) // break the name into parts
-		.reduce((acc, item) => acc + item[0], '') // assemble an abbreviation from the parts
+import { Box } from 'grommet'
+import Endorsement from './Endorsement'
 
 export const KeyEndorsements = ({ endorsementsArray }) => {
 	const FilteredEndorsements = endorsementsArray.map(
 		({ Group, Color, Logo, KeyEndorsement }) =>
+<<<<<<< HEAD
 			// Key Endorsements is TRUE
 			KeyEndorsement && (
 				<Avatar
@@ -22,8 +17,13 @@ export const KeyEndorsements = ({ endorsementsArray }) => {
 					src={Logo !== null && Logo}>
 					{Logo === null && getInitials(Group)}
 				</Avatar>
+=======
+			KeyEndorsement && (
+				<Endorsement Group={Group} Color={Color} size='medium' />
+>>>>>>> demo
 			)
 	)
+
 	return (
 		<Box direction='row' wrap={true} margin={{ left: '-2px' }}>
 			{FilteredEndorsements}
@@ -34,6 +34,7 @@ export const KeyEndorsements = ({ endorsementsArray }) => {
 export const OtherEndorsements = ({ endorsementsArray }) => {
 	const FilteredEndorsements = endorsementsArray.map(
 		({ Group, Color, KeyEndorsement }) =>
+<<<<<<< HEAD
 			// Key Endorsements is FALSE
 			!KeyEndorsement && (
 				<Avatar
@@ -45,6 +46,10 @@ export const OtherEndorsements = ({ endorsementsArray }) => {
 					<Text style={{ fontSize: '0.9em' }}></Text>
 					{getInitials(Group)}
 				</Avatar>
+=======
+			!KeyEndorsement && (
+				<Endorsement Group={Group} Color={Color} size={'20px'} />
+>>>>>>> demo
 			)
 	)
 
