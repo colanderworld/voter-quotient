@@ -18,8 +18,7 @@ import Barry from '../Icons/barry.jpg'
 export const DummyData = [
 	{
 		// First Position
-		positionName: 'Position #1',
-		normalizedDescription: '',
+		positionName: 'Mr. Potato Head!',
 		positionDescription:
 			'The Governor of Colorado is the chief executive of the U.S. state of Colorado. The governor is the head of the executive branch of Colorado state government and is charged with enforcing state laws. The governor has the power to either approve or veto bills passed by the Colorado General Assembly, to convene the legislature, and to grant pardons, except in cases of treason or impeachment. The governor is also the commander-in-chief of the state military forces.',
 		division: 'Location #1',
