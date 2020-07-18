@@ -22,6 +22,7 @@ const App = () => {
               fill={size === "small" && "vertical"}
               overflow={{ horizontal: "hidden" }}
               align="center"
+              justify="start"
             >
               <Router>
                 <Home path="/" />
