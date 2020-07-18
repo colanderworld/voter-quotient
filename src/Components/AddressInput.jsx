@@ -53,7 +53,7 @@ export default (address) => {
     setValue(description, false);
     clearSuggestions();
     address = description;
-    // navigate(`/lookup`);
+    navigate(`/lookup`);
 
     // Get latitude and longitude via utility functions
     getGeocode({ address: description })

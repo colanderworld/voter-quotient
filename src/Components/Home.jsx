@@ -38,7 +38,6 @@ const Home = () => {
             <span style={{ display: size === "small" && "none" }}>—</span> Vote
           </Heading>
           {size === "small" ? <LocationInput /> : <AddressInput />}
-          <TooltipButton message="hover flubber bruh!" />
         </Box>
       )}
     </ResponsiveContext.Consumer>
