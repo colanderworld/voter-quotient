@@ -11,17 +11,19 @@ REFERENCE (each of these elements can be repeated infinitely)
 
 // You can import more photos here using the same syntax.
 // But if you leave the photo blank, it will default to a generic avatar icon
-import EliPlay from '../Icons/eli-fun.jpg'
-import EliWork from '../Icons/eli-serious.jpg'
+// import EliPlay from '../Icons/eli-fun.jpg'
+// import EliWork from '../Icons/eli-serious.jpg'
 import Barry from '../Icons/barry.jpg'
 
 export const DummyData = [
 	{
 		// First Position
 		positionName: 'Position #1',
+		normalizedDescription: '',
 		positionDescription:
 			'The Governor of Colorado is the chief executive of the U.S. state of Colorado. The governor is the head of the executive branch of Colorado state government and is charged with enforcing state laws. The governor has the power to either approve or veto bills passed by the Colorado General Assembly, to convene the legislature, and to grant pardons, except in cases of treason or impeachment. The governor is also the commander-in-chief of the state military forces.',
 		division: 'Location #1',
+		divisionDescription: '',
 		divisionColor: 'green', // colors should always be lowercase
 		voteMargin: '123,456', // vote margin should be in quotes because of the comma, i.e. '123,456'
 		candidateArray: [
@@ -37,7 +39,43 @@ export const DummyData = [
 						Group: 'National Rifle Association',
 						Color: 'red',
 						Logo: null,
-						KeyEndorsement: false,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'Color of Change',
+						Color: 'green',
+						Logo: null,
+						KeyEndorsement: true,
+					},
+					{
+						Group: 'National Rifle Association',
+						Color: 'red',
+						Logo: null,
+						KeyEndorsement: true,
 					},
 					{
 						Group: 'Color of Change',
@@ -75,6 +113,7 @@ export const DummyData = [
 		positionName: 'Position #2',
 		positionDescription: '',
 		division: 'Location #2',
+		divisionDescription: '',
 		divisionColor: 'blue',
 		voteMargin: '654,321',
 		candidateArray: [

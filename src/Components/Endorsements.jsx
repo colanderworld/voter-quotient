@@ -1,5 +1,5 @@
-import React from 'react'
-import { Box, Avatar, Text } from 'grommet'
+import React, { useRef, useState } from 'react'
+import { Box, Avatar, Text, Drop } from 'grommet'
 
 const getInitials = (name) =>
 	name
@@ -9,21 +9,42 @@ const getInitials = (name) =>
 		.reduce((acc, item) => acc + item[0], '') // assemble an abbreviation from the parts
 
 export const KeyEndorsements = ({ endorsementsArray }) => {
+	const [over, setOver] = useState()
+	const ref = useRef()
+
 	const FilteredEndorsements = endorsementsArray.map(
-		({ Group, Color, Logo, KeyEndorsement }) =>
+		({ Group, Color, Logo, KeyEndorsement }, index) =>
 			// Key Endorsements is TRUE
-			KeyEndorsement ? (
-				<Avatar
-					key={Group} // Use proper key signature once learned
+			KeyEndorsement && (
+				<Box
+					ref={ref}
+					round='small'
+					label='Avatar'
+					onMouseOver={() => setOver(true)}
+					onMouseOut={() => setOver(false)}
+					onFocus={() => {}}
+					onBlur={() => {}}
 					size='42px'
 					background={Color}
 					border={true}
 					margin={{ horizontal: '2px', vertical: '1px' }}
 					src={Logo !== null ? Logo : null}>
 					{Logo === null ? getInitials(Group) : null}
-				</Avatar>
-			) : null
+					{ref.current && over && (
+						<Drop align={{ left: 'right' }} target={ref.current} plain>
+							<Box
+								margin={{ left: 'xsmall' }}
+								pad='xsmall'
+								border={{ size: 'xsmall', color: 'black' }}
+								round={{ size: 'xsmall' }}>
+								<Text size='xsmall'>{Group}</Text>
+							</Box>
+						</Drop>
+					)}
+				</Box>
+			)
 	)
+
 	return (
 		<Box direction='row' wrap={true} margin={{ left: '-2px' }}>
 			{FilteredEndorsements}

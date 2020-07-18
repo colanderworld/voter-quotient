@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FooterDiv from '../Components/Footer'
 import AddressInput from '../Components/AddressInput'
 // import HeaderDiv from '../Components/Header'
-import TakeAction from '../Components/TakeAction'
+// import TakeAction from '../Components/TakeAction'
 import { Response } from '../Components/Response'
+
+// import Test from '../Components/Test'
 
 import {
 	Grommet,
@@ -14,7 +16,7 @@ import {
 	Button,
 	// Layer,
 } from 'grommet'
-import { LocationPin, Location } from 'grommet-icons'
+import { Location } from 'grommet-icons'
 
 import { DummyData } from '../Components/DummyData'
 
@@ -83,7 +85,7 @@ const App = () => {
 								)}
 							</Heading>
 							<Response data={DummyData} />
-							<TakeAction />
+							{/* <TakeAction /> */}
 						</Box>
 						<FooterDiv />
 					</Main>

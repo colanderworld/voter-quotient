@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Avatar, Text, Paragraph, ResponsiveContext } from 'grommet'
+import { Box, Avatar, Text, ResponsiveContext } from 'grommet'
 import { User } from 'grommet-icons'
 import { KeyEndorsements, OtherEndorsements } from './Endorsements'
 
@@ -33,14 +33,18 @@ export default ({
 							border={{
 								color: getPartyColor(party),
 								size: 'small',
-							}}>
+							}}
+							margin={{ bottom: 'medium' }}>
 							{!photo && <User color={getPartyColor(party)} />}
 						</Avatar>
-						<Text>{name}</Text>
+						<Box direction='column' alignSelf='start'>
+							<Text weight='bold'>{name}</Text>
+							<Text size='small'>
+								<i>{occupation}</i> of <i>{tenure}</i> years.
+							</Text>
+						</Box>
 					</Box>
-					<Paragraph>
-						<b>{occupation}</b> of <b>{tenure}</b> years.
-					</Paragraph>
+
 					<Text style={{ fontFamily: 'IBM Plex Mono', fontSize: '1em' }}>
 						<b>Key Endorsements</b>
 					</Text>
