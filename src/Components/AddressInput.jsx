@@ -14,7 +14,7 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import { ResponsiveContext, Box } from "grommet";
-import { FormSearch, Search } from "grommet-icons";
+// import { FormSearch, Search } from "grommet-icons";
 
 import { Context } from "../Contexts/LatLng";
 import { navigate } from "@reach/router";

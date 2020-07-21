@@ -9,7 +9,7 @@ import secondTheme from "../Utils/secondTheme.json";
 import Home from "../Components/Home";
 import Footer from "../Components/Footer";
 import { Response } from "../Components/Response";
-import { firstTest, secondTest, thirdTest } from "../Components/DummyData";
+import { thirdTest } from "../Components/DummyData";
 
 const App = () => {
   return (

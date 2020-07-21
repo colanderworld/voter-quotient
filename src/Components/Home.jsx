@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React from "react"; // , { useContext }
 import { Box, Heading, ResponsiveContext, Text } from "grommet";
 import AddressInput from "../Components/AddressInput";
-import { Response } from "../Components/Response";
 import LocationInput from "../Components/LocationInput";
-import { Context } from "../Contexts/LatLng";
-import { Underline } from "grommet-icons";
+// import { Context } from "../Contexts/LatLng";
+// import { Underline } from "grommet-icons";
+// import { Response } from "../Components/Response";
 
 const Home = () => {
-  const { latlng } = useContext(Context);
+  // const { latlng } = useContext(Context);
   return (
     <ResponsiveContext.Consumer>
       {(size) => (

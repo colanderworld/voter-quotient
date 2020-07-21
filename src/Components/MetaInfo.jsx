@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import _ from "lodash";
 
-import { Box, Drop, Markdown, Text, ResponsiveContext } from "grommet";
+import { Box, Drop, Text, ResponsiveContext } from "grommet";
 
 export default ({
   normalizedPosition,
@@ -22,8 +22,12 @@ export default ({
 
   const MetaData = styled(Text)`
     font-family: "IBM Plex Mono";
-    /* font-size: 1em; */
+    font-size: 1em;
     letter-spacing: -0.7px;
+
+    @media screen and (max-width: 375px) {
+      font-size: 0.9em;
+    }
 
     :hover {
       font-style: italic;
@@ -61,14 +65,12 @@ export default ({
           <Box>
             <Box
               align={size === "small" ? "start" : "end"}
-              // margin={size === "small" ? { right: "16px" } : { left: "16px" }}
+              margin={size === "small" ? { left: "4px" } : { right: "8px" }}
               ref={ref}
-              onMouseOver={() => setOver(true)}
-              onMouseOut={() => setOver(false)}
+              onMouseEnter={() => setOver(true)}
+              onMouseLeave={() => setOver(false)}
             >
-              <MetaData size={size === "small" ? "xsmall" : "1em"}>
-                {positionName}
-              </MetaData>
+              <MetaData>{positionName}</MetaData>
             </Box>
             {ref.current && over && (
               <Drop align={{ bottom: "top" }} target={ref.current} plain>
@@ -87,19 +89,19 @@ export default ({
               </Drop>
             )}
           </Box>
-          <Text size="large">&nbsp;&nbsp;•&nbsp;&nbsp;</Text>
+          <MetaData>|</MetaData>
           <Box>
             <Box
               align={size === "small" ? "start" : "end"}
-              width="40px"
-              // margin={size === "small" ? { right: "16px" } : { left: "16px" }}
+              width="47px"
+              margin={
+                size === "small" ? { horizontal: "4px" } : { horizontal: "8px" }
+              }
               ref={refTwo}
-              onMouseOver={() => setOverTwo(true)}
-              onMouseOut={() => setOverTwo(false)}
+              onMouseEnter={() => setOverTwo(true)}
+              onMouseLeave={() => setOverTwo(false)}
             >
-              <MetaData size={size === "small" ? "xsmall" : "1em"}>
-                {_.upperFirst(_.lowerCase(level))}
-              </MetaData>
+              <MetaData>{_.upperFirst(_.lowerCase(level))}</MetaData>
             </Box>
             {refTwo.current && overTwo && (
               <Drop align={{ bottom: "top" }} target={refTwo.current} plain>
@@ -116,19 +118,17 @@ export default ({
               </Drop>
             )}
           </Box>
-          <Text size="large">&nbsp;&nbsp;•&nbsp;&nbsp;</Text>
+          <MetaData>|</MetaData>
           <Box>
             <Box
               align={size === "small" ? "start" : "end"}
-              width="60px"
-              // margin={size === "small" ? { right: "16px" } : { left: "16px" }}
+              width="55px"
+              margin={size === "small" ? { right: "4px" } : { left: "8px" }}
               ref={refThree}
-              onMouseOver={() => setOverThree(true)}
-              onMouseOut={() => setOverThree(false)}
+              onMouseEnter={() => setOverThree(true)}
+              onMouseLeave={() => setOverThree(false)}
             >
-              <MetaData size={size === "small" ? "xsmall" : "1em"}>
-                {voteMargin}
-              </MetaData>
+              <MetaData>{voteMargin}</MetaData>
             </Box>
             {refThree.current && overThree && (
               <Drop align={{ bottom: "top" }} target={refThree.current} plain>

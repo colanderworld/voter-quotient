@@ -1,21 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Accordion, ResponsiveContext, Box, Text } from "grommet";
 import Position from "./Position";
-import useSWR from "swr";
-import fetch from "unfetch";
-import DummyData from "./DummyData";
-import { Router } from "@reach/router";
+// import fetch from "unfetch";
+// import useSWR from "swr";
 
 // import { ballotReadyKeyLudo } from '../Utils/apiKeys'
-import { ballotReadyKeyAstra } from "../Utils/apiKeys";
-import criminalJusticePositions from "../Utils/criminalJusticePositions.json";
-import moment from "moment";
-import { Heading } from "grommet";
+// import { ballotReadyKeyAstra } from "../Utils/apiKeys";
+// import criminalJusticePositions from "../Utils/criminalJusticePositions.json";
+// import moment from "moment";
+// import { Heading } from "grommet";
 
-const fetcher = (...args) =>
-  fetch(...args, {
-    headers: { "x-api-key": ballotReadyKeyAstra },
-  }).then((res) => res.json());
+// const fetcher = (...args) =>
+//   fetch(...args, {
+//     headers: { "x-api-key": ballotReadyKeyAstra },
+//   }).then((res) => res.json());
 
 export const Response = ({ data }) => {
   // console.log(`🤯 Recieved ${lat} and ${lng}`);
@@ -105,8 +103,35 @@ export const Response = ({ data }) => {
   // );
 
   //////////
-  const sortedPositions = data
-    .sort((d) => d.tagged === false)
+  const highlighted = data
+    .filter((d) => d.tagged)
+    .map(
+      ({
+        normalizedPosition,
+        positionName,
+        description,
+        level,
+        divisionColor,
+        voteMargin,
+        candidatesArray,
+        tagged,
+      }) => (
+        <Position
+          key={positionName}
+          normalizedPosition={normalizedPosition}
+          positionName={positionName}
+          description={description}
+          level={level}
+          divisionColor={divisionColor}
+          voteMargin={voteMargin}
+          candidatesArray={candidatesArray}
+          tagged={tagged}
+        />
+      )
+    );
+
+  const other = data
+    .filter((d) => !d.tagged)
     .map(
       ({
         normalizedPosition,
@@ -142,7 +167,7 @@ export const Response = ({ data }) => {
               size="medium"
               margin={
                 size === "small"
-                  ? "xsmall"
+                  ? { vertical: "small", horizontal: "xsmall" }
                   : { vertical: "large", horizontal: "xsmall" }
               }
             >
@@ -154,14 +179,13 @@ export const Response = ({ data }) => {
           </Box>
           <Accordion
             multiple={true}
-            width={size !== "small" && "800px"}
-            responsive={true}
-            margin="xsmall"
             animate={true}
-            focusIndicator={false}
-            margin={{ vertical: "1em" }}
+            width={{ max: "800px" }}
+            fill="true"
+            margin={{ top: "1em", bottom: "8em" }}
           >
-            {sortedPositions}
+            {highlighted}
+            {other}
           </Accordion>
         </Box>
       )}

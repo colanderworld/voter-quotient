@@ -3,49 +3,44 @@ import {
   Box,
   ResponsiveContext,
   Heading,
-  Avatar,
+  // Avatar,
   Text,
   Accordion,
   AccordionPanel,
 } from "grommet";
-import { User } from "grommet-icons";
+// import { User } from "grommet-icons";
 
-import Eli from "../Icons/eli-scared.jpg";
-import Lucas from "../Icons/lucas.jpg";
-import Deven from "../Icons/deven.jpg";
-import Madhi from "../Icons/madhi.jpg";
+// import Eli from "../Icons/eli-scared.jpg";
+// import Lucas from "../Icons/lucas.jpg";
+// import Deven from "../Icons/deven.jpg";
+// import Madhi from "../Icons/madhi.jpg";
 
 export default () => {
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
         <Box
-          width={{ max: "800px" }}
-          margin={size === "small" ? "small" : { bottom: "xlarge" }}
+          width={size !== "small" && "800px"}
+          margin={size === "small" && "small"}
         >
           <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
             margin={{ top: "xlarge" }}
           >
-            Motivation
+            About
           </Heading>
           <Text size="medium">
-            Vote for Astra is a non-partisan, non-profit organization devoted to
-            the idea that voting can, should, and must be easier for college
-            students. Created in 2019, it aims to provide resources and support
-            to university faculty, staff, and students as they work to improve
-            turnout on campus. Centered around the Campus Canvass technique, it
-            emphasizes peer-to-peer contact, consistent engagement, and
-            data-driven strategy.
+            We don't have an about page yet... <br />
+            But thanks for checking!
           </Text>
-          <Heading
+          {/* <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
             margin={{ top: "xlarge" }}
           >
             People
-          </Heading>
+          </Heading> */}
 
-          <Box direction="row" gap="medium">
+          {/* <Box direction="row" gap="medium">
             <Avatar
               src={Eli}
               size="xlarge"
@@ -64,8 +59,8 @@ export default () => {
                 peace!
               </Text>
             </Box>
-          </Box>
-          <Box
+          </Box> */}
+          {/* <Box
             width={{ max: "600px" }}
             margin={size === "small" ? "small" : null}
           >
@@ -261,7 +256,7 @@ export default () => {
                 </Box>
               </AccordionPanel>
             </Accordion>
-          </Box>
+          </Box> */}
         </Box>
       )}
     </ResponsiveContext.Consumer>

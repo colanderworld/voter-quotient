@@ -1,15 +1,13 @@
 import React from "react";
-// import voteLogo from '../Icons/v4a_head-1.jpg'
-import voteLogoColor from "../Icons/v4a_head-1_Color.png";
-import colanderLogo from "../Icons/tinhat_america.png";
+// import colanderLogo from "../Icons/tinhat_america.png";
 import {
   Footer,
   Box,
-  Avatar,
   ResponsiveContext,
   Button,
-  Text,
-  Anchor,
+  // Text,
+  // Anchor,
+  // Avatar,
 } from "grommet";
 import { Link } from "@reach/router";
 import styled from "styled-components";
@@ -34,9 +32,12 @@ export default () => {
             <NavLink weight={400} to="methods">
               Methods
             </NavLink>
-            <NavLink weight={400} to="questions">
-              F.A.Q.
+            <NavLink weight={400} to="contact">
+              Contact
             </NavLink>
+            {/* <NavLink weight={400} to="questions">
+              F.A.Q.
+            </NavLink> */}
           </Box>
           <Box direction={size === "small" ? "column" : "row"} gap="small">
             <Button

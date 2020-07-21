@@ -1,13 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  AccordionPanel,
-  Box,
-  Text,
-  ResponsiveContext,
-  Markdown,
-  Drop,
-  Heading,
-} from "grommet";
+import { AccordionPanel, Box, Text, ResponsiveContext, Drop } from "grommet";
 import { Star } from "grommet-icons";
 import Candidate from "./Candidate";
 import MetaInfo from "./MetaInfo";
@@ -25,8 +17,8 @@ export default ({
   const [over, setOver] = useState();
   const ref = useRef();
 
-  const SortedCandidates = candidatesArray
-    .sort((d) => d.election_result !== "Won")
+  const Winner = candidatesArray
+    .filter((d) => d.election_result === "Won")
     .map(
       ({
         first_name,
@@ -36,6 +28,7 @@ export default ({
         candidateOccupation,
         candidateTenure,
         endorsements,
+        election_result,
       }) => (
         <Candidate
           key={last_name}
@@ -46,9 +39,38 @@ export default ({
           tenure={candidateTenure}
           keyEndorsements={endorsements}
           otherEndorsements={endorsements}
+          status={election_result}
         />
       )
     );
+
+  const Losers = candidatesArray
+    .filter((d) => d.election_result !== "Won")
+    .map(
+      ({
+        first_name,
+        last_name,
+        candidateParty,
+        thumb_url,
+        candidateOccupation,
+        candidateTenure,
+        endorsements,
+        election_result,
+      }) => (
+        <Candidate
+          key={last_name}
+          name={first_name + " " + last_name}
+          party={candidateParty}
+          thumb_url={thumb_url}
+          occupation={candidateOccupation}
+          tenure={candidateTenure}
+          keyEndorsements={endorsements}
+          otherEndorsements={endorsements}
+          status={election_result}
+        />
+      )
+    );
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
@@ -67,8 +89,8 @@ export default ({
                 direction="row"
                 gap="xsmall"
                 ref={ref}
-                onMouseOver={() => setOver(true)}
-                onMouseOut={() => setOver(false)}
+                onMouseOver={() => size !== "small" && setOver(true)}
+                onMouseOut={() => size !== "small" && setOver(false)}
               >
                 <Text style={{ fontSize: "1.6em", lineHeight: "1.5em" }}>
                   <b>{normalizedPosition}</b>
@@ -123,20 +145,32 @@ export default ({
             direction={size === "small" ? "column" : "row"}
             pad={{ vertical: "xsmall" }}
           >
-            <Box basis="1/2">{SortedCandidates.slice(0, 1)}</Box>
-            {SortedCandidates.length !== 1 ? (
+            <Box basis="1/2" direction="column">
+              {Winner}
+            </Box>
+            {Losers.length !== 0 ? (
               <Box basis="1/2" direction="column">
-                {SortedCandidates.slice(1)}
+                {Losers}
               </Box>
             ) : (
-              <Box fill={true} background="#dbdbdb" round="small">
-                <Heading alignSelf="center">Unopposed</Heading>
+              <Box
+                basis="1/2"
+                round="xsmall"
+                border="all"
+                justify="center"
+                margin="xsmall"
+                style={{
+                  borderColor: "#FFE91D",
+                }}
+              >
+                <Text textAlign="center" margin={{ vertical: "medium" }}>
+                  This candidate ran <b>unopposed</b> in 2019!
+                  <br />
+                  Elections should be contested!
+                </Text>
               </Box>
             )}
           </Box>
-          {/* <Box basis="full" pad="xsmall" margin={{ bottom: "1em" }}>
-            {description}
-          </Box> */}
         </AccordionPanel>
       )}
     </ResponsiveContext.Consumer>
