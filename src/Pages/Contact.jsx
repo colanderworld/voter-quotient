@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   ResponsiveContext,
@@ -6,15 +6,19 @@ import {
   FormField,
   TextInput,
   TextArea,
+  Button,
+  Form,
 } from "grommet";
 
 export default () => {
+  const [value, setValue] = useState({});
+
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
         <Box
           width={size !== "small" && "800px"}
-          margin={size === "small" && "small"}
+          margin={size === "small" ? "small" : { bottom: "6em" }}
         >
           <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
@@ -22,7 +26,15 @@ export default () => {
           >
             Contact
           </Heading>
-          <form name="contact" method="POST" data-netlify="true">
+          <Form
+            value={value}
+            onChange={(nextValue) => setValue(nextValue)}
+            onReset={() => setValue({})}
+            onSubmit={({ value }) => {}}
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
             <FormField label="Your Name">
               <TextInput />
             </FormField>
@@ -35,7 +47,11 @@ export default () => {
             <Box margin={{ vertical: "large" }} height="medium">
               <TextArea placeholder="Your Message" size="large" fill={true} />
             </Box>
-          </form>
+            <Box direction="row" gap="small">
+              <Button type="submit" primary label="Submit" />
+              <Button type="reset" label="Reset" />
+            </Box>
+          </Form>
         </Box>
       )}
     </ResponsiveContext.Consumer>
