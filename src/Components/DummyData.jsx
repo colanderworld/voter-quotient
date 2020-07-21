@@ -540,7 +540,7 @@ export const thirdTest = [
     voteRaw: "158,560",
     voteMargin: 100,
     description:
-      "A public defender is a lawyer appointed to represent people who otherwise cannot reasonably afford to hire a lawyer.",
+      "A Public Defender is a lawyer appointed to represent people who otherwise cannot reasonably afford to hire a lawyer.",
     candidatesArray: [
       {
         first_name: "Manohar",
