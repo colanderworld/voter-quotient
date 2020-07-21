@@ -8,6 +8,8 @@ import {
   TextArea,
   Button,
   Form,
+  Anchor,
+  Text,
 } from "grommet";
 
 export default () => {
@@ -26,7 +28,12 @@ export default () => {
           >
             Contact
           </Heading>
-          <Form
+          <Text size="large">
+            <Anchor color="black" href="mailto:eliunited@gmail.com">
+              @me
+            </Anchor>
+          </Text>
+          {/* <Form
             value={value}
             onChange={(nextValue) => setValue(nextValue)}
             onReset={() => setValue({})}
@@ -51,7 +58,7 @@ export default () => {
               <Button type="submit" primary label="Submit" />
               <Button type="reset" label="Reset" />
             </Box>
-          </Form>
+          </Form> */}
         </Box>
       )}
     </ResponsiveContext.Consumer>
