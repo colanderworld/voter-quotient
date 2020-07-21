@@ -11,6 +11,7 @@ export default ({
   level,
   divisionDescription,
   voteMargin,
+  voteRaw,
   candidatesArray,
   tagged,
 }) => {
@@ -133,6 +134,7 @@ export default ({
                   level={level}
                   divisionDescription={divisionDescription}
                   voteMargin={voteMargin}
+                  voteRaw={voteRaw}
                   // winner={candidatesArray
                   //   .sort((d) => d.election_result !== "Won")
                   //   .slice(1)}

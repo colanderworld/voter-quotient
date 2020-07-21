@@ -1,7 +1,8 @@
 import React from "react"; // , { useContext }
-import { Box, Heading, ResponsiveContext, Text } from "grommet";
+import { Box, Heading, ResponsiveContext, Text, Avatar } from "grommet";
 import AddressInput from "../Components/AddressInput";
 import LocationInput from "../Components/LocationInput";
+import Logo from "../Icons/dontwait-1.png";
 // import { Context } from "../Contexts/LatLng";
 // import { Underline } from "grommet-icons";
 // import { Response } from "../Components/Response";
@@ -18,29 +19,30 @@ const Home = () => {
           overflow={{ horizontal: "hidden" }}
           align="center"
         >
-          <Heading
-            responsive={true}
-            textAlign="center"
-            style={{
-              fontFamily: "IBM Plex Mono",
-              fontStyle: "italic",
-              fontSize: "5.5em",
-              lineHeight: "1em",
-              letterSpacing: "-2px",
-            }}
+          <Avatar
+            margin={
+              size === "small" ? "xlarge" : { top: "medium", bottom: "xsmall" }
+            }
+            size="270px"
+            round="medium"
+            src={Logo}
+          />
+          {size === "small" ? <LocationInput /> : <AddressInput />}
+          <Box
+            width={{ max: "450px" }}
+            margin={
+              size !== "small"
+                ? { vertical: "large", horizontal: "small" }
+                : { vertical: "xlarge", horizontal: "small" }
+            }
           >
-            Dont Wait
-            <span style={{ display: size === "small" && "none" }}>.</span> Vote!
-          </Heading>
-          <Box width="520px">
-            <Text size="medium" margin="small">
+            <Text size="medium">
               <i>
                 <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
                 the results of last year's San Francisco local elections.
               </i>
             </Text>
           </Box>
-          {size === "small" ? <LocationInput /> : <AddressInput />}
         </Box>
       )}
     </ResponsiveContext.Consumer>

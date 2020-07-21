@@ -11,6 +11,7 @@ export default ({
   level,
   divisionDescription,
   voteMargin,
+  voteRaw,
   winner,
 }) => {
   const [over, setOver] = useState();
@@ -36,7 +37,7 @@ export default ({
     }
   `;
 
-  const marginDescription = (winner, raw, percent) => {
+  const marginDescription = (raw, percent) => {
     return (
       <Text size="small">
         The incumbent recieved <b>{raw}</b> more votes in their last election,
@@ -128,19 +129,19 @@ export default ({
               onMouseEnter={() => setOverThree(true)}
               onMouseLeave={() => setOverThree(false)}
             >
-              <MetaData>{voteMargin}</MetaData>
+              <MetaData>{voteRaw}</MetaData>
             </Box>
             {refThree.current && overThree && (
               <Drop align={{ bottom: "top" }} target={refThree.current} plain>
                 <Box
-                  width="200px"
+                  width="210px"
                   pad="xsmall"
                   background="white"
                   margin={{ bottom: "4px" }}
                   border={{ size: "xsmall", color: "black" }}
                   round={{ size: "xsmall" }}
                 >
-                  {marginDescription(winner, voteMargin, 4)}
+                  {marginDescription(voteRaw, voteMargin)}
                 </Box>
               </Drop>
             )}

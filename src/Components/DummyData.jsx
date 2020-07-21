@@ -351,7 +351,8 @@ export const thirdTest = [
     position_id: 228408,
     level: "STATE",
     normalizedPosition: "District Attorney",
-    voteMargin: "2,840",
+    voteRaw: "2,840",
+    voteMargin: 1.6,
     description:
       "The District Attorney is the chief legal representative of the county.",
     candidatesArray: [
@@ -532,12 +533,31 @@ export const thirdTest = [
     ],
   },
   {
+    positionName: "San Francisco Public Defender",
+    tagged: true,
+    level: "CITY",
+    normalizedPosition: "Public Defender",
+    voteRaw: "158,560",
+    voteMargin: 100,
+    description:
+      "A public defender is a lawyer appointed to represent people who otherwise cannot reasonably afford to hire a lawyer.",
+    candidatesArray: [
+      {
+        first_name: "Manohar",
+        last_name: "Raju",
+        election_result: "Won",
+        party_name: "Nonpartisan",
+      },
+    ],
+  },
+  {
     positionName: "San Francisco County Sheriff",
     tagged: true,
     position_id: 228406,
     level: "COUNTY",
     normalizedPosition: "County Sheriff",
-    voteMargin: "146,628",
+    voteRaw: "146,628",
+    voteMargin: 100,
     description:
       "The County Sheriff is the chief law enforcement official of the county.",
     candidatesArray: [
@@ -585,7 +605,8 @@ export const thirdTest = [
     position_id: 228409,
     level: "COUNTY",
     normalizedPosition: "County Treasurer",
-    voteMargin: "152,703",
+    voteRaw: "152,703",
+    voteMargin: 100,
     description:
       "The County Treasurer is the Chief Fiscal Officer of the county responsible for overseeing all public funds owned by the County, the County School District, and other taxing entities within the County.",
     candidatesArray: [
@@ -633,7 +654,8 @@ export const thirdTest = [
     position_id: 228405,
     level: "CITY",
     normalizedPosition: "Mayor",
-    voteMargin: "100,533",
+    voteRaw: "100,533",
+    voteMargin: 56.8,
     description:
       "The Mayor is the chief executive officer of the municipality.  They often preside over council meetings, and may have powers to hire and fire heads of municipal departments.",
     candidatesArray: [
@@ -824,11 +846,12 @@ export const thirdTest = [
   },
   {
     positionName: "San Francisco City Attorney",
-    tagged: true,
+    tagged: false,
     position_id: 228407,
     level: "CITY",
     normalizedPosition: "City Attorney",
-    voteMargin: "161,369",
+    voteRaw: "161,369",
+    voteMargin: 100,
     description:
       "The duties of the City Attorney include appearing in judicial, administrative and other legal actions, issuing legal opinions to city officers, drafting ordinances, bonds, and other legal documents, prosecuting ordinance violations in municipal court, and providing a full range of legal services to various City departments, boards, and entities.",
     candidatesArray: [

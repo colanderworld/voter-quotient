@@ -63,7 +63,7 @@ export default ({
               textAlign="center"
               margin={size === "small" && { vertical: "medium" }}
             >
-              We are raising money for additional candidate data!
+              We are raising money to buy detailed candidate data!
               <br />
               <Anchor
                 color="black"

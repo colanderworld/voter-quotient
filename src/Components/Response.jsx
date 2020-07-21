@@ -113,6 +113,7 @@ export const Response = ({ data }) => {
         level,
         divisionColor,
         voteMargin,
+        voteRaw,
         candidatesArray,
         tagged,
       }) => (
@@ -123,6 +124,7 @@ export const Response = ({ data }) => {
           description={description}
           level={level}
           divisionColor={divisionColor}
+          voteRaw={voteRaw}
           voteMargin={voteMargin}
           candidatesArray={candidatesArray}
           tagged={tagged}
@@ -140,6 +142,7 @@ export const Response = ({ data }) => {
         level,
         divisionColor,
         voteMargin,
+        voteRaw,
         candidatesArray,
         tagged,
       }) => (
@@ -151,6 +154,7 @@ export const Response = ({ data }) => {
           level={level}
           divisionColor={divisionColor}
           voteMargin={voteMargin}
+          voteRaw={voteRaw}
           candidatesArray={candidatesArray}
           tagged={tagged}
         />
