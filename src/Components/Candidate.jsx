@@ -16,7 +16,7 @@ const getPartyColor = (party) => {
 export default ({
   name,
   party,
-  photo,
+  thumb_url,
   occupation,
   tenure,
   keyEndorsements,
@@ -25,10 +25,10 @@ export default ({
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
-        <Box basis="1/2" alignSelf="start" pad="xsmall">
+        <Box flex="grow" alignSelf="start" pad="xsmall">
           <Box align="center" direction="row" gap="small">
             <Avatar
-              src={photo && photo}
+              src={thumb_url && thumb_url}
               size="60px"
               border={{
                 color: getPartyColor(party),
@@ -36,7 +36,7 @@ export default ({
               }}
               margin={{ bottom: "medium" }}
             >
-              {!photo && <User size="34px" color={getPartyColor(party)} />}
+              {!thumb_url && <User size="34px" color={getPartyColor(party)} />}
             </Avatar>
             <Box direction="column" alignSelf="start">
               <Text size="medium" weight="bold">

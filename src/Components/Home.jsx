@@ -24,22 +24,23 @@ const Home = () => {
             style={{
               fontFamily: "IBM Plex Mono",
               fontStyle: "italic",
-              fontSize: "6em",
+              fontSize: "5.5em",
               lineHeight: "1em",
               letterSpacing: "-2px",
             }}
           >
-            Dont Wait{" "}
-            <span style={{ display: size === "small" && "none" }}>—</span> Vote
+            Dont Wait
+            <span style={{ display: size === "small" && "none" }}>.</span> Vote!
           </Heading>
-
+          <Box width="520px">
+            <Text size="medium" margin="small">
+              <i>
+                <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
+                the results of last year's San Francisco local elections.
+              </i>
+            </Text>
+          </Box>
           {size === "small" ? <LocationInput /> : <AddressInput />}
-          <Text size="medium" margin="large">
-            <i>
-              <b>Disclaimer:</b> This is <u>only</u> a mockup, and as such, will
-              show the same result no matter what you type!
-            </i>
-          </Text>
         </Box>
       )}
     </ResponsiveContext.Consumer>

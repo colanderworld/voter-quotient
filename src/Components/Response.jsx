@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Accordion, ResponsiveContext } from "grommet";
+import { Accordion, ResponsiveContext, Box, Text } from "grommet";
 import Position from "./Position";
 import useSWR from "swr";
 import fetch from "unfetch";
@@ -105,44 +105,65 @@ export const Response = ({ data }) => {
   // );
 
   //////////
-  const sortedPositions = data.map(
-    ({
-      normPositionName,
-      positionName,
-      positionDescription,
-      division,
-      divisionColor,
-      voteMargin,
-      candidateArray,
-    }) => (
-      <Position
-        key={positionName}
-        normPositionName={normPositionName}
-        positionName={positionName}
-        positionDescription={positionDescription}
-        division={division}
-        divisionColor={divisionColor}
-        voteMargin={voteMargin}
-        candidatesArray={candidateArray}
-      />
-    )
-  );
+  const sortedPositions = data
+    .sort((d) => d.tagged === false)
+    .map(
+      ({
+        normalizedPosition,
+        positionName,
+        description,
+        level,
+        divisionColor,
+        voteMargin,
+        candidatesArray,
+        tagged,
+      }) => (
+        <Position
+          key={positionName}
+          normalizedPosition={normalizedPosition}
+          positionName={positionName}
+          description={description}
+          level={level}
+          divisionColor={divisionColor}
+          voteMargin={voteMargin}
+          candidatesArray={candidatesArray}
+          tagged={tagged}
+        />
+      )
+    );
   /////////
 
   return (
     <ResponsiveContext.Consumer>
       {(size) => (
-        <Accordion
-          multiple={true}
-          width={size !== "small" ? "large" : null}
-          responsive={true}
-          margin="xsmall"
-          animate={true}
-          focusIndicator={false}
-          margin={{ top: "xlarge" }}
-        >
-          {sortedPositions}
-        </Accordion>
+        <Box align="center">
+          <Box width={size === "small" ? "375px" : "450px"}>
+            <Text
+              size="medium"
+              margin={
+                size === "small"
+                  ? "xsmall"
+                  : { vertical: "large", horizontal: "xsmall" }
+              }
+            >
+              <i>
+                <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
+                the results of last year's San Francisco local elections.
+              </i>
+            </Text>
+          </Box>
+          <Accordion
+            multiple={true}
+            width={size !== "small" && "800px"}
+            responsive={true}
+            margin="xsmall"
+            animate={true}
+            focusIndicator={false}
+            margin={{ vertical: "1em" }}
+          >
+            {sortedPositions}
+          </Accordion>
+        </Box>
       )}
     </ResponsiveContext.Consumer>
   );

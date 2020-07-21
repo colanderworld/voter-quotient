@@ -9,7 +9,7 @@ import secondTheme from "../Utils/secondTheme.json";
 import Home from "../Components/Home";
 import Footer from "../Components/Footer";
 import { Response } from "../Components/Response";
-import DummyData from "../Components/DummyData";
+import { firstTest, secondTest, thirdTest } from "../Components/DummyData";
 
 const App = () => {
   return (
@@ -27,7 +27,7 @@ const App = () => {
             >
               <Router>
                 <Home path="/" />
-                <Response data={DummyData} path="lookup" />
+                <Response data={thirdTest} path="lookup" />
                 <About path="about" />
                 <Methods path="methods" />
                 <Contact path="contact" />

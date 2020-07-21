@@ -2,7 +2,15 @@ import React from "react";
 // import voteLogo from '../Icons/v4a_head-1.jpg'
 import voteLogoColor from "../Icons/v4a_head-1_Color.png";
 import colanderLogo from "../Icons/tinhat_america.png";
-import { Footer, Box, Avatar, ResponsiveContext, Button } from "grommet";
+import {
+  Footer,
+  Box,
+  Avatar,
+  ResponsiveContext,
+  Button,
+  Text,
+  Anchor,
+} from "grommet";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 
@@ -43,24 +51,20 @@ export default () => {
               href="PUT-SURVEY-LINK-HERE"
             />
           </Box>
-          <Box direction="column" align="center" gap="small">
+          {/* <Box direction="column" align="center" gap="small">
             <Box
               direction={size === "small" ? "column" : "row"}
               align="center"
               gap="small"
             >
-              <Avatar
-                src={voteLogoColor}
-                size={size === "small" ? "40px" : "55px"}
-                alt="Vote For Astra"
-              />
-              <Avatar
-                src={colanderLogo}
-                size={size === "small" ? "40px" : "55px"}
-                alt="Colander World"
-              />
+              <Text style={{ display: size === "small" && "none" }}>
+                A Colander World Project
+              </Text>
+              <Anchor href="https://github.com/colanderworld">
+                <Avatar src={colanderLogo} size="55px" alt="Colander World" />
+              </Anchor>
             </Box>
-          </Box>
+          </Box> */}
         </Footer>
       )}
     </ResponsiveContext.Consumer>
