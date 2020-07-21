@@ -22,6 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-public/apiKeys.js
+# Api Keys
+src/Utils/apiKeys.js
+
 # Local Netlify folder
 .netlify

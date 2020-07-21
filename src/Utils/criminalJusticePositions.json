@@ -1,0 +1,437 @@
+[
+	{
+		"name": "City Attorney",
+		"id": 1635,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Constable",
+		"id": 1620,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Constable/Trustee (Joint)",
+		"id": 1625,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Executive//Mayor",
+		"id": 1500,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Legislative",
+		"id": 1520,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Legislative Chair//President of Council",
+		"id": 1510,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Mayoral Advisor",
+		"id": 1695,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Police Chief//Marshal",
+		"id": 1610,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Police Chief//Marshal/Fire Commission (Joint)",
+		"id": 1611,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Police Commission",
+		"id": 1615,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Prosecutor",
+		"id": 1637,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Public Advocate",
+		"id": 1685,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Public Safety Board",
+		"id": 1960,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Supervisor",
+		"id": 1530,
+		"criminal_justice": true
+	},
+	{
+		"name": "City Warden",
+		"id": 1940,
+		"criminal_justice": true
+	},
+	{
+		"name": "County (High) Bailiff",
+		"id": 1230,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Attorney",
+		"id": 975,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Chancery Court Clerk",
+		"id": 955,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Chancery/Circuit Court Clerk (Joint)",
+		"id": 958,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Civil Court Clerk",
+		"id": 966,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Clerk/District Court Clerk (Joint)",
+		"id": 944,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Constable",
+		"id": 1030,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Court Clerk/Comptroller (Joint)",
+		"id": 956,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Criminal Court Clerk",
+		"id": 961,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Deputy Sheriff",
+		"id": 982,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Jailer",
+		"id": 1140,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Juvenile Court Clerk",
+		"id": 962,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Legislative/Executive Board // Township Supervisor (Joint)",
+		"id": 912,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Marshal",
+		"id": 985,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Prothonotary//Court of Common Pleas Clerk",
+		"id": 1145,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Prothonotary//Court of Common Pleas Clerk / Clerk of Courts (Joint)",
+		"id": 1146,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Public Defender",
+		"id": 1160,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Public Saftey Board",
+		"id": 1324,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Sheriff",
+		"id": 980,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Sheriff/Tax Assessor/Tax Collector (Joint)",
+		"id": 981,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Solicitor General",
+		"id": 972,
+		"criminal_justice": true
+	},
+	{
+		"name": "County Superior Court Clerk",
+		"id": 959,
+		"criminal_justice": true
+	},
+	{
+		"name": "District Attorney",
+		"id": 750,
+		"criminal_justice": true
+	},
+	{
+		"name": "District Public Defender",
+		"id": 755,
+		"criminal_justice": true
+	},
+	{
+		"name": "Fire/Police (Joint)",
+		"id": 2325,
+		"criminal_justice": true
+	},
+	{
+		"name": "Governor",
+		"id": 100,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judical Trial Court - Chancery",
+		"id": 4036,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judical Trial Court - Domestic//Family",
+		"id": 4035,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judical Trial Court - Juvenile",
+		"id": 4034,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judical Trial Court - Probate",
+		"id": 4033,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Appellate Court",
+		"id": 4010,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Appellate Court - Chief Justice",
+		"id": 4005,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Appellate Court - Retention",
+		"id": 4052,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Circuit Court (1)",
+		"id": 4030,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Commonwealth Court",
+		"id": 4022,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Commonwealth Court - Retention",
+		"id": 4053,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court",
+		"id": 4470,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Chief Magistrate",
+		"id": 4471,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Criminal",
+		"id": 4479,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Family",
+		"id": 4480,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Juvenile",
+		"id": 4481,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Magistrate",
+		"id": 4472,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial County Court - Probate/Magistrate (Joint)",
+		"id": 4476,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Criminal Appellate Court",
+		"id": 4020,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Local Court",
+		"id": 4500,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Local Court - Housing",
+		"id": 4535,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Local Court - Small Claims",
+		"id": 4520,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Local Court Associate Judge",
+		"id": 4501,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Supreme Court",
+		"id": 4000,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Supreme Court - Chief Justice",
+		"id": 3990,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Supreme Court - Retention",
+		"id": 4051,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Criminal",
+		"id": 4029,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Drug",
+		"id": 4031,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - General",
+		"id": 4027,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - General/Domestic (Joint)",
+		"id": 4040,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Juvenile/Domestic (Joint)",
+		"id": 4038,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Juvenile/Probate (Joint)",
+		"id": 4037,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Juvenile/Probate/Domestic (Joint)",
+		"id": 4039,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court - Retention",
+		"id": 4054,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court (Inferior)",
+		"id": 4050,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court Associate",
+		"id": 4032,
+		"criminal_justice": true
+	},
+	{
+		"name": "Judicial Trial Court Subcircuit",
+		"id": 4060,
+		"criminal_justice": true
+	},
+	{
+		"name": "Justice of the Peace (Judicial)",
+		"id": 4490,
+		"criminal_justice": true
+	},
+	{
+		"name": "Justice of the Peace (Nonjudicial)",
+		"id": 1360,
+		"criminal_justice": true
+	},
+	{
+		"name": "Police District",
+		"id": 2324,
+		"criminal_justice": true
+	},
+	{
+		"name": "Police/Sewer/Fire District (Joint)",
+		"id": 2508,
+		"criminal_justice": true
+	},
+	{
+		"name": "State Attorney General",
+		"id": 140,
+		"criminal_justice": true
+	},
+	{
+		"name": "State Public Defender",
+		"id": 145,
+		"criminal_justice": true
+	},
+	{
+		"name": "Township Constable",
+		"id": 2090,
+		"criminal_justice": true
+	},
+	{
+		"name": "Township Director of Law",
+		"id": 2110,
+		"criminal_justice": true
+	},
+	{
+		"name": "Township Mayor",
+		"id": 2000,
+		"criminal_justice": true
+	},
+	{
+		"name": "Township Police Commission",
+		"id": 2183,
+		"criminal_justice": true
+	}
+]

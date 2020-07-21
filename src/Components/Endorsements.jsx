@@ -1,154 +1,33 @@
-import React from 'react'
-import { Box, Avatar } from 'grommet'
+import React from "react";
+import { Box } from "grommet";
+import Endorsement from "./Endorsement";
 
-const EndorsementsDiv = ({ length }) => {
-	console.log(length)
-	const EmptyArray = new Array(length)
-	console.log(EmptyArray)
-	EmptyArray.map(
-		(d) =>
-			(d = (
-				<Avatar
-					size='small'
-					background='orange'
-					border={true}
-					margin={{ horizontal: '2px', vertical: '1px' }}
-				/>
-			))
-	)
-	console.log(EmptyArray)
+export const KeyEndorsements = ({ endorsementsArray }) => {
+  const FilteredEndorsements = endorsementsArray.map(
+    ({ Group, Color, Logo, KeyEndorsement }) =>
+      KeyEndorsement && (
+        <Endorsement Group={Group} Color={Color} size="medium" />
+      )
+  );
 
-	return (
-		<Box direction='row' wrap={true} margin={{ left: '-2px' }}>
-			{EmptyArray}
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-			<Avatar
-				size='small'
-				background='orange'
-				border={true}
-				margin={{ horizontal: '2px', vertical: '1px' }}
-			/>
-		</Box>
-	)
-}
+  return (
+    <Box direction="row" wrap={true} margin={{ left: "-2px" }}>
+      {FilteredEndorsements}
+    </Box>
+  );
+};
 
-export default EndorsementsDiv
+export const OtherEndorsements = ({ endorsementsArray }) => {
+  const FilteredEndorsements = endorsementsArray.map(
+    ({ Group, Color, KeyEndorsement }) =>
+      !KeyEndorsement && (
+        <Endorsement Group={Group} Color={Color} size={"20px"} />
+      )
+  );
+
+  return (
+    <Box direction="row" wrap={true} margin={{ left: "-2px" }}>
+      {FilteredEndorsements}
+    </Box>
+  );
+};

@@ -1,23 +1,22 @@
-import React, { useContext } from 'react'
-import { Header } from 'grommet'
-// import {  } from 'grommet-icons'
+import React, { useContext } from "react";
+import { Context } from "../Contexts/LatLng";
+import { Header } from "grommet";
+// import AddressInput from '../Components/AddressInput.jsx'
 
-import { Context } from '../Contexts/LatLng'
+export default () => {
+  const { latlng } = useContext(Context);
 
-const HeaderDiv = () => {
-	const { latlng } = useContext(Context)
-
-	return (
-		<Header
-			pad='small'
-			justify='left'
-			border='bottom'
-			background={{ dark: 'black', light: 'white' }}>
-			<b>Your Address:</b>
-			<div>
-				lat: {latlng.lat} lng: {latlng.lng}
-			</div>
-		</Header>
-	)
-}
-export default HeaderDiv
+  return (
+    <Header
+      pad="small"
+      justify="start"
+      border="bottom"
+      background={{ dark: "black", light: "white" }}
+    >
+      <b>Your Address:</b>
+      <div>
+        lat: {latlng.lat} lng: {latlng.lng}
+      </div>
+    </Header>
+  );
+};

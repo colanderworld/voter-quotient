@@ -1,0 +1,39 @@
+{
+	"global": {
+		"colors": {
+			"brand": "#FFE91D",
+			"text": "Black",
+			"icon": "Black"
+		},
+		"font": {
+			"family": "Helvetica",
+			"size": "14px",
+			"height": "16px",
+			"color": "white"
+		}
+	},
+	"accordion": {
+		"icons": {
+			"collapse": null,
+			"expand": null
+		},
+		"heading": {
+			"margin": "small"
+		},
+		"border": {
+			"side": "top"
+		}
+	},
+	"Heading": {
+		"font": {
+			"family": "IBM Plex Mono",
+			"size": "14px",
+			"height": "20px"
+		}
+	},
+	"Paragraph": {
+		"font": {
+			"family": "Helvetica"
+		}
+	}
+}
