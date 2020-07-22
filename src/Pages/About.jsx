@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   ResponsiveContext,
@@ -16,31 +16,30 @@ import {
 // import Madhi from "../Icons/madhi.jpg";
 
 export default () => {
+  const size = useContext(ResponsiveContext);
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Box
-          width={size !== "small" && "800px"}
-          margin={size === "small" && "small"}
-        >
-          <Heading
-            style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
-            margin={{ top: "xlarge" }}
-          >
-            About
-          </Heading>
-          <Text size="medium">
-            We don't have an about page yet... <br />
-            But thanks for checking!
-          </Text>
-          {/* <Heading
+    <Box
+      width={size !== "small" && "800px"}
+      margin={size === "small" && "small"}
+    >
+      <Heading
+        style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
+        margin={{ top: "xlarge" }}
+      >
+        About
+      </Heading>
+      <Text size="medium">
+        We don't have an about page yet... <br />
+        But thanks for checking!
+      </Text>
+      {/* <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
             margin={{ top: "xlarge" }}
           >
             People
           </Heading> */}
 
-          {/* <Box direction="row" gap="medium">
+      {/* <Box direction="row" gap="medium">
             <Avatar
               src={Eli}
               size="xlarge"
@@ -60,7 +59,7 @@ export default () => {
               </Text>
             </Box>
           </Box> */}
-          {/* <Box
+      {/* <Box
             width={{ max: "600px" }}
             margin={size === "small" ? "small" : null}
           >
@@ -257,8 +256,6 @@ export default () => {
               </AccordionPanel>
             </Accordion>
           </Box> */}
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+    </Box>
   );
 };

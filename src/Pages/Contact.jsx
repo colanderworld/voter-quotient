@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Box,
   ResponsiveContext,
@@ -9,31 +9,30 @@ import {
   Button,
   Form,
   Anchor,
-  Text,
+  Text
 } from "grommet";
 
 export default () => {
+  const size = useContext(ResponsiveContext);
   const [value, setValue] = useState({});
 
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Box
-          width={size !== "small" && "800px"}
-          margin={size === "small" ? "small" : { bottom: "6em" }}
-        >
-          <Heading
-            style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
-            margin={{ top: "xlarge" }}
-          >
-            Contact
-          </Heading>
-          <Text size="large">
-            <Anchor color="black" href="mailto:eliunited@gmail.com">
-              @me
-            </Anchor>
-          </Text>
-          {/* <Form
+    <Box
+      width={size !== "small" && "800px"}
+      margin={size === "small" ? "small" : { bottom: "6em" }}
+    >
+      <Heading
+        style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
+        margin={{ top: "xlarge" }}
+      >
+        Contact
+      </Heading>
+      <Text size="large">
+        <Anchor color="black" href="mailto:eliunited@gmail.com">
+          @me
+        </Anchor>
+      </Text>
+      {/* <Form
             value={value}
             onChange={(nextValue) => setValue(nextValue)}
             onReset={() => setValue({})}
@@ -59,8 +58,6 @@ export default () => {
               <Button type="reset" label="Reset" />
             </Box>
           </Form> */}
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+    </Box>
   );
 };

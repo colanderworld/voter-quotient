@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { usePosition } from "use-position";
 import { Button } from "grommet";
 import { Location } from "grommet-icons";
-import { Context } from "../Contexts/LatLng";
-import { Response } from "../Components/Response";
+import { Context } from "../Utils/LatLng";
+import Lookup from "./Lookup";
 import { navigate } from "@reach/router";
 
 export default () => {
@@ -24,7 +24,7 @@ export default () => {
         setLatlng({ lat: latitude, lng: longitude });
         console.log(`Context! ${latitude}, ${longitude}`);
         navigate(`/lookup`);
-        return <Response lat={latitude} lng={longitude} />;
+        return <Lookup lat={latitude} lng={longitude} />;
       }}
       hoverIndicator={{ background: "blue" }}
       //   focusIndicator="Hello!"

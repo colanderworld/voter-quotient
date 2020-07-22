@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Accordion, ResponsiveContext, Box, Text } from "grommet";
 import Position from "./Position";
 // import fetch from "unfetch";
@@ -15,7 +15,9 @@ import Position from "./Position";
 //     headers: { "x-api-key": ballotReadyKeyAstra },
 //   }).then((res) => res.json());
 
-export const Response = ({ data }) => {
+export default ({ data }) => {
+  const { size } = useContext(ResponsiveContext);
+
   // console.log(`🤯 Recieved ${lat} and ${lng}`);
   // useEffect(() => {
   //   API.subscribe()
@@ -104,95 +106,41 @@ export const Response = ({ data }) => {
 
   //////////
   const highlighted = data
-    .filter((d) => d.tagged)
-    .map(
-      ({
-        normalizedPosition,
-        positionName,
-        description,
-        level,
-        divisionColor,
-        voteMargin,
-        voteRaw,
-        candidatesArray,
-        tagged,
-      }) => (
-        <Position
-          key={positionName}
-          normalizedPosition={normalizedPosition}
-          positionName={positionName}
-          description={description}
-          level={level}
-          divisionColor={divisionColor}
-          voteRaw={voteRaw}
-          voteMargin={voteMargin}
-          candidatesArray={candidatesArray}
-          tagged={tagged}
-        />
-      )
-    );
+    .filter(({ tagged }) => tagged)
+    .map(({ position_id }) => <Position key={position_id} data={data} />);
 
   const other = data
-    .filter((d) => !d.tagged)
-    .map(
-      ({
-        normalizedPosition,
-        positionName,
-        description,
-        level,
-        divisionColor,
-        voteMargin,
-        voteRaw,
-        candidatesArray,
-        tagged,
-      }) => (
-        <Position
-          key={positionName}
-          normalizedPosition={normalizedPosition}
-          positionName={positionName}
-          description={description}
-          level={level}
-          divisionColor={divisionColor}
-          voteMargin={voteMargin}
-          voteRaw={voteRaw}
-          candidatesArray={candidatesArray}
-          tagged={tagged}
-        />
-      )
-    );
+    .filter(({ tagged }) => !tagged)
+    .map(({ position_id }) => <Position key={position_id} data={data} />);
   /////////
 
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Box align="center">
-          <Box width={size === "small" ? "375px" : "450px"}>
-            <Text
-              size="medium"
-              margin={
-                size === "small"
-                  ? { vertical: "small", horizontal: "xsmall" }
-                  : { vertical: "large", horizontal: "xsmall" }
-              }
-            >
-              <i>
-                <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
-                the results of last year's San Francisco local elections.
-              </i>
-            </Text>
-          </Box>
-          <Accordion
-            multiple={true}
-            animate={true}
-            width={{ max: "800px" }}
-            fill="true"
-            margin={{ top: "1em", bottom: "8em" }}
-          >
-            {highlighted}
-            {other}
-          </Accordion>
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+    <Box align="center">
+      <Box width={size === "small" ? "375px" : "450px"}>
+        <Text
+          size="medium"
+          margin={
+            size === "small"
+              ? { vertical: "small", horizontal: "xsmall" }
+              : { vertical: "large", horizontal: "xsmall" }
+          }
+        >
+          <i>
+            <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show the
+            results of last year's San Francisco local elections.
+          </i>
+        </Text>
+      </Box>
+      <Accordion
+        multiple={true}
+        animate={true}
+        width={{ max: "800px" }}
+        fill="true"
+        margin={{ top: "1em", bottom: "8em" }}
+      >
+        {highlighted}
+        {other}
+      </Accordion>
+    </Box>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // import colanderLogo from "../Icons/tinhat_america.png";
 import {
   Footer,
@@ -13,46 +13,46 @@ import { Link } from "@reach/router";
 import styled from "styled-components";
 
 export default () => {
+  const size = useContext(ResponsiveContext);
+
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Footer
-          pad="small"
-          justify="between"
-          border="top"
-          background={{ dark: "black", light: "white" }}
-        >
-          <Box>
-            <NavLink weight={600} to="/">
-              Home
-            </NavLink>
-            <NavLink weight={400} to="about">
-              About
-            </NavLink>
-            <NavLink weight={400} to="methods">
-              Methods
-            </NavLink>
-            <NavLink weight={400} to="contact">
-              Contact
-            </NavLink>
-            {/* <NavLink weight={400} to="questions">
+    <Footer
+      pad="small"
+      justify="between"
+      border="top"
+      background={{ dark: "black", light: "white" }}
+    >
+      <Box>
+        <NavLink weight={600} to="/">
+          Home
+        </NavLink>
+        <NavLink weight={400} to="about">
+          About
+        </NavLink>
+        <NavLink weight={400} to="methods">
+          Methods
+        </NavLink>
+        <NavLink weight={400} to="contact">
+          Contact
+        </NavLink>
+        {/* <NavLink weight={400} to="questions">
               F.A.Q.
             </NavLink> */}
-          </Box>
-          <Box direction={size === "small" ? "column" : "row"} gap="small">
-            <Button
-              primary
-              size={size === "small" ? "medium" : "large"}
-              label="Donate"
-              href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
-            />
-            <Button
-              size={size === "small" ? "medium" : "large"}
-              label="Survey"
-              href="PUT-SURVEY-LINK-HERE"
-            />
-          </Box>
-          {/* <Box direction="column" align="center" gap="small">
+      </Box>
+      <Box direction={size === "small" ? "column" : "row"} gap="small">
+        <Button
+          primary
+          size={size === "small" ? "medium" : "large"}
+          label="Donate"
+          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
+        />
+        <Button
+          size={size === "small" ? "medium" : "large"}
+          label="Survey"
+          href="PUT-SURVEY-LINK-HERE"
+        />
+      </Box>
+      {/* <Box direction="column" align="center" gap="small">
             <Box
               direction={size === "small" ? "column" : "row"}
               align="center"
@@ -66,9 +66,7 @@ export default () => {
               </Anchor>
             </Box>
           </Box> */}
-        </Footer>
-      )}
-    </ResponsiveContext.Consumer>
+    </Footer>
   );
 };
 
