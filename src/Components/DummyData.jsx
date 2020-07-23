@@ -11,350 +11,141 @@ REFERENCE (each of these elements can be repeated infinitely)
 
 // You can import more photos here using the same syntax.
 // But if you leave the photo blank, it will default to a generic avatar icon
-// import EliPlay from '../Icons/eli-fun.jpg'
-// import EliWork from '../Icons/eli-serious.jpg'
-import Barry from "../Icons/barry.jpg";
-
-export const secondTest = [
-  {
-    positionName: "San Francisco District Attorney",
-    tagged: false,
-    position_id: 228408,
-    level: "STATE",
-    normalizedPosition: "District Attorney",
-    description:
-      "The District Attorney is the chief legal representative of the county.",
-    voteMargin: "9,123,456", // UPDATE THIS TO BE CORRECT!
-    candidatesArray: [
-      {
-        candidateName: "Placeholder",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "Placeholder",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    positionName: "San Francisco County Sheriff",
-    tagged: true,
-    position_id: 228406,
-    level: "COUNTY",
-    normalizedPosition: "County Sheriff",
-    description:
-      "The County Sheriff is the chief law enforcement official of the county.",
-    voteMargin: "9,123,456", // UPDATE THIS TO BE CORRECT!
-    candidatesArray: [
-      {
-        candidateName: "Placeholder",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "Placeholder",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    positionName: "San Francisco County Treasurer",
-    tagged: false,
-    position_id: 228409,
-    level: "COUNTY",
-    normalizedPosition: "County Treasurer",
-    description:
-      "The County Treasurer is the Chief Fiscal Officer of the county responsible for overseeing all public funds owned by the County, the County School District, and other taxing entities within the County.",
-    voteMargin: "9,123,456", // UPDATE THIS TO BE CORRECT!
-    candidatesArray: [
-      {
-        candidateName: "Placeholder",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "Placeholder",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    positionName: "San Francisco City Mayor",
-    tagged: true,
-    position_id: 228405,
-    level: "CITY",
-    normalizedPosition: "Mayor",
-    description:
-      "The Mayor is the chief executive officer of the municipality.  They often preside over council meetings, and may have powers to hire and fire heads of municipal departments.",
-    voteMargin: "9,123,456", // UPDATE THIS TO BE CORRECT!
-    candidatesArray: [
-      {
-        candidateName: "Placeholder",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "Placeholder",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    positionName: "San Francisco City Attorney",
-    tagged: true,
-    position_id: 228407,
-    level: "CITY",
-    normalizedPosition: "City Attorney",
-    description:
-      "The duties of the City Attorney include appearing in judicial, administrative and other legal actions, issuing legal opinions to city officers, drafting ordinances, bonds, and other legal documents, prosecuting ordinance violations in municipal court, and providing a full range of legal services to various City departments, boards, and entities.",
-    voteMargin: "9,123,456", // UPDATE THIS TO BE CORRECT!
-    candidatesArray: [
-      {
-        candidateName: "Placeholder",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "Placeholder",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-];
-
-export const firstTest = [
-  {
-    // First Position
-    normPositionName: "U.S. Representative",
-    positionDescription:
-      "The Governor of Colorado is the chief executive of the U.S. state of Colorado. The governor is the head of the executive branch of Colorado state government and is charged with enforcing state laws. The governor has the power to either approve or veto bills passed by the Colorado General Assembly, to convene the legislature, and to grant pardons, except in cases of treason or impeachment. The governor is also the commander-in-chief of the state military forces.",
-    division: "Federal",
-    divisionDescription: "This is a Federal position, meaning it ",
-    positionName: "Massachusetts's 7th",
-    divisionColor: "green", // colors should always be lowercase
-    voteMargin: "9,123,456", // vote margin should be in quotes because of the comma, i.e. '123,456'
-    candidateArray: [
-      // First Candidate
-      {
-        candidateName: "Charles Fauci",
-        candidateParty: "Democrat",
-        candidatePhoto: Barry, // If you don't want to use your own photo, just write null
-        candidateOccupation: "Incumbent",
-        candidateTenure: 23,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-
-      // Second Candidate
-      {
-        candidateName: "Candidate #2",
-        candidateParty: "Republican",
-        candidatePhoto: null,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: false,
-          },
-          {
-            Group: "Color of Change",
-            Color: "green",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // Second Position - You can copy and paste each element infinitely
-    positionName: "Position #2",
-    positionDescription: "",
-    division: "County",
-    divisionDescription: "",
-    divisionColor: "blue",
-    voteMargin: "654,321",
-    candidateArray: [
-      {
-        candidateName: "",
-        candidateParty: "",
-        candidatePhoto: null,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: false,
-          },
-          {
-            Group: "Color of Change",
-            Color: "green",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // Second Position - You can copy and paste each element infinitely
-    positionName: "Position #2",
-    positionDescription: "",
-    division: "County",
-    divisionDescription: "",
-    divisionColor: "blue",
-    voteMargin: "654,321",
-    candidateArray: [
-      {
-        candidateName: "",
-        candidateParty: "",
-        candidatePhoto: null,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: false,
-          },
-          {
-            Group: "Color of Change",
-            Color: "green",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // Second Position - You can copy and paste each element infinitely
-    positionName: "Position #2",
-    positionDescription: "",
-    division: "County",
-    divisionDescription: "",
-    divisionColor: "blue",
-    voteMargin: "654,321",
-    candidateArray: [
-      {
-        candidateName: "",
-        candidateParty: "",
-        candidatePhoto: null,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: false,
-          },
-          {
-            Group: "Color of Change",
-            Color: "green",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // Second Position - You can copy and paste each element infinitely
-    positionName: "Position #2",
-    positionDescription: "",
-    division: "County",
-    divisionDescription: "",
-    divisionColor: "blue",
-    voteMargin: "654,321",
-    candidateArray: [
-      {
-        candidateName: "",
-        candidateParty: "",
-        candidatePhoto: null,
-        endorsements: [
-          {
-            Group: "National Rifle Association",
-            Color: "red",
-            Logo: null,
-            KeyEndorsement: false,
-          },
-          {
-            Group: "Color of Change",
-            Color: "green",
-            Logo: null,
-            KeyEndorsement: true,
-          },
-        ],
-      },
-    ],
-  },
-];
 
 export const thirdTest = [
   {
+    positionName: "Governor of California",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "Governor",
+    voteRaw: "2,978,585",
+    voteMargin: 24, // Need runner up data
+    description:
+      "The Governor of California is the head of government of the U.S. state of California. The California Governor is the chief executive of the state government and the commander-in-chief of the California National Guard and the California State Guard.",
+    candidatesArray: [
+      {
+        first_name: "Gavin",
+        last_name: "Newsom",
+        party_name: "Democrat",
+        election_result: "Won",
+        thumb_url:
+          "https://upload.wikimedia.org/wikipedia/commons/2/20/Gavin_Newsom_official_photo.jpg",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "Attorney General of California",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "Attorney General",
+    voteRaw: "3,325,156",
+    voteMargin: 27, // Need runner up data
+    description:
+      "The Attorney General is the chief legal representative for the state. Often times, the AG will get involved in investigations into police misconduct, deciding whether to prosecute or not.",
+    candidatesArray: [
+      {
+        first_name: "Xavier",
+        last_name: "Becerra",
+        party_name: "Democrat",
+        election_result: "Won",
+        thumb_url:
+          "https://pbs.twimg.com/profile_images/725272568366809088/ChUDHq1N_400x400.jpg",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "State Senate 11th District",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "State Senator",
+    voteRaw: "8,146",
+    voteMargin: 2, // Need runner up data
+    description:
+      "A State Senator is a member of the upper chamber of the California State Legislature. Alongside the California State Assembly, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget. ",
+    candidatesArray: [
+      {
+        first_name: "Hi",
+        last_name: "Hi",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "State Assembly 19th District",
+    tagged: false,
+    position_id: 228408,
+    level: "STATE",
+    normalizedPosition: "State Assemblyperson",
+    voteRaw: "124,656",
+    voteMargin: 67, // Need runner up data
+    description:
+      "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
+    candidatesArray: [
+      {
+        first_name: "Phil",
+        last_name: "Ting",
+        election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
+        suffix: null,
+        incumbent: false,
+        position_id: 228408,
+        election_id: 389,
+        election_day: "2019-11-05",
+        endorsements: [8, 25, 2237],
+        candidate_type: null,
+        updated_at: "2019-09-04T14:12:15.506775",
+        id: 329221,
+        party_name: "Democrat",
+        middle_name: null,
+        thumb_url:
+          "https://upload.wikimedia.org/wikipedia/commons/c/c2/Phil_Ting_CA_assembly_photo.jpeg"
+      },
+      {
+        first_name: "John",
+        last_name: "McDonnell",
+        election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
+        suffix: null,
+        incumbent: false,
+        position_id: 228408,
+        election_id: 389,
+        election_day: "2019-11-05",
+        endorsements: [8, 25, 2237],
+        candidate_type: null,
+        updated_at: "2019-09-04T14:12:15.506775",
+        id: 329221,
+        party_name: "Republican",
+        middle_name: null,
+        thumb_url:
+          "https://sfpublicpress.org/wp-content/uploads/2020/02/johnmcdonnell-1568x1044.jpg"
+      }
+    ]
+  },
+  {
     positionName: "San Francisco District Attorney",
     tagged: true,
     position_id: 228408,
-    level: "STATE",
+    level: "County",
     normalizedPosition: "District Attorney",
-    voteRaw: "2,840",
-    voteMargin: 1.6,
+    voteRaw: "666",
+    voteMargin: 0, // Need runner up data
     description:
-      "The District Attorney is the chief legal representative of the county.",
+      "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
     candidatesArray: [
       {
         urls: [
@@ -362,30 +153,33 @@ export const thirdTest = [
             url: "https://votesuzyloftus.com/",
             entry_type: "website",
             url_id: 169293,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://twitter.com/suzyloftus",
             entry_type: "twitter",
             url_id: 169350,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://www.facebook.com/suzyforDA/",
             entry_type: "facebook",
             url_id: 169351,
-            type: "facebook",
+            type: "facebook"
           },
           {
             url: "https://votesuzyloftus.com/volunteer/",
             entry_type: "volunteer",
             url_id: 169499,
-            type: "volunteer",
-          },
+            type: "volunteer"
+          }
         ],
         first_name: "Suzy",
         last_name: "Loftus",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -402,7 +196,7 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/329221.jpg",
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/329221.jpg"
       },
       {
         urls: [
@@ -410,24 +204,27 @@ export const thirdTest = [
             url: "https://www.chesaboudin.com/about",
             entry_type: "website",
             url_id: 178069,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://twitter.com/chesaboudin",
             entry_type: "twitter",
             url_id: 178070,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://www.facebook.com/chesa.boudin",
             entry_type: "facebook",
             url_id: 178072,
-            type: "facebook",
-          },
+            type: "facebook"
+          }
         ],
         first_name: "Chesa",
         last_name: "Boudin",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -444,7 +241,7 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340702/340702.jpg",
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340702/340702.jpg"
       },
       {
         urls: [
@@ -452,24 +249,27 @@ export const thirdTest = [
             url: "https://leif2019.com/",
             entry_type: "website",
             url_id: 178098,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://twitter.com/leif4sfda",
             entry_type: "twitter",
             url_id: 178099,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://www.facebook.com/LeifDautchforSFDA/",
             entry_type: "facebook",
             url_id: 178101,
-            type: "facebook",
-          },
+            type: "facebook"
+          }
         ],
         first_name: "Leif",
         last_name: "Dautch",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -486,7 +286,7 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340724/340724.jpg",
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340724/340724.jpg"
       },
       {
         urls: [
@@ -494,24 +294,27 @@ export const thirdTest = [
             url: "https://www.nancytung2019.com/",
             entry_type: "website",
             url_id: 178309,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://www.facebook.com/NancyforSFDA/",
             entry_type: "facebook",
             url_id: 178310,
-            type: "facebook",
+            type: "facebook"
           },
           {
             url: "https://twitter.com/nancyforsfda",
             entry_type: "twitter",
             url_id: 178311,
-            type: "twitter",
-          },
+            type: "twitter"
+          }
         ],
         first_name: "Nancy",
         last_name: "Tung",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -528,9 +331,9 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340697/340697.jpg",
-      },
-    ],
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340697/340697.jpg"
+      }
+    ]
   },
   {
     positionName: "San Francisco Public Defender",
@@ -546,9 +349,12 @@ export const thirdTest = [
         first_name: "Manohar",
         last_name: "Raju",
         election_result: "Won",
-        party_name: "Nonpartisan",
-      },
-    ],
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
+        party_name: "Nonpartisan"
+      }
+    ]
   },
   {
     positionName: "San Francisco County Sheriff",
@@ -567,18 +373,21 @@ export const thirdTest = [
             url: "https://miyamoto4sheriff.com/",
             entry_type: "website",
             url_id: 178239,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://www.facebook.com/Paul.M.Miyamoto/",
             entry_type: "facebook",
             url_id: 178240,
-            type: "facebook",
-          },
+            type: "facebook"
+          }
         ],
         first_name: "Paul",
         last_name: "Miyamoto",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228406,
@@ -595,9 +404,9 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340787/340787.jpg",
-      },
-    ],
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340787/340787.jpg"
+      }
+    ]
   },
   {
     positionName: "San Francisco County Treasurer",
@@ -616,18 +425,21 @@ export const thirdTest = [
             url: "https://twitter.com/treasurersf",
             entry_type: "twitter",
             url_id: 178090,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://www.facebook.com/sftreasurer/",
             entry_type: "facebook",
             url_id: 178092,
-            type: "facebook",
-          },
+            type: "facebook"
+          }
         ],
         first_name: "José",
         last_name: "Cisneros",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228409,
@@ -644,9 +456,9 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340713/340713.jpg",
-      },
-    ],
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340713/340713.jpg"
+      }
+    ]
   },
   {
     positionName: "San Francisco City Mayor",
@@ -665,30 +477,33 @@ export const thirdTest = [
             url: "https://www.londonformayor.com/",
             entry_type: "website",
             url_id: 100369,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://www.facebook.com/londonformayor",
             entry_type: "facebook",
             url_id: 100370,
-            type: "facebook",
+            type: "facebook"
           },
           {
             url: "https://twitter.com/londonbreed",
             entry_type: "twitter",
             url_id: 100371,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://mayorlondonbreed.org/volunteer-2/",
             entry_type: "volunteer",
             url_id: 203109,
-            type: "volunteer",
-          },
+            type: "volunteer"
+          }
         ],
         first_name: "London",
         last_name: "Breed",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -705,13 +520,16 @@ export const thirdTest = [
         nickname: "",
         slug: "london-breed-b5955a8d-d4a2-47cf-8a7e-02a219bdf195",
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/165452/165452.jpg",
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/165452/165452.jpg"
       },
       {
         urls: [],
         first_name: "Robert",
         last_name: "Jordan",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -726,13 +544,16 @@ export const thirdTest = [
         thumb_url: null,
         nickname: null,
         slug: null,
-        photo_url: null,
+        photo_url: null
       },
       {
         urls: [],
         first_name: "Wilma",
         last_name: "Pang",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -747,7 +568,7 @@ export const thirdTest = [
         thumb_url: null,
         nickname: null,
         slug: null,
-        photo_url: null,
+        photo_url: null
       },
       {
         urls: [
@@ -755,12 +576,15 @@ export const thirdTest = [
             url: "https://twitter.com/Robertson4mayor",
             entry_type: "twitter",
             url_id: 178285,
-            type: "twitter",
-          },
+            type: "twitter"
+          }
         ],
         first_name: "Paul",
         last_name: "Robertson",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -777,13 +601,16 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340676/340676.jpg",
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340676/340676.jpg"
       },
       {
         urls: [],
         first_name: "Joel",
         last_name: "Ventresca",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -798,7 +625,7 @@ export const thirdTest = [
         thumb_url: null,
         nickname: null,
         slug: null,
-        photo_url: null,
+        photo_url: null
       },
       {
         urls: [
@@ -806,24 +633,27 @@ export const thirdTest = [
             url: "https://twitter.com/ellen4sfmayor",
             entry_type: "twitter",
             url_id: 178319,
-            type: "twitter",
+            type: "twitter"
           },
           {
             url: "https://www.facebook.com/EllenLeeZhou/",
             entry_type: "facebook",
             url_id: 178320,
-            type: "facebook",
+            type: "facebook"
           },
           {
             url: "https://www.ellenleezhouformayor2018.com/",
             entry_type: "website",
             url_id: 92877,
-            type: "website",
-          },
+            type: "website"
+          }
         ],
         first_name: "Ellen",
         last_name: "Zhou",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -840,9 +670,9 @@ export const thirdTest = [
         nickname: "",
         slug: "ellen-lee-zhou",
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/165450/165450.jpg",
-      },
-    ],
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/165450/165450.jpg"
+      }
+    ]
   },
   {
     positionName: "San Francisco City Attorney",
@@ -861,18 +691,21 @@ export const thirdTest = [
             url: "http://www.dennisherrera2019.com/",
             entry_type: "website",
             url_id: 178144,
-            type: "website",
+            type: "website"
           },
           {
             url: "https://twitter.com/dennisherrera",
             entry_type: "twitter",
             url_id: 178145,
-            type: "twitter",
-          },
+            type: "twitter"
+          }
         ],
         first_name: "Dennis",
         last_name: "Herrera",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228407,
@@ -889,8 +722,8 @@ export const thirdTest = [
         nickname: null,
         slug: null,
         photo_url:
-          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340749/340749.jpg",
-      },
-    ],
-  },
+          "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/340749/340749.jpg"
+      }
+    ]
+  }
 ];

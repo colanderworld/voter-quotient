@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Avatar, Text, ResponsiveContext, Anchor } from "grommet";
 import { User } from "grommet-icons";
-// import { KeyEndorsements, OtherEndorsements } from "./Endorsements";
+import { KeyEndorsements, OtherEndorsements } from "./Endorsements";
 
-const getPartyColor = (party) => {
+const getPartyColor = party => {
   if (party === "Republican") {
     return "red";
   } else if (party === "Democrat") {
@@ -19,13 +19,12 @@ export default ({
   thumb_url,
   occupation,
   tenure,
-  keyEndorsements,
-  otherEndorsements,
-  status,
+  endorsementsArray,
+  status
 }) => {
   return (
     <ResponsiveContext.Consumer>
-      {(size) => (
+      {size => (
         <Box
           pad={{ top: "small" }}
           margin={{ horizontal: "xsmall", top: "xsmall", bottom: "medium" }}
@@ -36,7 +35,7 @@ export default ({
               size="60px"
               border={{
                 color: getPartyColor(party),
-                size: "small",
+                size: "small"
               }}
               margin={{ bottom: "medium" }}
               alignSelf="center"
@@ -50,6 +49,15 @@ export default ({
               <Text size="small">{status} in 2019</Text>
             </Box>
           </Box>
+
+          <Text>
+            <b>Key Endorsements</b>
+          </Text>
+          <KeyEndorsements endorsementsArray={endorsementsArray} />
+          <Text margin={{ top: "medium" }}>
+            <b>Other Endorsements</b>
+          </Text>
+          <OtherEndorsements endorsementsArray={endorsementsArray} />
           <Box
             fill={true}
             round="xsmall"
@@ -73,15 +81,6 @@ export default ({
               </Anchor>
             </Text>
           </Box>
-
-          {/* <Text>
-            <b>Key Endorsements</b>
-          </Text>
-          <KeyEndorsements endorsementsArray={keyEndorsements} />
-          <Text margin={{ top: "medium" }}>
-            <b>Other Endorsements</b>
-          </Text>
-          <OtherEndorsements endorsementsArray={otherEndorsements} /> */}
         </Box>
       )}
     </ResponsiveContext.Consumer>

@@ -11,7 +11,7 @@ const Home = () => {
   // const { latlng } = useContext(Context);
   return (
     <ResponsiveContext.Consumer>
-      {(size) => (
+      {size => (
         <Box
           direction="column"
           flex="grow"
@@ -38,8 +38,8 @@ const Home = () => {
           >
             <Text size="medium">
               <i>
-                <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
-                the results of last year's San Francisco local elections.
+                <b>Disclaimer:</b> This is a demo app. It simulates some one
+                using the app in San Francisco last year.
               </i>
             </Text>
           </Box>

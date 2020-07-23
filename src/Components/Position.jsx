@@ -13,60 +13,58 @@ export default ({
   voteMargin,
   voteRaw,
   candidatesArray,
-  tagged,
+  tagged
 }) => {
   const [over, setOver] = useState();
   const ref = useRef();
 
   const Winner = candidatesArray
-    .filter((d) => d.election_result === "Won")
+    .filter(d => d.election_result === "Won")
     .map(
       ({
         first_name,
         last_name,
-        candidateParty,
+        party_name,
         thumb_url,
         candidateOccupation,
         candidateTenure,
-        endorsements,
-        election_result,
+        endorsementsArray,
+        election_result
       }) => (
         <Candidate
           key={last_name}
           name={first_name + " " + last_name}
-          party={candidateParty}
+          party={party_name}
           thumb_url={thumb_url}
           occupation={candidateOccupation}
           tenure={candidateTenure}
-          keyEndorsements={endorsements}
-          otherEndorsements={endorsements}
+          endorsementsArray={endorsementsArray}
           status={election_result}
         />
       )
     );
 
   const Losers = candidatesArray
-    .filter((d) => d.election_result !== "Won")
+    .filter(d => d.election_result !== "Won")
     .map(
       ({
         first_name,
         last_name,
-        candidateParty,
+        party_name,
         thumb_url,
         candidateOccupation,
         candidateTenure,
-        endorsements,
-        election_result,
+        endorsementsArray,
+        election_result
       }) => (
         <Candidate
           key={last_name}
           name={first_name + " " + last_name}
-          party={candidateParty}
+          party={party_name}
           thumb_url={thumb_url}
           occupation={candidateOccupation}
           tenure={candidateTenure}
-          keyEndorsements={endorsements}
-          otherEndorsements={endorsements}
+          endorsementsArray={endorsementsArray}
           status={election_result}
         />
       )
@@ -74,7 +72,7 @@ export default ({
 
   return (
     <ResponsiveContext.Consumer>
-      {(size) => (
+      {size => (
         <AccordionPanel
           pad={{ top: "small" }}
           label={
@@ -150,28 +148,9 @@ export default ({
             <Box basis="1/2" direction="column">
               {Winner}
             </Box>
-            {Losers.length !== 0 ? (
-              <Box basis="1/2" direction="column">
-                {Losers}
-              </Box>
-            ) : (
-              <Box
-                basis="1/2"
-                round="xsmall"
-                border="all"
-                justify="center"
-                margin="xsmall"
-                style={{
-                  borderColor: "#FFE91D",
-                }}
-              >
-                <Text textAlign="center" margin={{ vertical: "medium" }}>
-                  This candidate ran <b>unopposed</b> in 2019!
-                  <br />
-                  Elections should be contested!
-                </Text>
-              </Box>
-            )}
+            <Box basis="1/2" direction="column">
+              {Losers}
+            </Box>
           </Box>
         </AccordionPanel>
       )}

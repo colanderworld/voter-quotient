@@ -104,7 +104,7 @@ export const Response = ({ data }) => {
 
   //////////
   const highlighted = data
-    .filter((d) => d.tagged)
+    .filter(d => d.tagged)
     .map(
       ({
         normalizedPosition,
@@ -115,7 +115,7 @@ export const Response = ({ data }) => {
         voteMargin,
         voteRaw,
         candidatesArray,
-        tagged,
+        tagged
       }) => (
         <Position
           key={positionName}
@@ -133,7 +133,7 @@ export const Response = ({ data }) => {
     );
 
   const other = data
-    .filter((d) => !d.tagged)
+    .filter(d => !d.tagged)
     .map(
       ({
         normalizedPosition,
@@ -144,7 +144,7 @@ export const Response = ({ data }) => {
         voteMargin,
         voteRaw,
         candidatesArray,
-        tagged,
+        tagged
       }) => (
         <Position
           key={positionName}
@@ -164,7 +164,7 @@ export const Response = ({ data }) => {
 
   return (
     <ResponsiveContext.Consumer>
-      {(size) => (
+      {size => (
         <Box align="center">
           <Box width={size === "small" ? "375px" : "450px"}>
             <Text
@@ -176,8 +176,8 @@ export const Response = ({ data }) => {
               }
             >
               <i>
-                <b>Disclaimer:</b> This is a demo app. It will <u>only</u> show
-                the results of last year's San Francisco local elections.
+                <b>Disclaimer:</b> This is a demo app. It simulates some one
+                using the app in San Francisco last year.
               </i>
             </Text>
           </Box>

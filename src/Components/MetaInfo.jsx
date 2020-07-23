@@ -12,7 +12,7 @@ export default ({
   divisionDescription,
   voteMargin,
   voteRaw,
-  winner,
+  winner
 }) => {
   const [over, setOver] = useState();
   const ref = useRef();
@@ -61,10 +61,11 @@ export default ({
 
   return (
     <ResponsiveContext.Consumer>
-      {(size) => (
+      {size => (
         <Box direction={size === "small" ? "row-reverse" : "row"}>
           <Box>
             <Box
+              pad="xsmall"
               align={size === "small" ? "start" : "end"}
               margin={size === "small" ? { left: "4px" } : { right: "8px" }}
               ref={ref}
@@ -90,9 +91,12 @@ export default ({
               </Drop>
             )}
           </Box>
-          <MetaData>|</MetaData>
+          <Box pad="xsmall">
+            <MetaData>|</MetaData>
+          </Box>
           <Box>
             <Box
+              pad="xsmall"
               align={size === "small" ? "start" : "end"}
               width="47px"
               margin={
@@ -119,11 +123,14 @@ export default ({
               </Drop>
             )}
           </Box>
-          <MetaData>|</MetaData>
+          <Box pad="xsmall">
+            <MetaData>|</MetaData>
+          </Box>
           <Box>
             <Box
+              pad="xsmall"
               align={size === "small" ? "start" : "end"}
-              width="55px"
+              width="70px"
               margin={size === "small" ? { right: "4px" } : { left: "8px" }}
               ref={refThree}
               onMouseEnter={() => setOverThree(true)}
@@ -152,7 +159,7 @@ export default ({
   );
 };
 
-const defineLevel = (level) => {
+const defineLevel = level => {
   if (level === "FEDERAL") {
     return (
       <Text size="small">
