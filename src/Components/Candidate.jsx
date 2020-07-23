@@ -1,55 +1,69 @@
 import React, { useContext } from "react";
 import { Box, Avatar, Text, ResponsiveContext, Anchor } from "grommet";
 import { User } from "grommet-icons";
-// import { KeyEndorsements, OtherEndorsements } from "./Endorsements";
+import { getPartyColor } from "../Utils/Helpers";
+import Endorsement from "./Endorsement";
 
-const getPartyColor = (party) => {
-  if (party === "Republican") {
-    return "red";
-  } else if (party === "Democrat") {
-    return "blue";
-  } else {
-    return "gray";
-  }
-};
-
-export default ({ candidatesInfo }) => {
+export default ({ data }) => {
   const size = useContext(ResponsiveContext);
   const {
-    name,
-    party,
+    first_name,
+    last_name,
+    party_name,
     thumb_url,
     occupation,
     tenure,
-    keyEndorsements,
-    otherEndorsements,
-    status,
-  } = candidatesInfo;
+    endorsements,
+    election_result
+  } = data;
+
+  /*
+  Split the endorsements into the ones we care about and those we don't
+
+  endorsementsArray -> <Endorsement />  (Key Endorsements)
+                    -> <Endorsement />  (Other Endorsements)
+  */
+  const Key = endorsements
+    .filter(({ key }) => key)
+    .map((filtered, { id }) => <Endorsement key={id} data={filtered} />);
+
+  const Other = endorsements
+    .filter(({ key }) => !key)
+    .map((filtered, { id }) => <Endorsement key={id} data={filtered} />);
 
   return (
-    <Box
-      pad={{ top: "small" }}
-      margin={{ horizontal: "xsmall", top: "xsmall", bottom: "medium" }}
-    >
-      <Box direction="row" gap="small">
+    <Box margin={{ horizontal: "xsmall", top: "medium", bottom: "medium" }}>
+      <Box direction="row" gap="small" margin={{ bottom: "medium" }}>
         <Avatar
           src={thumb_url && thumb_url}
           size="60px"
           border={{
-            color: getPartyColor(party),
-            size: "small",
+            color: getPartyColor(party_name),
+            size: "small"
           }}
-          margin={{ bottom: "medium" }}
           alignSelf="center"
         >
-          {!thumb_url && <User size="34px" color={getPartyColor(party)} />}
+          {!thumb_url && <User size="34px" color={getPartyColor(party_name)} />}
         </Avatar>
-        <Box direction="column" alignSelf="start">
-          <Text size="medium" weight="bold">
-            {name}
+        <Box direction="column" alignSelf="center">
+          <Text size="20px" weight="bold">
+            {first_name} {last_name}
           </Text>
-          <Text size="small">{status} in 2019</Text>
+          <Text size="small">{election_result} in 2019</Text>
         </Box>
+      </Box>
+      <Box
+        margin={{ horizontal: "xsmall", top: "small", bottom: "large" }}
+        gap="small"
+      >
+        <Text size="16px" weight="bold">
+          Key Endorsements
+        </Text>
+        {Key}
+        <Text size="16px" weight="bold">
+          Other Endorsements
+        </Text>
+        {Other}
       </Box>
       <Box
         fill={true}
@@ -59,11 +73,7 @@ export default ({ candidatesInfo }) => {
         justify="center"
         style={{ borderColor: "#dbdbdb" }}
       >
-        <Text
-          size="medium"
-          textAlign="center"
-          margin={size === "small" && { vertical: "medium" }}
-        >
+        <Text size="medium" textAlign="center">
           We are raising money to buy detailed candidate data!
           <br />
           <Anchor
@@ -74,15 +84,6 @@ export default ({ candidatesInfo }) => {
           </Anchor>
         </Text>
       </Box>
-
-      {/* <Text>
-            <b>Key Endorsements</b>
-          </Text>
-          <KeyEndorsements endorsementsArray={keyEndorsements} />
-          <Text margin={{ top: "medium" }}>
-            <b>Other Endorsements</b>
-          </Text>
-          <OtherEndorsements endorsementsArray={otherEndorsements} /> */}
     </Box>
   );
 };

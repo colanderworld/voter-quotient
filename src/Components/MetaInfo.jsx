@@ -7,6 +7,22 @@ import { Box, Drop, Text, ResponsiveContext } from "grommet";
 // Helper functions
 import { DefineLevel, VoteTally, BoldPostion } from "../Utils/Helpers";
 
+const MetaData = styled(Text)`
+  font-family: "IBM Plex Mono";
+  font-size: 1em;
+  letter-spacing: -0.7px;
+
+  @media screen and (max-width: 375px) {
+    font-size: 0.9em;
+  }
+
+  :hover {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: gold;
+  }
+`;
+
 export default ({
   normalizedPosition,
   positionName,
@@ -15,7 +31,7 @@ export default ({
   divisionDescription,
   voteMargin,
   voteRaw,
-  winner,
+  winner
 }) => {
   const size = useContext(ResponsiveContext);
   const [over, setOver] = useState();
@@ -24,22 +40,6 @@ export default ({
   const refTwo = useRef();
   const [overThree, setOverThree] = useState();
   const refThree = useRef();
-
-  const MetaData = styled(Text)`
-    font-family: "IBM Plex Mono";
-    font-size: 1em;
-    letter-spacing: -0.7px;
-
-    @media screen and (max-width: 375px) {
-      font-size: 0.9em;
-    }
-
-    :hover {
-      font-style: italic;
-      text-decoration: underline;
-      text-decoration-color: gold;
-    }
-  `;
 
   return (
     <Box direction={size === "small" ? "row-reverse" : "row"}>

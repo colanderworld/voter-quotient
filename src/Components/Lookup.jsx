@@ -1,122 +1,85 @@
 import React, { useContext } from "react";
-import { Accordion, ResponsiveContext, Box, Text } from "grommet";
+import {
+  Accordion,
+  ResponsiveContext,
+  Box,
+  Text,
+  Grid,
+  Heading
+} from "grommet";
+import { Location, FormCalendar } from "grommet-icons";
 import Position from "./Position";
-// import fetch from "unfetch";
-// import useSWR from "swr";
 
-// import { ballotReadyKeyLudo } from '../Utils/apiKeys'
-// import { ballotReadyKeyAstra } from "../Utils/apiKeys";
-// import criminalJusticePositions from "../Utils/criminalJusticePositions.json";
-// import moment from "moment";
-// import { Heading } from "grommet";
+const columns = {
+  small: ["auto"],
+  medium: ["auto", "auto"],
+  large: ["auto", "auto"],
+  xlarge: ["auto", "auto"]
+};
 
-// const fetcher = (...args) =>
-//   fetch(...args, {
-//     headers: { "x-api-key": ballotReadyKeyAstra },
-//   }).then((res) => res.json());
+// if size if small, we have 3 rows
+// if size if medium, we have 2 rows
+// if size if large or xlarge, we have 1 row
+const rows = {
+  small: ["auto", "auto", "auto"],
+  medium: ["auto", "auto"],
+  large: ["auto", "auto"],
+  xlarge: ["auto", "auto"]
+};
 
-export default ({ data }) => {
+// set the different areas you need for every size
+const areas = {
+  small: [
+    { name: "address", start: [0, 0], end: [0, 0] },
+    { name: "date", start: [0, 1], end: [0, 1] },
+    { name: "positions", start: [0, 2], end: [0, 2] }
+  ],
+  medium: [
+    { name: "address", start: [0, 0], end: [0, 0] },
+    { name: "date", start: [1, 0], end: [1, 0] },
+    { name: "positions", start: [0, 1], end: [1, 1] }
+  ],
+  large: [
+    { name: "address", start: [0, 0], end: [0, 0] },
+    { name: "date", start: [1, 0], end: [1, 0] },
+    { name: "positions", start: [2, 0], end: [2, 0] }
+  ],
+  xlarge: [
+    { name: "address", start: [0, 0], end: [0, 0] },
+    { name: "date", start: [1, 0], end: [1, 0] },
+    { name: "positions", start: [2, 0], end: [2, 0] }
+  ]
+};
+
+export default ({ data, ...props }) => {
   const { size } = useContext(ResponsiveContext);
-
-  // console.log(`🤯 Recieved ${lat} and ${lng}`);
-  // useEffect(() => {
-  //   API.subscribe()
-  //   return function cleanup() {
-  //     API.unsubscribe()
-  //   }
-  // })
-
-  // const { data, error } = useSWR(
-  //   () =>
-  //     `https://api.civicengine.com/positions?` +
-  //     `lat=${lat}&` +
-  //     `lon=${lng}&` +
-  //     `include_candidates=${1}&` +
-  //     `include_endorsements=${1}&` +
-  //     `include_office_holders=${1}&` +
-  //     `include_volunteer_urls=${1}`,
-  //   fetcher,
-  //   { suspense: false }
-  // );
-
-  // if (error)
-  //   return (
-  //     <Heading>
-  //       <span aria-label="embaressed face emoji" role="img">
-  //         😳
-  //       </span>
-  //       &nbsp;failed to load
-  //     </Heading>
-  //   );
-  // if (!data)
-  //   return (
-  //     <Heading>
-  //       <span aria-label="confused face emoji" role="img">
-  //         🤔
-  //       </span>
-  //       &nbsp;loading...
-  //     </Heading>
-  //   );
-
-  // const groupedPositions = data.positions.map((d) =>
-  //   Object({
-  //     tagged: criminalJusticePositions
-  //       .map((l) => l.id)
-  //       .includes(d.normalized_position.id),
-  //     candidateArray: d.candidates.filter((i) =>
-  //       moment(i.election_day).isAfter("2020-01-01", "day")
-  //     ),
-  //     office_holders: d.office_holders,
-  //     position_id: d.position_id,
-  //     voteMargin: "123,456",
-  //     divisionColor: "blue",
-  //     division: d.level,
-  //     positionName: d.normalized_position.name,
-  //     positionDescription: d.description,
-  //   })
-  // );
-
-  // console.log("Data:" + data.positions);
-  // console.log("Error:" + error);
-
-  // const filteredPositons = groupedPositions.filter(({ tagged }) => tagged);
-
-  // console.log("Filtered Positions:" + filteredPositons.candidateArray);
-
-  // const sortedPositions = groupedPositions.map(
-  //   ({
-  //     positionName,
-  //     positionDescription,
-  //     division,
-  //     divisionColor,
-  //     voteMargin,
-  //     candidateArray,
-  //   }) => (
-  //     <Position
-  //       key={positionName && positionName}
-  //       positionName={positionName && positionName}
-  //       positionDescription={positionDescription && positionDescription}
-  //       division={division && division}
-  //       divisionColor={divisionColor && divisionColor}
-  //       voteMargin={voteMargin && voteMargin}
-  //       candidatesArray={candidateArray && candidateArray}
-  //     />
-  //   )
-  // );
-
-  //////////
-  const highlighted = data
-    .filter(({ tagged }) => tagged)
-    .map(({ position_id }) => <Position key={position_id} data={data} />);
-
-  const other = data
-    .filter(({ tagged }) => !tagged)
-    .map(({ position_id }) => <Position key={position_id} data={data} />);
-  /////////
+  /*   
+  Split the positions into the most important and regular ones
+  positionsArray -> <Position />  (Highlighted Positions)
+                 -> <Position />  (Regular Positions)
+  */
+  const Highlighted = data.filter(({ tagged }) => tagged);
+  const Regular = data.filter(({ tagged }) => !tagged);
 
   return (
-    <Box align="center">
-      <Box width={size === "small" ? "375px" : "450px"}>
+    <Grid fill {...props}>
+      <Box gridArea="address" border="all" margin="large" direction="row">
+        <Location />
+        <Text size="large" weight="bold">
+          Your Registration Address
+        </Text>
+      </Box>
+      <Box gridArea="date" border="all" margin="large" direction="row">
+        <FormCalendar />
+        <Text size="large" weight="bold">
+          Your Next Election
+        </Text>
+      </Box>
+      <Box
+        width={size === "small" ? "375px" : "450px"}
+        gridArea="disclaimer"
+        // alignContent="center"
+      >
         <Text
           size="medium"
           margin={
@@ -131,16 +94,23 @@ export default ({ data }) => {
           </i>
         </Text>
       </Box>
-      <Accordion
-        multiple={true}
-        animate={true}
-        width={{ max: "800px" }}
-        fill="true"
-        margin={{ top: "1em", bottom: "8em" }}
-      >
-        {highlighted}
-        {other}
-      </Accordion>
-    </Box>
+      <Box gridArea="positions">
+        <Accordion
+          multiple={true}
+          animate={true}
+          width={{ max: "800px" }}
+          margin={{ top: "1em", bottom: "8em" }}
+        >
+          {Highlighted.length !== 0 &&
+            Highlighted.map(data => (
+              <Position key={data.position_id.toString()} data={data} />
+            ))}
+          {Regular.length !== 0 &&
+            Regular.map(data => (
+              <Position key={data.position_id.toString()} data={data} />
+            ))}
+        </Accordion>
+      </Box>
+    </Grid>
   );
 };

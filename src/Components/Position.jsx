@@ -18,20 +18,28 @@ export default ({ data }) => {
     voteMargin,
     voteRaw,
     tagged,
-    candidatesInfo,
+    candidatesInfo
   } = data;
+
+  console.log(data);
 
   const { size } = useContext(ResponsiveContext);
   const [over, setOver] = useState();
   const ref = useRef();
 
-  const Winner = candidatesInfo
-    .filter(({ election_result }) => election_result === "Won")
-    .map(({ id }) => <Candidate key={id} info={candidatesInfo} />);
+  /*
+  Split the candidates into current office holders and those we don't
 
-  const Losers = candidatesInfo
+  candidatesArray -> <Candidate />  (Incumbent Candidates)
+                  -> <Candidate />  (Challenger Candidates)
+  */
+  const Incumbent = candidatesInfo
+    .filter(({ election_result }) => election_result === "Won")
+    .map((filtered, { id }) => <Candidate key={id} data={filtered} />);
+
+  const Challenger = candidatesInfo
     .filter(({ election_result }) => election_result !== "Won")
-    .map(({ id }) => <Candidate key={id} info={candidatesInfo} />);
+    .map((filtered, { id }) => <Candidate key={id} data={filtered} />);
 
   return (
     <AccordionPanel
@@ -102,11 +110,11 @@ export default ({ data }) => {
         pad={{ vertical: "xsmall" }}
       >
         <Box basis="1/2" direction="column">
-          {Winner}
+          {Incumbent}
         </Box>
-        {Losers.length !== 0 ? (
+        {Challenger.length !== 0 ? (
           <Box basis="1/2" direction="column">
-            {Losers}
+            {Challenger}
           </Box>
         ) : (
           <Box
@@ -116,7 +124,7 @@ export default ({ data }) => {
             justify="center"
             margin="xsmall"
             style={{
-              borderColor: "#FFE91D",
+              borderColor: "#FFE91D"
             }}
           >
             <Text textAlign="center" margin={{ vertical: "medium" }}>
