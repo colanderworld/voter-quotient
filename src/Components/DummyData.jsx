@@ -12,7 +12,7 @@ REFERENCE (each of these elements can be repeated infinitely)
 // You can import more photos here using the same syntax.
 // But if you leave the photo blank, it will default to a generic avatar icon
 
-export const testTwo = [
+export const one = [
   {
     positionName: "San Francisco District Attorney",
     tagged: true,
@@ -41,7 +41,7 @@ export const testTwo = [
   }
 ];
 
-export const thirdTest = [
+export const two = [
   {
     positionName: "Governor of California",
     tagged: false,

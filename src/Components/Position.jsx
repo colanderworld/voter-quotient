@@ -21,8 +21,6 @@ export default ({ data }) => {
     candidatesInfo
   } = data;
 
-  console.log(data);
-
   const { size } = useContext(ResponsiveContext);
   const [over, setOver] = useState();
   const ref = useRef();
