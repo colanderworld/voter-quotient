@@ -41,18 +41,141 @@ export const testTwo = [
   }
 ];
 
-export const testOne = [
+export const thirdTest = [
+  {
+    positionName: "Governor of California",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "Governor",
+    voteRaw: "2,978,585",
+    voteMargin: 24, // Need runner up data
+    description:
+      "The Governor of California is the head of government of the U.S. state of California. The California Governor is the chief executive of the state government and the commander-in-chief of the California National Guard and the California State Guard.",
+    candidatesArray: [
+      {
+        first_name: "Gavin",
+        last_name: "Newsom",
+        party_name: "Democrat",
+        election_result: "Won",
+        thumb_url:
+          "https://upload.wikimedia.org/wikipedia/commons/2/20/Gavin_Newsom_official_photo.jpg",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "Attorney General of California",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "Attorney General",
+    voteRaw: "3,325,156",
+    voteMargin: 27, // Need runner up data
+    description:
+      "The Attorney General is the chief legal representative for the state. Often times, the AG will get involved in investigations into police misconduct, deciding whether to prosecute or not.",
+    candidatesArray: [
+      {
+        first_name: "Xavier",
+        last_name: "Becerra",
+        party_name: "Democrat",
+        election_result: "Won",
+        thumb_url:
+          "https://pbs.twimg.com/profile_images/725272568366809088/ChUDHq1N_400x400.jpg",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "State Senate 11th District",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "State Senator",
+    voteRaw: "8,146",
+    voteMargin: 2, // Need runner up data
+    description:
+      "A State Senator is a member of the upper chamber of the California State Legislature. Alongside the California State Assembly, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget. ",
+    candidatesArray: [
+      {
+        first_name: "Hi",
+        last_name: "Hi",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ]
+      }
+    ]
+  },
+  {
+    positionName: "State Assembly 19th District",
+    tagged: false,
+    position_id: 228408,
+    level: "STATE",
+    normalizedPosition: "State Assemblyperson",
+    voteRaw: "124,656",
+    voteMargin: 67, // Need runner up data
+    description:
+      "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
+    candidatesArray: [
+      {
+        first_name: "Phil",
+        last_name: "Ting",
+        election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
+        suffix: null,
+        incumbent: false,
+        position_id: 228408,
+        election_id: 389,
+        election_day: "2019-11-05",
+        endorsements: [8, 25, 2237],
+        candidate_type: null,
+        updated_at: "2019-09-04T14:12:15.506775",
+        id: 329221,
+        party_name: "Democrat",
+        middle_name: null,
+        thumb_url:
+          "https://upload.wikimedia.org/wikipedia/commons/c/c2/Phil_Ting_CA_assembly_photo.jpeg"
+      },
+      {
+        first_name: "John",
+        last_name: "McDonnell",
+        election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
+        suffix: null,
+        incumbent: false,
+        position_id: 228408,
+        election_id: 389,
+        election_day: "2019-11-05",
+        endorsements: [8, 25, 2237],
+        candidate_type: null,
+        updated_at: "2019-09-04T14:12:15.506775",
+        id: 329221,
+        party_name: "Republican",
+        middle_name: null,
+        thumb_url:
+          "https://sfpublicpress.org/wp-content/uploads/2020/02/johnmcdonnell-1568x1044.jpg"
+      }
+    ]
+  },
   {
     positionName: "San Francisco District Attorney",
     tagged: true,
     position_id: 228408,
-    level: "COUNTY",
+    level: "County",
     normalizedPosition: "District Attorney",
-    voteRaw: "2,840",
-    voteMargin: 1.6,
+    voteRaw: "666",
+    voteMargin: 0, // Need runner up data
     description:
-      "The District Attorney is the chief legal representative of the county.",
-    candidatesInfo: [
+      "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
+    candidatesArray: [
       {
         urls: [
           {
@@ -83,6 +206,9 @@ export const testOne = [
         first_name: "Suzy",
         last_name: "Loftus",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -125,6 +251,9 @@ export const testOne = [
         first_name: "Chesa",
         last_name: "Boudin",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -167,6 +296,9 @@ export const testOne = [
         first_name: "Leif",
         last_name: "Dautch",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -209,6 +341,9 @@ export const testOne = [
         first_name: "Nancy",
         last_name: "Tung",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -245,6 +380,9 @@ export const testOne = [
         first_name: "Manohar",
         last_name: "Raju",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         party_name: "Nonpartisan"
       }
     ]
@@ -278,6 +416,9 @@ export const testOne = [
         first_name: "Paul",
         last_name: "Miyamoto",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228406,
@@ -327,6 +468,9 @@ export const testOne = [
         first_name: "José",
         last_name: "Cisneros",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228409,
@@ -388,6 +532,9 @@ export const testOne = [
         first_name: "London",
         last_name: "Breed",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -411,6 +558,9 @@ export const testOne = [
         first_name: "Robert",
         last_name: "Jordan",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -432,6 +582,9 @@ export const testOne = [
         first_name: "Wilma",
         last_name: "Pang",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -460,6 +613,9 @@ export const testOne = [
         first_name: "Paul",
         last_name: "Robertson",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -483,6 +639,9 @@ export const testOne = [
         first_name: "Joel",
         last_name: "Ventresca",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -523,6 +682,9 @@ export const testOne = [
         first_name: "Ellen",
         last_name: "Zhou",
         election_result: "Lost",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -572,6 +734,9 @@ export const testOne = [
         first_name: "Dennis",
         last_name: "Herrera",
         election_result: "Won",
+        endorsementsArray: [
+          { Color: "green", Group: "", KeyEndorsement: false }
+        ],
         suffix: null,
         incumbent: false,
         position_id: 228407,
