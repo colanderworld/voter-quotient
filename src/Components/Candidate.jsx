@@ -11,8 +11,6 @@ export default ({ data }) => {
     last_name,
     party_name,
     thumb_url,
-    occupation,
-    tenure,
     endorsements,
     election_result
   } = data;
@@ -25,15 +23,16 @@ export default ({ data }) => {
   */
   const Key = endorsements
     .filter(({ key }) => key)
-    .map((filtered, { id }) => <Endorsement key={id} data={filtered} />);
+    .map(data => <Endorsement key={data.id} data={data} />);
 
   const Other = endorsements
     .filter(({ key }) => !key)
-    .map((filtered, { id }) => <Endorsement key={id} data={filtered} />);
+    .map(data => <Endorsement key={data.id} data={data} />);
 
   return (
-    <Box margin={{ horizontal: "xsmall", top: "medium", bottom: "medium" }}>
-      <Box direction="row" gap="small" margin={{ bottom: "medium" }}>
+    <Box margin={{ vertical: "small" }}>
+      {/* Candidate Porfile */}
+      <Box direction="row" gap="small" pad={{ bottom: "medium" }}>
         <Avatar
           src={thumb_url && thumb_url}
           size="60px"
@@ -52,30 +51,42 @@ export default ({ data }) => {
           <Text size="small">{election_result} in 2019</Text>
         </Box>
       </Box>
-      <Box
-        margin={{ horizontal: "xsmall", top: "small", bottom: "large" }}
-        gap="small"
-      >
+
+      {/* Endorsements */}
+      <Box pad={{ bottom: "medium" }}>
         <Text size="16px" weight="bold">
           Key Endorsements
         </Text>
-        {Key}
+        <Box
+          direction="row"
+          wrap={true}
+          margin={{ left: "-2px", bottom: "small" }}
+        >
+          {Key}
+        </Box>
         <Text size="16px" weight="bold">
           Other Endorsements
         </Text>
-        {Other}
+        <Box
+          direction="row"
+          wrap={true}
+          margin={{ left: "-2px", bottom: "small" }}
+        >
+          {Other}
+        </Box>
       </Box>
+
+      {/* Fundraising */}
       <Box
-        fill={true}
         round="xsmall"
         pad="small"
         border="all"
         justify="center"
+        margin="xsmall"
         style={{ borderColor: "#dbdbdb" }}
       >
         <Text size="medium" textAlign="center">
-          We are raising money to buy detailed candidate data!
-          <br />
+          We are raising money to buy even more data on each candidate!{" "}
           <Anchor
             color="black"
             href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"

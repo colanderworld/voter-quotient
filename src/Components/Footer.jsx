@@ -4,7 +4,7 @@ import {
   Footer,
   Box,
   ResponsiveContext,
-  Button,
+  Button
   // Text,
   // Anchor,
   // Avatar,
@@ -16,12 +16,7 @@ export default () => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Footer
-      pad="small"
-      justify="between"
-      border="top"
-      background={{ dark: "black", light: "white" }}
-    >
+    <Footer pad="small" justify="between" border="top" background="white">
       <Box>
         <NavLink weight={600} to="/">
           Home

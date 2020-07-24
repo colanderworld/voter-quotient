@@ -1,7 +1,7 @@
 // Library imports
 import React from "react";
 import { Router } from "@reach/router";
-import { Grommet, Main, Box, ResponsiveContext } from "grommet";
+import { Grommet, Main } from "grommet";
 
 // Informational pages
 import Home from "../Pages/Home";
@@ -22,18 +22,14 @@ export default () => {
   return (
     <Grommet theme={Theme} full themeMode="light">
       <Main>
-        {/* <ResponsiveContext.Consumer> */}
-        <Box fill="vertical">
-          <Router>
-            <Home path="/" />
-            <Lookup path="lookup" data={one} />
-            <About path="about" />
-            <Methods path="methods" />
-            <Contact path="contact" />
-          </Router>
-        </Box>
+        <Router>
+          <Home path="/" />
+          <Lookup path="lookup" data={two} />
+          <About path="about" />
+          <Methods path="methods" />
+          <Contact path="contact" />
+        </Router>
         <Footer />
-        {/* </ResponsiveContext.Consumer> */}
       </Main>
     </Grommet>
   );

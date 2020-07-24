@@ -1,30 +1,38 @@
 import React, { useRef, useState } from "react";
 import { Box, Drop, Text, Avatar } from "grommet";
 
-export default ({ Group, Color, Size }) => {
+export default ({ data }) => {
   const [over, setOver] = useState();
   const ref = useRef();
+
+  const { name, color, key } = data;
 
   return (
     <Box>
       <Box
+        margin={{ horizontal: "2px", vertical: "1px" }}
         ref={ref}
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
-        margin={{ horizontal: "2px", vertical: "1px" }}
       >
-        <Avatar background={Color} border="black" size={Size} />
+        <Avatar
+          background={color}
+          border="black"
+          size={key ? "40px" : "30px"}
+        />
       </Box>
       {ref.current && over && (
         <Drop align={{ left: "right" }} target={ref.current} plain>
           <Box
-            pad={{ horizontal: "4px", vertical: "2px" }}
+            margin={{ left: "xsmall" }}
             background="white"
-            margin={{ left: "4px" }}
             border={{ size: "xsmall", color: "black" }}
-            round={{ size: "xsmall" }}
+            round="xsmall"
+            pad={{ vertical: "2px", horizontal: "4px" }}
           >
-            <Text size="small">{Group}</Text>
+            <Text size="small" weight="bold">
+              {name}
+            </Text>
           </Box>
         </Drop>
       )}

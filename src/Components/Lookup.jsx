@@ -52,8 +52,7 @@ import Position from "./Position";
 // };
 
 export default ({ data }) => {
-  const { size } = useContext(ResponsiveContext);
-  console.log("SIZE: " + size);
+  const size = useContext(ResponsiveContext);
   /*   
   Split the positions into the most important and regular ones
   positionsArray -> <Position />  (Highlighted Positions)
@@ -64,21 +63,28 @@ export default ({ data }) => {
 
   return (
     <Grid
-      fill
-      columns={size === "small" ? ["auto"] : ["1/2", "1/2"]}
-      rows={["auto", "auto", "auto"]}
-      areas={[
-        ["electionDate", "voterAddress"],
-        ["positions", "positions"]
-      ]}
+      columns={["1/2", "1/2"]}
+      rows={[["flex"], ["full"]]}
+      areas={
+        size === "small"
+          ? [
+              ["electionDate", "electionDate"],
+              ["voterAddress", "voterAddress"],
+              ["positions", "positions"]
+            ]
+          : [
+              ["electionDate", "voterAddress"],
+              ["positions", "positions"]
+            ]
+      }
     >
       <Box
         gridArea="electionDate"
-        margin="large"
+        margin={{ vertical: "large", horizontal: "small" }}
         direction="column"
         gap="xsmall"
       >
-        <Box alignSelf="center">
+        <Box alignSelf={size === "small" ? "start" : "center"}>
           <FormCalendar color="gold" size="large" />
           <Text size="xlarge" weight="bold">
             Next Election
@@ -92,11 +98,11 @@ export default ({ data }) => {
       </Box>
       <Box
         gridArea="voterAddress"
-        margin="large"
+        margin={{ vertical: "large", horizontal: "small" }}
         direction="column"
         gap="xsmall"
       >
-        <Box alignSelf="center">
+        <Box alignSelf={size === "small" ? "start" : "center"}>
           <Location color="gold" size="large" />
           <Text size="large" weight="bold">
             Registration Address
@@ -127,7 +133,7 @@ export default ({ data }) => {
           </i>
         </Text>
       </Box> */}
-      <Box gridArea="positions" align="center">
+      <Box gridArea="positions" align="center" fill="vertical">
         <Accordion
           fill={true}
           multiple={true}

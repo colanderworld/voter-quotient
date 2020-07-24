@@ -101,7 +101,7 @@ export default ({
       <Box>
         <Box
           align={size === "small" ? "start" : "end"}
-          width="55px"
+          width="70px"
           margin={size === "small" ? { right: "4px" } : { left: "8px" }}
           ref={refThree}
           onMouseEnter={() => setOverThree(true)}
@@ -112,7 +112,7 @@ export default ({
         {refThree.current && overThree && (
           <Drop align={{ bottom: "top" }} target={refThree.current} plain>
             <Box
-              width="210px"
+              width="240px"
               pad="xsmall"
               background="white"
               margin={{ bottom: "4px" }}

@@ -21,7 +21,7 @@ export default ({ data }) => {
     candidatesInfo
   } = data;
 
-  const { size } = useContext(ResponsiveContext);
+  const size = useContext(ResponsiveContext);
   const [over, setOver] = useState();
   const ref = useRef();
 
@@ -107,31 +107,12 @@ export default ({ data }) => {
         direction={size === "small" ? "column" : "row"}
         pad={{ vertical: "xsmall" }}
       >
-        <Box basis="1/2" direction="column">
+        <Box basis={size === "small" ? "full" : "1/2"} direction="column">
           {Incumbent}
         </Box>
-        {Challenger.length !== 0 ? (
-          <Box basis="1/2" direction="column">
-            {Challenger}
-          </Box>
-        ) : (
-          <Box
-            basis="1/2"
-            round="xsmall"
-            border="all"
-            justify="center"
-            margin="xsmall"
-            style={{
-              borderColor: "#FFE91D"
-            }}
-          >
-            <Text textAlign="center" margin={{ vertical: "medium" }}>
-              This candidate ran <b>unopposed</b> in 2019!
-              <br />
-              Elections should be contested!
-            </Text>
-          </Box>
-        )}
+        <Box basis={size === "small" ? "full" : "1/2"} direction="column">
+          {Challenger}
+        </Box>
       </Box>
     </AccordionPanel>
   );

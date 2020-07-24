@@ -1,6 +1,6 @@
 // Library imports
 import React, { useContext } from "react";
-import { Box, ResponsiveContext, Text, Avatar, Heading } from "grommet";
+import { Box, ResponsiveContext, Text, Avatar, Main } from "grommet";
 
 // Component imports
 import AddressInput from "../Components/AddressInput";
@@ -14,9 +14,9 @@ import Logo from "../Icons/dontwait-1.png";
 
 const Home = () => {
   // const { latlng } = useContext(Context);
-  const { size } = useContext(ResponsiveContext);
+  const size = useContext(ResponsiveContext);
   return (
-    <Box align="center">
+    <Main fill="true" align="center">
       <Avatar margin="large" size="270px" round="medium" src={Logo} />
       {size === "small" ? <LocationInput /> : <AddressInput />}
       <Box
@@ -38,7 +38,7 @@ const Home = () => {
           <Heading margin="large">Hello</Heading>
         </Box>
       </Box> */}
-    </Box>
+    </Main>
   );
 };
 
