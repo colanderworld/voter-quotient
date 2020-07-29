@@ -1,40 +1,40 @@
-import React, { useRef, useState } from 'react'
-import styled from 'styled-components'
+import React, { useRef, useState } from "react";
+import { Box, Drop, Text, Avatar } from "grommet";
+import { getInitials } from "../Utils/Helpers";
 
-import { Box, Drop, Text, Avatar } from 'grommet'
+export default ({ data }) => {
+  const [over, setOver] = useState();
+  const ref = useRef();
 
-export default ({ Group, Color, Size }) => {
-	const [over, setOver] = useState()
-	const ref = useRef()
+  const { name, color, key } = data;
 
-	const getInitials = (name) =>
-		name
-			.replace(/[^A-Za-z0-9À-ÿ ]/gi, '') // taking care of accented characters as well
-			.replace(/ +/gi, ' ') // replace multiple spaces to one
-			.split(/ /) // break the name into parts
-			.reduce((acc, item) => acc + item[0], '') // assemble an abbreviation from the parts
-
-	return (
-		<Box>
-			<Box
-				ref={ref}
-				onMouseOver={() => setOver(true)}
-				onMouseOut={() => setOver(false)}
-				margin={{ horizontal: '2px', vertical: '1px' }}>
-				<Avatar background={Color} border='black' size={Size} />
-			</Box>
-			{ref.current && over && (
-				<Drop align={{ left: 'right' }} target={ref.current} plain>
-					<Box
-						pad={{ horizontal: '4px', vertical: '2px' }}
-						background='white'
-						margin={{ left: '4px' }}
-						border={{ size: 'xsmall', color: 'black' }}
-						round={{ size: 'xsmall' }}>
-						<Text size='small'>{Group}</Text>
-					</Box>
-				</Drop>
-			)}
-		</Box>
-	)
-}
+  return (
+    <Box>
+      <Box
+        margin={{ horizontal: "2px", vertical: "1px" }}
+        ref={ref}
+        onMouseOver={() => setOver(true)}
+        onMouseOut={() => setOver(false)}
+      >
+        <Avatar background={color} border="black" size={key ? "45px" : "35px"}>
+          <Text size="small">{getInitials(name)}</Text>
+        </Avatar>
+      </Box>
+      {ref.current && over && name && (
+        <Drop align={{ left: "right" }} target={ref.current} plain>
+          <Box
+            margin={{ left: "xsmall" }}
+            background="white"
+            border={{ size: "xsmall", color: "black" }}
+            round="xsmall"
+            pad={{ vertical: "2px", horizontal: "4px" }}
+          >
+            <Text size="small" weight="bold">
+              {name}
+            </Text>
+          </Box>
+        </Drop>
+      )}
+    </Box>
+  );
+};

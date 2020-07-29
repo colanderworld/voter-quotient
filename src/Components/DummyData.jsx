@@ -12,7 +12,240 @@ REFERENCE (each of these elements can be repeated infinitely)
 // You can import more photos here using the same syntax.
 // But if you leave the photo blank, it will default to a generic avatar icon
 
-export const thirdTest = [
+// export const one = [
+//   {
+//     positionName: "San Francisco District Attorney",
+//     tagged: true,
+//     position_id: 228408,
+//     level: "COUNTY",
+//     normalizedPosition: "District Attorney",
+//     voteRaw: "2,840",
+//     voteMargin: 1.6,
+//     description:
+//       "The District Attorney is the chief legal representative of the county.",
+//     candidatesInfo: [
+//       {
+//         first_name: "Suzy",
+//         last_name: "Loftus",
+//         election_result: "Lost",
+//         incumbent: false,
+//         position_id: 228408,
+//         endorsements: [
+//           { color: "blue", name: "color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true }
+//         ],
+//         id: 329221,
+//         party_name: "Nonpartisan",
+//         thumb_url:
+//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
+//       }
+//     ]
+//   },
+//   {
+//     positionName: "San Francisco District Attorney",
+//     tagged: true,
+//     position_id: 228408,
+//     level: "COUNTY",
+//     normalizedPosition: "District Attorney",
+//     voteRaw: "2,840",
+//     voteMargin: 1.6,
+//     description:
+//       "The District Attorney is the chief legal representative of the county.",
+//     candidatesInfo: [
+//       {
+//         first_name: "Suzy",
+//         last_name: "Loftus",
+//         election_result: "Lost",
+//         incumbent: false,
+//         position_id: 228408,
+//         endorsements: [
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true }
+//         ],
+//         id: 329221,
+//         party_name: "Nonpartisan",
+//         thumb_url:
+//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
+//       }
+//     ]
+//   },
+//   {
+//     positionName: "San Francisco District Attorney",
+//     tagged: true,
+//     position_id: 228408,
+//     level: "COUNTY",
+//     normalizedPosition: "District Attorney",
+//     voteRaw: "2,840",
+//     voteMargin: 1.6,
+//     description:
+//       "The District Attorney is the chief legal representative of the county.",
+//     candidatesInfo: [
+//       {
+//         first_name: "Suzy",
+//         last_name: "Loftus",
+//         election_result: "Lost",
+//         incumbent: false,
+//         position_id: 228408,
+//         endorsements: [
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true }
+//         ],
+//         id: 329221,
+//         party_name: "Nonpartisan",
+//         thumb_url:
+//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
+//       }
+//     ]
+//   },
+//   {
+//     positionName: "San Francisco District Attorney",
+//     tagged: true,
+//     position_id: 228408,
+//     level: "COUNTY",
+//     normalizedPosition: "District Attorney",
+//     voteRaw: "2,840",
+//     voteMargin: 1.6,
+//     description:
+//       "The District Attorney is the chief legal representative of the county.",
+//     candidatesInfo: [
+//       {
+//         first_name: "Suzy",
+//         last_name: "Loftus",
+//         election_result: "Lost",
+//         incumbent: false,
+//         position_id: 228408,
+//         endorsements: [
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true }
+//         ],
+//         id: 329221,
+//         party_name: "Nonpartisan",
+//         thumb_url:
+//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
+//       }
+//     ]
+//   },
+//   {
+//     positionName: "San Francisco District Attorney",
+//     tagged: true,
+//     position_id: 228408,
+//     level: "COUNTY",
+//     normalizedPosition: "District Attorney",
+//     voteRaw: "2,840",
+//     voteMargin: 1.6,
+//     description:
+//       "The District Attorney is the chief legal representative of the county.",
+//     candidatesInfo: [
+//       {
+//         first_name: "Suzy",
+//         last_name: "Loftus",
+//         election_result: "Lost",
+//         incumbent: false,
+//         position_id: 228408,
+//         endorsements: [
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true },
+//           { color: "blue", name: "Color of Change", key: false },
+//           { color: "red", name: "NRA", key: true }
+//         ],
+//         id: 329221,
+//         party_name: "Nonpartisan",
+//         thumb_url:
+//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
+//       }
+//     ]
+//   }
+// ];
+
+export const two = [
   {
     positionName: "Governor of California",
     tagged: false,
@@ -23,7 +256,7 @@ export const thirdTest = [
     voteMargin: 24, // Need runner up data
     description:
       "The Governor of California is the head of government of the U.S. state of California. The California Governor is the chief executive of the state government and the commander-in-chief of the California National Guard and the California State Guard.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         first_name: "Gavin",
         last_name: "Newsom",
@@ -31,9 +264,7 @@ export const thirdTest = [
         election_result: "Won",
         thumb_url:
           "https://upload.wikimedia.org/wikipedia/commons/2/20/Gavin_Newsom_official_photo.jpg",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ]
+        endorsements: []
       }
     ]
   },
@@ -47,7 +278,7 @@ export const thirdTest = [
     voteMargin: 27, // Need runner up data
     description:
       "The Attorney General is the chief legal representative for the state. Often times, the AG will get involved in investigations into police misconduct, deciding whether to prosecute or not.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         first_name: "Xavier",
         last_name: "Becerra",
@@ -55,9 +286,7 @@ export const thirdTest = [
         election_result: "Won",
         thumb_url:
           "https://pbs.twimg.com/profile_images/725272568366809088/ChUDHq1N_400x400.jpg",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ]
+        endorsements: [{ color: "green", name: "", key: false }]
       }
     ]
   },
@@ -71,12 +300,28 @@ export const thirdTest = [
     voteMargin: 2, // Need runner up data
     description:
       "A State Senator is a member of the upper chamber of the California State Legislature. Alongside the California State Assembly, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget. ",
-    candidatesArray: [
+    candidatesInfo: [
       {
-        first_name: "Hi",
-        last_name: "Hi",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
+        first_name: "Jackie",
+        last_name: "Fielder",
+        election_result: "Lost",
+        party_name: "Democrat",
+        thumb_url: "https://jackieforsenate.com/uploads/AMBbLs-zmkoZrKIcgGCqyA",
+
+        endorsements: [
+          { color: "white", name: "Working Families Party", key: true }
+        ]
+      },
+      {
+        first_name: "Scott",
+        last_name: "Wiener",
+        election_result: "Won",
+        party_name: "Democrat",
+        thumb_url:
+          "https://lh3.googleusercontent.com/proxy/QWO1Nn0LrYXfPmXtcUewxX_rgaM-QKkLorB8gD39zgV3kQDhjI3rlAbu3e7h3zkLUgzgw8fXW4ThsEsHlcbBtch7FY2nzNh5B6Q6747m6nkuLKitD6hLbz5nF58s51HKw7FXJTmK",
+        endorsements: [
+          { color: "white", name: "Color of Change", key: true },
+          { color: "white", name: "MoveOn", key: true }
         ]
       }
     ]
@@ -91,14 +336,12 @@ export const thirdTest = [
     voteMargin: 67, // Need runner up data
     description:
       "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         first_name: "Phil",
         last_name: "Ting",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -117,9 +360,7 @@ export const thirdTest = [
         first_name: "John",
         last_name: "McDonnell",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -140,13 +381,13 @@ export const thirdTest = [
     positionName: "San Francisco District Attorney",
     tagged: true,
     position_id: 228408,
-    level: "County",
+    level: "COUNTY",
     normalizedPosition: "District Attorney",
-    voteRaw: "666",
-    voteMargin: 0, // Need runner up data
+    voteRaw: "2,840",
+    voteMargin: 1.66, // Need runner up data
     description:
-      "A State Assemblyperson is a member the lower chamber of the California State Legislature. Alongside the California State Senate, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget.",
-    candidatesArray: [
+      "In the United States, a District Attorney (DA) or state's attorney is the chief prosecutor for a local government area, typically a county. The exact name and scope of the office varies by state. Alternative titles for the office include state's attorney, county attorney, commonwealth's attorney, or county prosecutor.",
+    candidatesInfo: [
       {
         urls: [
           {
@@ -177,9 +418,7 @@ export const thirdTest = [
         first_name: "Suzy",
         last_name: "Loftus",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -222,9 +461,7 @@ export const thirdTest = [
         first_name: "Chesa",
         last_name: "Boudin",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -267,9 +504,7 @@ export const thirdTest = [
         first_name: "Leif",
         last_name: "Dautch",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -312,9 +547,7 @@ export const thirdTest = [
         first_name: "Nancy",
         last_name: "Tung",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -335,23 +568,23 @@ export const thirdTest = [
       }
     ]
   },
+
   {
     positionName: "San Francisco Public Defender",
     tagged: true,
+    position_id: 666,
     level: "CITY",
     normalizedPosition: "Public Defender",
     voteRaw: "158,560",
     voteMargin: 100,
     description:
       "A Public Defender is a lawyer appointed to represent people who otherwise cannot reasonably afford to hire a lawyer.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         first_name: "Manohar",
         last_name: "Raju",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         party_name: "Nonpartisan"
       }
     ]
@@ -366,7 +599,7 @@ export const thirdTest = [
     voteMargin: 100,
     description:
       "The County Sheriff is the chief law enforcement official of the county.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         urls: [
           {
@@ -385,9 +618,7 @@ export const thirdTest = [
         first_name: "Paul",
         last_name: "Miyamoto",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228406,
@@ -418,7 +649,7 @@ export const thirdTest = [
     voteMargin: 100,
     description:
       "The County Treasurer is the Chief Fiscal Officer of the county responsible for overseeing all public funds owned by the County, the County School District, and other taxing entities within the County.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         urls: [
           {
@@ -437,9 +668,7 @@ export const thirdTest = [
         first_name: "José",
         last_name: "Cisneros",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228409,
@@ -470,7 +699,7 @@ export const thirdTest = [
     voteMargin: 56.8,
     description:
       "The Mayor is the chief executive officer of the municipality.  They often preside over council meetings, and may have powers to hire and fire heads of municipal departments.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         urls: [
           {
@@ -501,9 +730,7 @@ export const thirdTest = [
         first_name: "London",
         last_name: "Breed",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -527,9 +754,7 @@ export const thirdTest = [
         first_name: "Robert",
         last_name: "Jordan",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -551,9 +776,7 @@ export const thirdTest = [
         first_name: "Wilma",
         last_name: "Pang",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -582,9 +805,7 @@ export const thirdTest = [
         first_name: "Paul",
         last_name: "Robertson",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -608,9 +829,7 @@ export const thirdTest = [
         first_name: "Joel",
         last_name: "Ventresca",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -651,9 +870,7 @@ export const thirdTest = [
         first_name: "Ellen",
         last_name: "Zhou",
         election_result: "Lost",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -678,13 +895,13 @@ export const thirdTest = [
     positionName: "San Francisco City Attorney",
     tagged: false,
     position_id: 228407,
-    level: "CITY",
+    level: "COUNTY",
     normalizedPosition: "City Attorney",
     voteRaw: "161,369",
     voteMargin: 100,
     description:
       "The duties of the City Attorney include appearing in judicial, administrative and other legal actions, issuing legal opinions to city officers, drafting ordinances, bonds, and other legal documents, prosecuting ordinance violations in municipal court, and providing a full range of legal services to various City departments, boards, and entities.",
-    candidatesArray: [
+    candidatesInfo: [
       {
         urls: [
           {
@@ -703,9 +920,7 @@ export const thirdTest = [
         first_name: "Dennis",
         last_name: "Herrera",
         election_result: "Won",
-        endorsementsArray: [
-          { Color: "green", Group: "", KeyEndorsement: false }
-        ],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228407,

@@ -1,27 +1,23 @@
-import React from "react";
-import { Box, Text, ResponsiveContext, Heading } from "grommet";
+import React, { useContext } from "react";
+import { Box, Text, ResponsiveContext, Heading, Main } from "grommet";
 
 export default () => {
+  const size = useContext(ResponsiveContext);
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Box
-          width={size !== "small" && "800px"}
-          margin={size === "small" && "small"}
+    <Main align="center">
+      <Box width={{ max: "800px" }} fill="horizontal" pad="small">
+        <Heading
+          style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
+          margin={{ top: "xlarge" }}
         >
-          <Heading
-            style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
-            margin={{ top: "xlarge" }}
-          >
-            Methodology
-          </Heading>
-          <Text size="medium">
-            Yeah not much here either...
-            <br />
-            Soon!
-          </Text>
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+          Methodology
+        </Heading>
+        <Text size="medium">
+          Yeah not much here either...
+          <br />
+          Soon!
+        </Text>
+      </Box>
+    </Main>
   );
 };

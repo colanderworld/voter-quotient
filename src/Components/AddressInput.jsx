@@ -13,13 +13,13 @@ import {
   ComboboxOption,
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import { ResponsiveContext, Box } from "grommet";
+import { Box } from "grommet";
 // import { FormSearch, Search } from "grommet-icons";
 
-import { Context } from "../Contexts/LatLng";
+import { Context } from "../Utils/LatLng";
 import { navigate } from "@reach/router";
 
-import { Response } from "../Components/Response";
+import Lookup from "./Lookup";
 
 export default (address) => {
   const { setLatlng, latlng } = useContext(Context);
@@ -66,7 +66,7 @@ export default (address) => {
         console.log("😱 Error: ", error);
       });
 
-    return <Response lat={latlng.lat} lng={latlng.lng} />;
+    return <Lookup lat={latlng.lat} lng={latlng.lng} />;
   };
 
   const renderSuggestions = () =>
@@ -87,41 +87,35 @@ export default (address) => {
     });
 
   return (
-    <ResponsiveContext.Consumer>
-      {(size) => (
-        <Combobox onSelect={handleSelect} ref={ref}>
-          <Box width="550px">
-            <StyledComboboxInput
-              value={value}
-              onChange={handleInput}
-              placeholder="type address here"
+    <Combobox onSelect={handleSelect} ref={ref}>
+      <Box width="550px">
+        <StyledComboboxInput
+          value={value}
+          onChange={handleInput}
+          placeholder="type address here"
+        />
+      </Box>
+      <StyledComboboxPopover portal={false}>
+        {status === "OK" && status.length > 0 ? (
+          <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
+            {renderSuggestions()}
+          </ComboboxList>
+        ) : (
+          <ComboboxList>
+            <ComboboxOption
+              value={
+                <div>
+                  <span aria-label="embaressed face emoji" role="img">
+                    😳
+                  </span>
+                  &nbsp;We couldn't find that address! Please try another.
+                </div>
+              }
             />
-          </Box>
-          <StyledComboboxPopover portal={false}>
-            {status === "OK" && status.length > 0 ? (
-              <ComboboxList
-                style={{ whiteSpace: "nowrap", overflow: "scroll" }}
-              >
-                {renderSuggestions()}
-              </ComboboxList>
-            ) : (
-              <ComboboxList>
-                <ComboboxOption
-                  value={
-                    <div>
-                      <span aria-label="embaressed face emoji" role="img">
-                        😳
-                      </span>
-                      &nbsp;We couldn't find that address! Please try another.
-                    </div>
-                  }
-                />
-              </ComboboxList>
-            )}
-          </StyledComboboxPopover>
-        </Combobox>
-      )}
-    </ResponsiveContext.Consumer>
+          </ComboboxList>
+        )}
+      </StyledComboboxPopover>
+    </Combobox>
   );
 };
 

@@ -1,88 +1,100 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, Avatar, Text, ResponsiveContext, Anchor } from "grommet";
 import { User } from "grommet-icons";
-import { KeyEndorsements, OtherEndorsements } from "./Endorsements";
+import { getPartyColor } from "../Utils/Helpers";
+import Endorsement from "./Endorsement";
 
-const getPartyColor = party => {
-  if (party === "Republican") {
-    return "red";
-  } else if (party === "Democrat") {
-    return "blue";
-  } else {
-    return "gray";
-  }
-};
+export default ({ data }) => {
+  const size = useContext(ResponsiveContext);
+  const {
+    first_name,
+    last_name,
+    party_name,
+    thumb_url,
+    endorsements,
+    election_result
+  } = data;
 
-export default ({
-  name,
-  party,
-  thumb_url,
-  occupation,
-  tenure,
-  endorsementsArray,
-  status
-}) => {
+  /*
+  Split the endorsements into the ones we care about and those we don't
+
+  endorsementsArray -> <Endorsement />  (Key Endorsements)
+                    -> <Endorsement />  (Other Endorsements)
+  */
+  const Key = endorsements
+    .filter(({ key }) => key)
+    .map(data => <Endorsement key={data.id} data={data} />);
+
+  const Other = endorsements
+    .filter(({ key }) => !key)
+    .map(data => <Endorsement key={data.id} data={data} />);
+
   return (
-    <ResponsiveContext.Consumer>
-      {size => (
-        <Box
-          pad={{ top: "small" }}
-          margin={{ horizontal: "xsmall", top: "xsmall", bottom: "medium" }}
+    <Box margin={{ vertical: "small" }}>
+      {/* Candidate Porfile */}
+      <Box direction="row" gap="small" pad={{ bottom: "medium" }}>
+        <Avatar
+          src={thumb_url && thumb_url}
+          size="60px"
+          border={{
+            color: getPartyColor(party_name),
+            size: "small"
+          }}
+          alignSelf="center"
         >
-          <Box direction="row" gap="small">
-            <Avatar
-              src={thumb_url && thumb_url}
-              size="60px"
-              border={{
-                color: getPartyColor(party),
-                size: "small"
-              }}
-              margin={{ bottom: "medium" }}
-              alignSelf="center"
-            >
-              {!thumb_url && <User size="34px" color={getPartyColor(party)} />}
-            </Avatar>
-            <Box direction="column" alignSelf="start">
-              <Text size="medium" weight="bold">
-                {name}
-              </Text>
-              <Text size="small">{status} in 2019</Text>
-            </Box>
-          </Box>
-
-          <Text>
-            <b>Key Endorsements</b>
+          {!thumb_url && <User size="34px" color={getPartyColor(party_name)} />}
+        </Avatar>
+        <Box direction="column" alignSelf="center">
+          <Text size="20px" weight="bold">
+            {first_name} {last_name}
           </Text>
-          <KeyEndorsements endorsementsArray={endorsementsArray} />
-          <Text margin={{ top: "medium" }}>
-            <b>Other Endorsements</b>
-          </Text>
-          <OtherEndorsements endorsementsArray={endorsementsArray} />
-          <Box
-            fill={true}
-            round="xsmall"
-            pad="small"
-            border="all"
-            justify="center"
-            style={{ borderColor: "#dbdbdb" }}
-          >
-            <Text
-              size="medium"
-              textAlign="center"
-              margin={size === "small" && { vertical: "medium" }}
-            >
-              We are raising money to buy detailed candidate data!
-              <br />
-              <Anchor
-                color="black"
-                href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
-              >
-                Can you chip in?
-              </Anchor>
-            </Text>
-          </Box>
+          <Text size="small">{election_result} in 2019</Text>
         </Box>
-      )}
-    </ResponsiveContext.Consumer>
+      </Box>
+
+      {/* Endorsements */}
+      <Box pad={{ bottom: "medium" }} gap="xsmall">
+        <Text size="16px" weight="bold">
+          Key Endorsements
+        </Text>
+        <Box
+          direction="row"
+          wrap={true}
+          margin={{ left: "-2px", bottom: "small" }}
+        >
+          {Key}
+        </Box>
+        <Text size="16px" weight="bold">
+          Other Endorsements
+        </Text>
+        <Box
+          direction="row"
+          wrap={true}
+          margin={{ left: "-2px", bottom: "small" }}
+        >
+          {Other}
+        </Box>
+      </Box>
+
+      {/* Fundraising */}
+      <Box
+        round="xsmall"
+        pad="small"
+        border="all"
+        justify="center"
+        margin="xsmall"
+        style={{ borderColor: "#dbdbdb" }}
+      >
+        <Text size="medium" textAlign="center">
+          We are raising money to buy even more data on each candidate!{" "}
+          <Anchor
+            color="black"
+            href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
+          >
+            Can you chip in?
+          </Anchor>
+        </Text>
+      </Box>
+    </Box>
   );
 };
