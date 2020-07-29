@@ -3,10 +3,10 @@ import {
   Box,
   ResponsiveContext,
   Heading,
-  // Avatar,
+  Main,
   Text,
   Accordion,
-  AccordionPanel,
+  AccordionPanel
 } from "grommet";
 // import { User } from "grommet-icons";
 
@@ -18,20 +18,20 @@ import {
 export default () => {
   const size = useContext(ResponsiveContext);
   return (
-    <Box
-      width={size !== "small" && "800px"}
-      margin={size === "small" && "small"}
-    >
-      <Heading
-        style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
-        margin={{ top: "xlarge" }}
-      >
-        About
-      </Heading>
-      <Text size="medium">
-        We don't have an about page yet... <br />
-        But thanks for checking!
-      </Text>
+    <Main align="center">
+      <Box width={{ max: "800px" }} fill="horizontal" pad="small">
+        <Heading
+          style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
+          margin={{ top: "xlarge" }}
+          textAlign="start"
+        >
+          About
+        </Heading>
+        <Text size="medium" textAlign="start">
+          We don't have an about page yet... <br />
+          But thanks for checking!
+        </Text>
+      </Box>
       {/* <Heading
             style={{ fontSize: "5em", fontFamily: "IBM Plex Mono" }}
             margin={{ top: "xlarge" }}
@@ -256,6 +256,6 @@ export default () => {
               </AccordionPanel>
             </Accordion>
           </Box> */}
-    </Box>
+    </Main>
   );
 };
