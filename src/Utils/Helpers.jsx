@@ -2,6 +2,14 @@ import React from "react";
 import { Text } from "grommet";
 import _ from "lodash";
 
+export const getInitials = name =>
+  name &&
+  name
+    .replace(/[^A-Za-z0-9À-ÿ ]/gi, "") // taking care of accented characters as well
+    .replace(/ +/gi, " ") // replace multiple spaces to one
+    .split(/ /) // break the name into parts
+    .reduce((acc, item) => acc + item[0], ""); // assemble an abbreviation from the parts
+
 export const BoldPostion = (position, description) => {
   const marker = description.search(position);
 
@@ -16,12 +24,21 @@ export const BoldPostion = (position, description) => {
 };
 
 export const VoteTally = (raw, percent) => {
-  return (
-    <Text size="small">
-      The incumbent recieved <b>{raw}</b> more votes than their opponent in the
-      last election, winning by <b>+{percent}%</b>.
-    </Text>
-  );
+  if (percent !== 100) {
+    return (
+      <Text size="small">
+        The incumbent recieved <b>{raw}</b> more votes than their opponent in
+        the last election, winning by <b>+{percent}%</b>.
+      </Text>
+    );
+  } else {
+    return (
+      <Text size="small">
+        The incumbent ran <b>unopposed</b> in the last election, winning all{" "}
+        <b>{raw}</b> votes cast.
+      </Text>
+    );
+  }
 };
 
 export const DefineLevel = level => {

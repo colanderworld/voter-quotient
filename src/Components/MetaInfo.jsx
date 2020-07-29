@@ -46,12 +46,43 @@ export default ({
       <Box>
         <Box
           align={size === "small" ? "start" : "end"}
+          width="120px"
           margin={size === "small" ? { left: "4px" } : { right: "8px" }}
+          ref={refThree}
+          onMouseEnter={() => setOverThree(true)}
+          onMouseLeave={() => setOverThree(false)}
+        >
+          <MetaData>
+            {voteMargin !== 100 ? `${voteRaw} votes` : "Unopposed"}
+          </MetaData>
+        </Box>
+        {refThree.current && overThree && (
+          <Drop align={{ bottom: "top" }} target={refThree.current} plain>
+            <Box
+              width="240px"
+              pad="xsmall"
+              background="white"
+              margin={{ bottom: "4px" }}
+              border={{ size: "xsmall", color: "black" }}
+              round={{ size: "xsmall" }}
+            >
+              {VoteTally(voteRaw, voteMargin)}
+            </Box>
+          </Drop>
+        )}
+      </Box>
+      <MetaData>|</MetaData>
+      <Box>
+        <Box
+          align={size === "small" ? "start" : "end"}
+          margin={
+            size === "small" ? { horizontal: "4px" } : { horizontal: "8px" }
+          }
           ref={ref}
           onMouseEnter={() => setOver(true)}
           onMouseLeave={() => setOver(false)}
         >
-          <MetaData>{positionName}</MetaData>
+          <MetaData>{normalizedPosition}</MetaData>
         </Box>
         {ref.current && over && (
           <Drop align={{ bottom: "top" }} target={ref.current} plain>
@@ -73,9 +104,7 @@ export default ({
         <Box
           align={size === "small" ? "start" : "end"}
           width="47px"
-          margin={
-            size === "small" ? { horizontal: "4px" } : { horizontal: "8px" }
-          }
+          margin={size === "small" ? { left: "4px" } : { right: "8px" }}
           ref={refTwo}
           onMouseEnter={() => setOverTwo(true)}
           onMouseLeave={() => setOverTwo(false)}
@@ -93,33 +122,6 @@ export default ({
               round={{ size: "xsmall" }}
             >
               {DefineLevel(level)}
-            </Box>
-          </Drop>
-        )}
-      </Box>
-      <MetaData>|</MetaData>
-      <Box>
-        <Box
-          align={size === "small" ? "start" : "end"}
-          width="70px"
-          margin={size === "small" ? { right: "4px" } : { left: "8px" }}
-          ref={refThree}
-          onMouseEnter={() => setOverThree(true)}
-          onMouseLeave={() => setOverThree(false)}
-        >
-          <MetaData>{voteRaw}</MetaData>
-        </Box>
-        {refThree.current && overThree && (
-          <Drop align={{ bottom: "top" }} target={refThree.current} plain>
-            <Box
-              width="240px"
-              pad="xsmall"
-              background="white"
-              margin={{ bottom: "4px" }}
-              border={{ size: "xsmall", color: "black" }}
-              round={{ size: "xsmall" }}
-            >
-              {VoteTally(voteRaw, voteMargin)}
             </Box>
           </Drop>
         )}

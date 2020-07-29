@@ -53,7 +53,7 @@ export default ({ data }) => {
       </Box>
 
       {/* Endorsements */}
-      <Box pad={{ bottom: "medium" }}>
+      <Box pad={{ bottom: "medium" }} gap="xsmall">
         <Text size="16px" weight="bold">
           Key Endorsements
         </Text>

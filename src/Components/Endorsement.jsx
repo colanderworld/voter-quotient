@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Box, Drop, Text, Avatar } from "grommet";
+import { getInitials } from "../Utils/Helpers";
 
 export default ({ data }) => {
   const [over, setOver] = useState();
@@ -15,13 +16,11 @@ export default ({ data }) => {
         onMouseOver={() => setOver(true)}
         onMouseOut={() => setOver(false)}
       >
-        <Avatar
-          background={color}
-          border="black"
-          size={key ? "40px" : "30px"}
-        />
+        <Avatar background={color} border="black" size={key ? "45px" : "35px"}>
+          <Text size="small">{getInitials(name)}</Text>
+        </Avatar>
       </Box>
-      {ref.current && over && (
+      {ref.current && over && name && (
         <Drop align={{ left: "right" }} target={ref.current} plain>
           <Box
             margin={{ left: "xsmall" }}

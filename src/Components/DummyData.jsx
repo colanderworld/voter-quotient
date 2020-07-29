@@ -264,7 +264,7 @@ export const two = [
         election_result: "Won",
         thumb_url:
           "https://upload.wikimedia.org/wikipedia/commons/2/20/Gavin_Newsom_official_photo.jpg",
-        endorsements: [{ color: "green", group: "", key: false }]
+        endorsements: []
       }
     ]
   },
@@ -286,7 +286,7 @@ export const two = [
         election_result: "Won",
         thumb_url:
           "https://pbs.twimg.com/profile_images/725272568366809088/ChUDHq1N_400x400.jpg",
-        endorsements: [{ color: "green", group: "", key: false }]
+        endorsements: [{ color: "green", name: "", key: false }]
       }
     ]
   },
@@ -302,9 +302,27 @@ export const two = [
       "A State Senator is a member of the upper chamber of the California State Legislature. Alongside the California State Assembly, it forms the legislative branch of the California state government and works alongside the governor of California to create laws and establish a state budget. ",
     candidatesInfo: [
       {
-        first_name: "Hi",
-        last_name: "Hi",
-        endorsements: [{ color: "green", group: "", key: false }]
+        first_name: "Jackie",
+        last_name: "Fielder",
+        election_result: "Lost",
+        party_name: "Democrat",
+        thumb_url: "https://jackieforsenate.com/uploads/AMBbLs-zmkoZrKIcgGCqyA",
+
+        endorsements: [
+          { color: "white", name: "Working Families Party", key: true }
+        ]
+      },
+      {
+        first_name: "Scott",
+        last_name: "Wiener",
+        election_result: "Won",
+        party_name: "Democrat",
+        thumb_url:
+          "https://lh3.googleusercontent.com/proxy/QWO1Nn0LrYXfPmXtcUewxX_rgaM-QKkLorB8gD39zgV3kQDhjI3rlAbu3e7h3zkLUgzgw8fXW4ThsEsHlcbBtch7FY2nzNh5B6Q6747m6nkuLKitD6hLbz5nF58s51HKw7FXJTmK",
+        endorsements: [
+          { color: "white", name: "Color of Change", key: true },
+          { color: "white", name: "MoveOn", key: true }
+        ]
       }
     ]
   },
@@ -323,7 +341,7 @@ export const two = [
         first_name: "Phil",
         last_name: "Ting",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -342,7 +360,7 @@ export const two = [
         first_name: "John",
         last_name: "McDonnell",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -400,7 +418,7 @@ export const two = [
         first_name: "Suzy",
         last_name: "Loftus",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -443,7 +461,7 @@ export const two = [
         first_name: "Chesa",
         last_name: "Boudin",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -486,7 +504,7 @@ export const two = [
         first_name: "Leif",
         last_name: "Dautch",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -529,7 +547,7 @@ export const two = [
         first_name: "Nancy",
         last_name: "Tung",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228408,
@@ -566,7 +584,7 @@ export const two = [
         first_name: "Manohar",
         last_name: "Raju",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         party_name: "Nonpartisan"
       }
     ]
@@ -600,7 +618,7 @@ export const two = [
         first_name: "Paul",
         last_name: "Miyamoto",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228406,
@@ -650,7 +668,7 @@ export const two = [
         first_name: "José",
         last_name: "Cisneros",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228409,
@@ -712,7 +730,7 @@ export const two = [
         first_name: "London",
         last_name: "Breed",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -736,7 +754,7 @@ export const two = [
         first_name: "Robert",
         last_name: "Jordan",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -758,7 +776,7 @@ export const two = [
         first_name: "Wilma",
         last_name: "Pang",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -787,7 +805,7 @@ export const two = [
         first_name: "Paul",
         last_name: "Robertson",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -811,7 +829,7 @@ export const two = [
         first_name: "Joel",
         last_name: "Ventresca",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228405,
@@ -852,7 +870,7 @@ export const two = [
         first_name: "Ellen",
         last_name: "Zhou",
         election_result: "Lost",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: "",
         incumbent: false,
         position_id: 228405,
@@ -902,7 +920,7 @@ export const two = [
         first_name: "Dennis",
         last_name: "Herrera",
         election_result: "Won",
-        endorsements: [{ color: "green", group: "", key: false }],
+        endorsements: [{ color: "green", name: "", key: false }],
         suffix: null,
         incumbent: false,
         position_id: 228407,

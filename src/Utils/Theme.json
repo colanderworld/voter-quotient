@@ -10,6 +10,14 @@
       "size": "14px",
       "height": "16px",
       "color": "white"
+    },
+    "focus": {
+      "border": {
+        "color": "none"
+      },
+      "shadow": {
+        "color": "none"
+      }
     }
   },
   "accordion": {

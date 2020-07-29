@@ -57,8 +57,11 @@ export default ({ data }) => {
             onMouseOver={() => size !== "small" && setOver(true)}
             onMouseOut={() => size !== "small" && setOver(false)}
           >
-            <Text style={{ fontSize: "1.6em", lineHeight: "1.5em" }}>
-              <b>{normalizedPosition}</b>
+            <Text
+              weight="bold"
+              style={{ fontSize: "1.6em", lineHeight: "1.5em" }}
+            >
+              {positionName}
             </Text>
             {tagged && <Star color="gold" size="30px" />}
           </Box>
@@ -103,10 +106,7 @@ export default ({ data }) => {
         </Box>
       }
     >
-      <Box
-        direction={size === "small" ? "column" : "row"}
-        pad={{ vertical: "xsmall" }}
-      >
+      <Box direction={size === "small" ? "column" : "row"} pad="xsmall">
         <Box basis={size === "small" ? "full" : "1/2"} direction="column">
           {Incumbent}
         </Box>

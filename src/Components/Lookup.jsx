@@ -7,7 +7,7 @@ import {
   Grid,
   Heading
 } from "grommet";
-import { Location, FormCalendar } from "grommet-icons";
+import { Location, FormCalendar, WifiNone } from "grommet-icons";
 import Position from "./Position";
 
 // const columns = {
@@ -135,6 +135,7 @@ export default ({ data }) => {
       </Box> */}
       <Box gridArea="positions" align="center" fill="vertical">
         <Accordion
+          focusIndicator={false}
           fill={true}
           multiple={true}
           animate={true}
