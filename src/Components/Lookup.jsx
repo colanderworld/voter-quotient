@@ -1,68 +1,107 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   Accordion,
   ResponsiveContext,
   Box,
   Text,
   Grid,
-  Heading
+  RadioButtonGroup
 } from "grommet";
-import { Location, FormCalendar, WifiNone } from "grommet-icons";
+import { Location, FormCalendar } from "grommet-icons";
 import Position from "./Position";
+import { one, two } from "../Components/DummyData";
+import styled from "styled-components";
+import useSWR from "swr";
+import fetch from "unfetch";
+import { ballotReadyKeyLudo, googleKey } from "../Utils/apiKeys";
 
-// const columns = {
-//   small: ["auto"],
-//   medium: ["auto", "auto"],
-//   large: ["auto", "auto"],
-//   xlarge: ["auto", "auto"]
-// };
-
-// // if size if small, we have 3 rows
-// // if size if medium, we have 2 rows
-// // if size if large or xlarge, we have 1 row
-// const rows = {
-//   small: ["auto", "auto", "auto"],
-//   medium: ["auto", "auto"],
-//   large: ["auto", "auto"],
-//   xlarge: ["auto", "auto"]
-// };
-
-// // set the different areas you need for every size
-// const areas = {
-//   small: [
-//     { name: "address", start: [0, 0], end: [0, 0] },
-//     { name: "date", start: [0, 1], end: [0, 1] },
-//     { name: "positions", start: [0, 2], end: [0, 2] }
-//   ],
-//   medium: [
-//     { name: "address", start: [0, 0], end: [0, 0] },
-//     { name: "date", start: [1, 0], end: [1, 0] },
-//     { name: "positions", start: [0, 1], end: [1, 1] }
-//   ],
-//   large: [
-//     { name: "address", start: [0, 0], end: [0, 0] },
-//     { name: "date", start: [1, 0], end: [1, 0] },
-//     { name: "positions", start: [2, 0], end: [2, 0] }
-//   ],
-//   xlarge: [
-//     { name: "address", start: [0, 0], end: [0, 0] },
-//     { name: "date", start: [1, 0], end: [1, 0] },
-//     { name: "positions", start: [2, 0], end: [2, 0] }
-//   ]
-// };
-
-export default ({ data }) => {
+export default () => {
   const size = useContext(ResponsiveContext);
+  const [value, setValue] = useState("c2");
+
+  const fetcher = url => fetch(url).then(res => res.json());
+
+  const address = "918 Linwood Road, Birmingham AL, 35222";
+
+  // const { data, error } = useSWR(
+  //   encodeURI(
+  //     `https://www.googleapis.com/civicinfo/v2/representatives?` +
+  //       `key=${googleKey}&` +
+  //       `address=${address}`
+  //   ),
+  //   fetcher
+  // );
+
+  const { dataTwo, errorTwo } = useSWR(
+    `https://www.googleapis.com/civicinfo/v2/representatives?` +
+      `key=${googleKey}&` +
+      `address=${encodeURI(address)}`,
+    fetcher
+  );
+
+  console.log("DATA: " + dataTwo, "ERROR: " + errorTwo);
+
+  // const categorizedData = new Map(
+  //   Array.from(
+  //     new Map(data.offices.map(d => [d.name, [d]])),
+  //     ([office, value]) => ({
+  //       office,
+  //       level: value[0].levels[0],
+  //       politicians: value[0].officialIndices.map(d => data.officials[d])
+  //     })
+  //   )
+  //     .reverse()
+  //     .map(d => [categorize(d.level), d])
+  // );
+
+  // console.log(categorizedData);
+
+  function categorize(input) {
+    if (input === "country") {
+      return "Federal";
+    } else if (input === "administrativeArea1") {
+      return "State";
+    } else {
+      return "Local";
+    }
+  }
+
   /*   
   Split the positions into the most important and regular ones
   positionsArray -> <Position />  (Highlighted Positions)
-                 -> <Position />  (Regular Positions)
+                 -> <Position />  (Regular Positions)           
   */
-  const Highlighted = data.filter(({ tagged }) => tagged);
-  const Regular = data.filter(({ tagged }) => !tagged);
+  const Highlighted =
+    value === "c1"
+      ? one.filter(({ tagged }) => tagged)
+      : two.filter(({ tagged }) => tagged);
+  const Regular =
+    value === "c1"
+      ? one.filter(({ tagged }) => !tagged)
+      : two.filter(({ tagged }) => !tagged);
+
+  ////////// BALLOTREADY API //////////
+  // const fetcher = url =>
+  //   fetch(url, {
+  //     headers: { "x-api-key": ballotReadyKeyLudo }
+  //   })
+  //     .then(res => res.json())
+  //     .then(txt => console.log(txt));
+
+  // const { data, error } = useSWR(
+  //   `https://api.civicengine.com/positions?` +
+  //     `lat=${lat}&` +
+  //     `lon=${lng}&` +
+  //     `include_candidates=${1}&` +
+  //     `include_endorsements=${1}&` +
+  //     `include_office_holders=${1}&` +
+  //     `include_volunteer_urls=${1}`,
+  //   fetcher
+  // );
 
   return (
     <Grid
+      fill
       columns={["1/2", "1/2"]}
       rows={[["flex"], ["full"]]}
       areas={
@@ -80,60 +119,57 @@ export default ({ data }) => {
     >
       <Box
         gridArea="electionDate"
-        margin={{ vertical: "large", horizontal: "small" }}
+        align={size === "small" ? "start" : "center"}
+        pad="medium"
         direction="column"
         gap="xsmall"
       >
-        <Box alignSelf={size === "small" ? "start" : "center"}>
-          <FormCalendar color="gold" size="large" />
-          <Text size="xlarge" weight="bold">
-            Next Election
-          </Text>
-          <Text style={{ fontFamily: "IBM PLex Mono" }}>
-            Presidential General Election
-            <br />
-            November 3rd, 2020
-          </Text>
-        </Box>
+        <FormCalendar color="gold" size="large" />
+        <Text size="xlarge" weight="bold" textAlign="start">
+          Next Election
+        </Text>
+        <Text style={{ fontFamily: "IBM PLex Mono" }} textAlign="start">
+          Presidential General Election
+          <br />
+          November 3rd, 2020
+        </Text>
       </Box>
       <Box
         gridArea="voterAddress"
-        margin={{ vertical: "large", horizontal: "small" }}
+        align={size === "small" ? "start" : "center"}
+        pad="medium"
         direction="column"
         gap="xsmall"
       >
-        <Box alignSelf={size === "small" ? "start" : "center"}>
-          <Location color="gold" size="large" />
-          <Text size="large" weight="bold">
-            Registration Address
-          </Text>
-          <Text style={{ fontFamily: "IBM PLex Mono" }}>
-            501 Twin Peaks Boulevard
-            <br />
-            San Francisco, California
-            <br />
-            94114
-          </Text>
-        </Box>
-      </Box>
-      {/* <Box gridArea="disclaimer" align="center">
-        <Text
-          textAlign="center"
-          size="medium"
-          margin={
-            size === "small"
-              ? { vertical: "small", horizontal: "xsmall" }
-              : { vertical: "large", horizontal: "xsmall" }
-          }
-        >
-          <i>
-            <b>Disclaimer:</b> This is a demo app. <br />
-            It will <u>only</u> show the results of last year's San Francisco
-            local elections.
-          </i>
+        <Location color="gold" size="large" />
+        <Text size="large" weight="bold" textAlign="start">
+          Registration Address
         </Text>
-      </Box> */}
+        <Text style={{ fontFamily: "IBM PLex Mono" }} textAlign="start">
+          501 Twin Peaks Boulevard
+          <br />
+          San Francisco, California
+          <br />
+          94114
+        </Text>
+      </Box>
       <Box gridArea="positions" align="center" fill="vertical">
+        <Box alignSelf={size === "small" ? "start" : "center"} pad="medium">
+          <RadioButtonGroup
+            style={{ fontFamily: "IBM Plex Mono" }}
+            direction="row"
+            name="radio"
+            options={[
+              {
+                label: <MetaData>Police & Prisons</MetaData>,
+                value: "c1"
+              },
+              { label: <MetaData>All Elected Officials</MetaData>, value: "c2" }
+            ]}
+            value={value}
+            onChange={event => setValue(event.target.value)}
+          />
+        </Box>
         <Accordion
           focusIndicator={false}
           fill={true}
@@ -155,3 +191,19 @@ export default ({ data }) => {
     </Grid>
   );
 };
+
+const MetaData = styled(Text)`
+  font-family: "IBM Plex Mono";
+  font-size: 1em;
+  letter-spacing: -0.7px;
+
+  @media screen and (max-width: 375px) {
+    font-size: 0.9em;
+  }
+
+  :hover {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: gold;
+  }
+`;

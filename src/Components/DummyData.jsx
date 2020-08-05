@@ -11,239 +11,30 @@ REFERENCE (each of these elements can be repeated infinitely)
 
 // You can import more photos here using the same syntax.
 // But if you leave the photo blank, it will default to a generic avatar icon
-
-// export const one = [
-//   {
-//     positionName: "San Francisco District Attorney",
-//     tagged: true,
-//     position_id: 228408,
-//     level: "COUNTY",
-//     normalizedPosition: "District Attorney",
-//     voteRaw: "2,840",
-//     voteMargin: 1.6,
-//     description:
-//       "The District Attorney is the chief legal representative of the county.",
-//     candidatesInfo: [
-//       {
-//         first_name: "Suzy",
-//         last_name: "Loftus",
-//         election_result: "Lost",
-//         incumbent: false,
-//         position_id: 228408,
-//         endorsements: [
-//           { color: "blue", name: "color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true }
-//         ],
-//         id: 329221,
-//         party_name: "Nonpartisan",
-//         thumb_url:
-//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
-//       }
-//     ]
-//   },
-//   {
-//     positionName: "San Francisco District Attorney",
-//     tagged: true,
-//     position_id: 228408,
-//     level: "COUNTY",
-//     normalizedPosition: "District Attorney",
-//     voteRaw: "2,840",
-//     voteMargin: 1.6,
-//     description:
-//       "The District Attorney is the chief legal representative of the county.",
-//     candidatesInfo: [
-//       {
-//         first_name: "Suzy",
-//         last_name: "Loftus",
-//         election_result: "Lost",
-//         incumbent: false,
-//         position_id: 228408,
-//         endorsements: [
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true }
-//         ],
-//         id: 329221,
-//         party_name: "Nonpartisan",
-//         thumb_url:
-//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
-//       }
-//     ]
-//   },
-//   {
-//     positionName: "San Francisco District Attorney",
-//     tagged: true,
-//     position_id: 228408,
-//     level: "COUNTY",
-//     normalizedPosition: "District Attorney",
-//     voteRaw: "2,840",
-//     voteMargin: 1.6,
-//     description:
-//       "The District Attorney is the chief legal representative of the county.",
-//     candidatesInfo: [
-//       {
-//         first_name: "Suzy",
-//         last_name: "Loftus",
-//         election_result: "Lost",
-//         incumbent: false,
-//         position_id: 228408,
-//         endorsements: [
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true }
-//         ],
-//         id: 329221,
-//         party_name: "Nonpartisan",
-//         thumb_url:
-//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
-//       }
-//     ]
-//   },
-//   {
-//     positionName: "San Francisco District Attorney",
-//     tagged: true,
-//     position_id: 228408,
-//     level: "COUNTY",
-//     normalizedPosition: "District Attorney",
-//     voteRaw: "2,840",
-//     voteMargin: 1.6,
-//     description:
-//       "The District Attorney is the chief legal representative of the county.",
-//     candidatesInfo: [
-//       {
-//         first_name: "Suzy",
-//         last_name: "Loftus",
-//         election_result: "Lost",
-//         incumbent: false,
-//         position_id: 228408,
-//         endorsements: [
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true }
-//         ],
-//         id: 329221,
-//         party_name: "Nonpartisan",
-//         thumb_url:
-//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
-//       }
-//     ]
-//   },
-//   {
-//     positionName: "San Francisco District Attorney",
-//     tagged: true,
-//     position_id: 228408,
-//     level: "COUNTY",
-//     normalizedPosition: "District Attorney",
-//     voteRaw: "2,840",
-//     voteMargin: 1.6,
-//     description:
-//       "The District Attorney is the chief legal representative of the county.",
-//     candidatesInfo: [
-//       {
-//         first_name: "Suzy",
-//         last_name: "Loftus",
-//         election_result: "Lost",
-//         incumbent: false,
-//         position_id: 228408,
-//         endorsements: [
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true },
-//           { color: "blue", name: "Color of Change", key: false },
-//           { color: "red", name: "NRA", key: true }
-//         ],
-//         id: 329221,
-//         party_name: "Nonpartisan",
-//         thumb_url:
-//           "https://br-production-assets.s3.amazonaws.com/uploads/candidate/headshot/329221/thumb_329221.jpg"
-//       }
-//     ]
-//   }
-// ];
+export const one = [
+  {
+    positionName: "Governor of California",
+    tagged: false,
+    position_id: 666,
+    level: "STATE",
+    normalizedPosition: "Governor",
+    voteRaw: "2,978,585",
+    voteMargin: 24, // Need runner up data
+    description:
+      "The Governor of California is the head of government of the U.S. state of California. The California Governor is the chief executive of the state government and the commander-in-chief of the California National Guard and the California State Guard.",
+    candidatesInfo: [
+      {
+        first_name: "Gavin",
+        last_name: "Newsom",
+        party_name: "Democrat",
+        election_result: "Won",
+        thumb_url:
+          "https://upload.wikimedia.org/wikipedia/commons/2/20/Gavin_Newsom_official_photo.jpg",
+        endorsements: []
+      }
+    ]
+  }
+];
 
 export const two = [
   {

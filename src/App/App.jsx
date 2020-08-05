@@ -12,11 +12,9 @@ import Contact from "../Pages/Contact";
 // Component imports
 import Footer from "../Components/Footer";
 import Lookup from "../Components/Lookup";
-import { one, two } from "../Components/DummyData";
 
 // Grommet global theme
 import Theme from "../Utils/Theme.json";
-import { Context } from "../Utils/LatLng";
 
 export default () => {
   return (
@@ -25,7 +23,7 @@ export default () => {
         <Box flex="grow">
           <Router>
             <Home path="/" />
-            <Lookup path="lookup" data={two} />
+            <Lookup path="lookup" />
             <About path="about" />
             <Methods path="methods" />
             <Contact path="contact" />

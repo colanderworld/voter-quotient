@@ -8,9 +8,6 @@ import LocationInput from "../Components/LocationInput";
 
 // Visual imports
 import Logo from "../Icons/dontwait-1.png";
-// import { Context } from "../Contexts/LatLng";
-// import { Underline } from "grommet-icons";
-// import { Response } from "../Components/Response";
 
 const Home = () => {
   // const { latlng } = useContext(Context);
@@ -30,14 +27,6 @@ const Home = () => {
           </i>
         </Text>
       </Box>
-      {/* <Box fill={true} background="blue" basis="large" size="medium">
-        <Box basis="1/4">
-          <Heading margin="large">Hello</Heading>
-        </Box>
-        <Box basis="3/4">
-          <Heading margin="large">Hello</Heading>
-        </Box>
-      </Box> */}
     </Main>
   );
 };
