@@ -101,18 +101,12 @@ export default (address) => {
             {renderSuggestions()}
           </ComboboxList>
         ) : (
-          <ComboboxList>
-            <ComboboxOption
-              value={
-                <div>
-                  <span aria-label="embaressed face emoji" role="img">
-                    😳
-                  </span>
-                  &nbsp;We couldn't find that address! Please try another.
-                </div>
-              }
-            />
-          </ComboboxList>
+          <div>
+            <span aria-label="embaressed face emoji" role="img">
+              😳
+            </span>
+            &nbsp;We couldn't find that address! Please try another.
+          </div>
         )}
       </StyledComboboxPopover>
     </Combobox>
