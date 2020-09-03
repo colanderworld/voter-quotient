@@ -1,8 +1,9 @@
-import React, { useContext } from "react"; // KeyboardEvent
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 import usePlacesAutocomplete, {
   getGeocode,
-  getLatLng,
+  getLatLng
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 import {
@@ -10,122 +11,130 @@ import {
   ComboboxInput,
   ComboboxPopover,
   ComboboxList,
-  ComboboxOption,
+  ComboboxOption
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import { Box } from "grommet";
+import { Box, Text, Main } from "grommet";
 // import { FormSearch, Search } from "grommet-icons";
 
 import { Context } from "../Utils/LatLng";
+import Lookup from "../Components/Lookup";
 import { navigate } from "@reach/router";
 
-import Lookup from "./Lookup";
-
-export default (address) => {
+export default address => {
   const { setLatlng, latlng } = useContext(Context);
+  const [positions, setPositions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const {
     value,
     suggestions: { status, data },
     setValue,
-    clearSuggestions,
+    clearSuggestions
   } = usePlacesAutocomplete({
     requestOptions: {
-      componentRestrictions: { country: "us" },
+      componentRestrictions: { country: "us" }
       /* Define search scope here */
     },
-    debounce: 200,
+    debounce: 200
   });
 
   const ref = useOnclickOutside(() => {
-    // When user clicks outside of the component,
-    // we can dismiss the searched suggestions by calling this method
     clearSuggestions();
   });
 
-  const handleInput = (e) => {
-    // Update the keyword of the input element
+  const handleInput = e => {
     setValue(e.target.value);
   };
 
   const handleSelect = ({ description }) => () => {
-    // When user selects a place, we can replace the keyword without request data from API
-    // by setting the second parameter as "false"
-    setValue(description, false);
     clearSuggestions();
+    setValue(description, false);
     address = description;
-    navigate(`/lookup`);
 
-    // Get latitude and longitude via utility functions
     getGeocode({ address: description })
-      .then((results) => getLatLng(results[0]))
+      .then(results => getLatLng(results[0]))
       .then(({ lat, lng }) => {
         console.log("📍 Coordinates: ", { lat, lng });
         setLatlng({ lat, lng });
+        setIsLoading(true);
+        axios(
+          `https://dont-wait-api.vercel.app/api?lat=${lat}&lon=${lng}`
+        ).then(res => {
+          console.log(res);
+          setPositions(res.data.data);
+          setIsLoading(false);
+        });
       })
-      .catch((error) => {
+      .catch(error => {
         console.log("😱 Error: ", error);
       });
-
-    return <Lookup lat={latlng.lat} lng={latlng.lng} />;
   };
 
   const renderSuggestions = () =>
-    data.map((suggestion) => {
+    data.map(suggestion => {
       const {
         id,
-        structured_formatting: { main_text, secondary_text },
+        structured_formatting: { main_text, secondary_text }
       } = suggestion;
 
       return (
         <ComboboxOption
           key={id}
           onClick={handleSelect(suggestion)}
-          value={main_text + " " + secondary_text}
+          value={
+            <Box direction="row">
+              <Text weight="bold">{main_text}</Text>
+              ,&nbsp;
+              <Text>{secondary_text}</Text>
+            </Box>
+          }
           style={{ overflow: "scroll" }}
         />
       );
     });
 
   return (
-    <Combobox onSelect={handleSelect} ref={ref}>
-      <Box width="550px">
-        <StyledComboboxInput
-          value={value}
-          onChange={handleInput}
-          placeholder="type address here"
-        />
-      </Box>
-      <StyledComboboxPopover portal={false}>
-        {status === "OK" && status.length > 0 ? (
-          <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
-            {renderSuggestions()}
-          </ComboboxList>
-        ) : (
-          <ComboboxList>
-            <ComboboxOption
-              value={
-                <div>
-                  <span aria-label="embaressed face emoji" role="img">
-                    😳
-                  </span>
-                  &nbsp;We couldn't find that address! Please try another.
-                </div>
-              }
-            />
-          </ComboboxList>
-        )}
-      </StyledComboboxPopover>
-    </Combobox>
+    <Main fill={true} align="center">
+      <Combobox onSelect={handleSelect} ref={ref}>
+        <Box width="550px">
+          <StyledComboboxInput
+            value={value}
+            onChange={handleInput}
+            placeholder="Type your address here"
+          />
+        </Box>
+        <StyledComboboxPopover portal={false}>
+          {status === "OK" && status.length > 0 && !isLoading ? (
+            <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
+              {renderSuggestions()}
+            </ComboboxList>
+          ) : (
+            <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
+              <div>
+                <span aria-label="embaressed face emoji" role="img">
+                  😳
+                </span>
+                &nbsp;We couldn't find that address! Please try another.
+              </div>
+            </ComboboxList>
+          )}
+        </StyledComboboxPopover>
+      </Combobox>
+      {isLoading ? (
+        <div>Getting your election data!</div>
+      ) : (
+        <Lookup data={positions} address={address}></Lookup>
+      )}
+    </Main>
   );
 };
 
 const StyledComboboxPopover = styled(ComboboxPopover)`
-  /* font-family: 'IBM Plex Mono'; */
   padding: 2px;
   font-size: 1.5em;
   line-height: 1.2em;
   max-width: 544px;
-  /* overflow-x: hidden; */
 `;
 
 const StyledComboboxInput = styled(ComboboxInput)`

@@ -10,7 +10,7 @@ export default () => {
   const { setLatlng } = useContext(Context);
 
   const { latitude, longitude, error } = usePosition({
-    enableHighAccuracy: true,
+    enableHighAccuracy: true
   });
 
   return (

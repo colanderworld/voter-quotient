@@ -43,7 +43,7 @@ export default ({
 
   return (
     <Box direction={size === "small" ? "row-reverse" : "row"}>
-      <Box>
+      {/* <Box>
         <Box
           align={size === "small" ? "start" : "end"}
           width="120px"
@@ -99,7 +99,7 @@ export default ({
           </Drop>
         )}
       </Box>
-      <MetaData>|</MetaData>
+      <MetaData>|</MetaData> */}
       <Box>
         <Box
           align={size === "small" ? "start" : "end"}

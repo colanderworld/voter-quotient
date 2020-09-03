@@ -11,14 +11,14 @@ import MetaInfo from "./MetaInfo";
 
 export default ({ data }) => {
   const {
-    normalizedPosition,
-    positionName,
+    normalzied_position_name,
+    position_name,
     description,
     level,
     voteMargin,
     voteRaw,
     tagged,
-    candidatesInfo
+    candidates
   } = data;
 
   const size = useContext(ResponsiveContext);
@@ -31,13 +31,13 @@ export default ({ data }) => {
   candidatesArray -> <Candidate />  (Incumbent Candidates)
                   -> <Candidate />  (Challenger Candidates)
   */
-  const Incumbent = candidatesInfo
-    .filter(({ election_result }) => election_result === "Won")
-    .map((filtered, { id }) => <Candidate key={id} data={filtered} />);
+  const Incumbent = candidates
+    .filter(({ candidacies }) => candidacies[0].incumbent)
+    .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
-  const Challenger = candidatesInfo
-    .filter(({ election_result }) => election_result !== "Won")
-    .map((filtered, { id }) => <Candidate key={id} data={filtered} />);
+  const Challenger = candidates
+    .filter(({ candidacies }) => !candidacies[0].incumbent)
+    .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
   return (
     <AccordionPanel
@@ -61,7 +61,7 @@ export default ({ data }) => {
               weight="bold"
               style={{ fontSize: "1.6em", lineHeight: "1.5em" }}
             >
-              {positionName}
+              {position_name}
             </Text>
             {tagged && <Star color="gold" size="30px" />}
           </Box>
@@ -95,12 +95,12 @@ export default ({ data }) => {
           >
             <MetaInfo
               margin={size === "small" && { horizontal: "small" }}
-              normalizedPosition={normalizedPosition}
-              positionName={positionName}
+              normalizedPosition={normalzied_position_name}
+              positionName={position_name}
               description={description}
               level={level}
-              voteMargin={voteMargin}
-              voteRaw={voteRaw}
+              // voteMargin={voteMargin}
+              // voteRaw={voteRaw}
             />
           </Box>
         </Box>
