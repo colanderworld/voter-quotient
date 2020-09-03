@@ -31,12 +31,12 @@ export default ({ data }) => {
           src={photo && photo}
           size="60px"
           border={{
-            color: getPartyColor(party_name),
+            color: getPartyColor(party),
             size: "small"
           }}
           alignSelf="center"
         >
-          {!photo && <User size="34px" color={getPartyColor(party_name)} />}
+          {!photo && <User size="34px" color={getPartyColor(party)} />}
         </Avatar>
         <Box direction="column" alignSelf="center">
           <Text size="20px" weight="bold">

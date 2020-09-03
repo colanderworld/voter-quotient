@@ -98,9 +98,9 @@ export const getPartyColor = party => {
   }
 };
 
-export const findLatestExperience = experiences => {
-  if (experiences.includes(exp => exp.end_year === "present")) {
-    return exp;
-  } else {
-  }
-};
+// export const findLatestExperience = experiences => {
+//   if (experiences.includes(exp => exp.end_year === "present")) {
+//     return exp;
+//   } else {
+//   }
+// };
