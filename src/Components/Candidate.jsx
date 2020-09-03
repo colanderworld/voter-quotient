@@ -3,9 +3,19 @@ import { Box, Avatar, Text } from "grommet";
 import { User } from "grommet-icons";
 import { getPartyColor } from "../Utils/Helpers";
 import Endorsement from "./Endorsement";
+import _ from "lodash";
 
 export default ({ data }) => {
-  const { name, party_name, photo, endorsements, election_result } = data;
+  const {
+    name,
+    party,
+    photo,
+    endorsements,
+    candidacies,
+    experience,
+    education,
+    issues
+  } = data;
   const Key = endorsements
     .filter(({ key }) => key)
     .map(data => <Endorsement key={data.id} data={data} />);
@@ -32,31 +42,28 @@ export default ({ data }) => {
           <Text size="20px" weight="bold">
             {name}
           </Text>
-          <Text size="small">{election_result} in 2019</Text>
+          {console.log(_.sortBy(experience, "end_year"))}
+          <Text size="small">ugh</Text>
         </Box>
       </Box>
       <Box pad={{ bottom: "medium" }} gap="xsmall">
         <Text size="16px" weight="bold">
           Endorsements
         </Text>
-        <Box
-          direction="row"
-          wrap={true}
-          margin={{ left: "-2px", bottom: "small" }}
-        >
-          {Key}
-          {Other}
-        </Box>
-        {/* <Text size="16px" weight="bold">
-          Other Endorsements
+        <Text size="16px" weight="bold">
+          Candidacies
         </Text>
-        <Box
-          direction="row"
-          wrap={true}
-          margin={{ left: "-2px", bottom: "small" }}
-        >
-          {Other}
-        </Box> */}
+        <Text size="16px" weight="bold">
+          Experience
+        </Text>
+        <Text size="16px" weight="bold">
+          Education
+        </Text>
+        <Text size="16px" weight="bold">
+          Issues
+        </Text>
+        <Box direction="row"></Box>
+        <Text></Text>
       </Box>
     </Box>
   );

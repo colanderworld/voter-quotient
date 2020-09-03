@@ -18,6 +18,7 @@ export default ({ data }) => {
     voteMargin,
     voteRaw,
     tagged,
+    candidates_meta,
     candidates
   } = data;
 

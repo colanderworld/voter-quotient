@@ -14,17 +14,18 @@ import {
   ComboboxOption
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import { Box, Text, Main } from "grommet";
-// import { FormSearch, Search } from "grommet-icons";
-
+import { Box, Text, Main, Heading } from "grommet";
 import { Context } from "../Utils/LatLng";
 import Lookup from "../Components/Lookup";
 import { navigate } from "@reach/router";
+
+import { dummy } from "../Components/DummyData";
 
 export default address => {
   const { setLatlng, latlng } = useContext(Context);
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const {
     value,
@@ -34,7 +35,6 @@ export default address => {
   } = usePlacesAutocomplete({
     requestOptions: {
       componentRestrictions: { country: "us" }
-      /* Define search scope here */
     },
     debounce: 200
   });
@@ -64,6 +64,7 @@ export default address => {
           console.log(res);
           setPositions(res.data.data);
           setIsLoading(false);
+          setIsLoaded(true);
         });
       })
       .catch(error => {
@@ -105,27 +106,34 @@ export default address => {
           />
         </Box>
         <StyledComboboxPopover portal={false}>
-          {status === "OK" && status.length > 0 && !isLoading ? (
-            <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
+          {status === "OK" && status.length > 0 ? (
+            <ComboboxList
+              style={{ whiteSpace: "nowrap", overflow: "scroll" }}
+              key={"id"}
+            >
               {renderSuggestions()}
             </ComboboxList>
           ) : (
-            <ComboboxList style={{ whiteSpace: "nowrap", overflow: "scroll" }}>
-              <div>
-                <span aria-label="embaressed face emoji" role="img">
-                  😳
-                </span>
-                &nbsp;We couldn't find that address! Please try another.
-              </div>
-            </ComboboxList>
+            <div>
+              <span aria-label="embaressed face emoji" role="img">
+                😳
+              </span>
+              &nbsp;We couldn't find that address! Please try another.
+            </div>
           )}
         </StyledComboboxPopover>
       </Combobox>
-      {isLoading ? (
-        <div>Getting your election data!</div>
+      <Lookup data={dummy.data} address={address}></Lookup>
+      {/* {isLoading ? (
+        <Heading>
+          <span aria-label="embaressed face emoji" role="img">
+            🙃
+          </span>
+          &nbsp;Getting your election data! Please wait.
+        </Heading>
       ) : (
-        <Lookup data={positions} address={address}></Lookup>
-      )}
+        isLoaded && <Lookup data={dummy} address={address}></Lookup>
+      )} */}
     </Main>
   );
 };

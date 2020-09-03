@@ -97,3 +97,10 @@ export const getPartyColor = party => {
     return "gray";
   }
 };
+
+export const findLatestExperience = experiences => {
+  if (experiences.includes(exp => exp.end_year === "present")) {
+    return exp;
+  } else {
+  }
+};
