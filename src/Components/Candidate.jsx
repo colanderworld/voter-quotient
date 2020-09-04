@@ -42,23 +42,42 @@ export default ({ data }) => {
           <Text size="20px" weight="bold">
             {name}
           </Text>
-          {console.log(_.sortBy(experience, "end_year"))}
-          <Text size="small">ugh</Text>
         </Box>
       </Box>
       <Box pad={{ bottom: "medium" }} gap="xsmall">
         <Text size="16px" weight="bold">
           Endorsements
         </Text>
-        <Text size="16px" weight="bold">
-          Candidacies
-        </Text>
+        {_.sortBy(endorsements, "name").map(
+          ({ name, description, website_url }) => (
+            <Box>
+              <Text size="small">{name}</Text>
+            </Box>
+          )
+        )}
+
         <Text size="16px" weight="bold">
           Experience
         </Text>
+        {_.sortBy(experience, "end_year")
+          .reverse()
+          .map(({ start_year, end_year, company, position }) => (
+            <Box>
+              <Text size="small">
+                {position}, {company}
+              </Text>
+              <Text size="small">
+                {start_year} - {end_year}
+              </Text>
+            </Box>
+          ))}
         <Text size="16px" weight="bold">
           Education
         </Text>
+        <Text size="16px" weight="bold">
+          Candidacies
+        </Text>
+
         <Text size="16px" weight="bold">
           Issues
         </Text>

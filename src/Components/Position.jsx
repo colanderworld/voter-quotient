@@ -11,7 +11,7 @@ import MetaInfo from "./MetaInfo";
 
 export default ({ data }) => {
   const {
-    normalzied_position_name,
+    normalized_position_name,
     position_name,
     description,
     level,
@@ -51,20 +51,22 @@ export default ({ data }) => {
           align="baseline"
           flex="grow"
         >
-          <Box
-            direction="row"
-            gap="xsmall"
-            ref={ref}
-            onMouseOver={() => size !== "small" && setOver(true)}
-            onMouseOut={() => size !== "small" && setOver(false)}
-          >
+          <Box direction="row" gap="xsmall">
             <Text
               weight="bold"
               style={{ fontSize: "1.6em", lineHeight: "1.5em" }}
             >
-              {position_name}
+              {normalized_position_name}
             </Text>
-            {tagged && <Star color="gold" size="30px" />}
+            {tagged && (
+              <Box
+                ref={ref}
+                onMouseOver={() => size !== "small" && setOver(true)}
+                onMouseOut={() => size !== "small" && setOver(false)}
+              >
+                <Star color="gold" size="30px" />
+              </Box>
+            )}
           </Box>
           {ref.current && over && (
             <Drop align={{ bottom: "top" }} target={ref.current} plain>
@@ -77,15 +79,9 @@ export default ({ data }) => {
                 round={{ size: "xsmall" }}
               >
                 <Text size="small" style={{ display: !tagged && "none" }}>
-                  This is one of our <b>highlighted races</b>. We believe it
-                  will have an outsized impact on policing and prisons in your
-                  community.
-                  <br />
-                  <br />
+                  This is one of our <b>highlighted races</b>.
                 </Text>
-                <Text size="small">
-                  <b>Click to see the candidates!</b>
-                </Text>
+                <Text size="small">Click to see the candidates!</Text>
               </Box>
             </Drop>
           )}
@@ -96,12 +92,10 @@ export default ({ data }) => {
           >
             <MetaInfo
               margin={size === "small" && { horizontal: "small" }}
-              normalizedPosition={normalzied_position_name}
+              normalizedPosition={normalized_position_name}
               positionName={position_name}
               description={description}
               level={level}
-              // voteMargin={voteMargin}
-              // voteRaw={voteRaw}
             />
           </Box>
         </Box>

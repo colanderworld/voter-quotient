@@ -1,24 +1,35 @@
 // Library imports
 import React, { useContext } from "react";
-import { Box, ResponsiveContext, Text, Avatar, Main } from "grommet";
-
-// Component imports
-import AddressInput from "../Components/AddressInput";
-// import LocationInput from "../Components/LocationInput";
-
-// import Logo from "../Icons/dontwait-1.png";
-// import { Context } from "../Contexts/LatLng";
-// import { Underline } from "grommet-icons";
-// import { Response } from "../Components/Response";
+import styled from "styled-components";
+import { ResponsiveContext, Text, Main, Heading, Box } from "grommet";
+import Input from "../Components/Input";
 
 const Home = () => {
-  // const { latlng } = useContext(Context);
   const size = useContext(ResponsiveContext);
   return (
     <Main fill={true} align="center">
-      <AddressInput />
+      <Box fill={true} align="left" width={{ max: "800px" }}>
+        <Box
+          fill={true}
+          margin={size === "small" ? { horizontal: "medium" } : 0}
+        >
+          <Title>Don't Wait, Vote!</Title>
+          <Text>
+            This summer has proved that policing in America is broken.
+            {size !== "small" ? <br /> : <span>&nbsp;</span>}
+            Politicians in Washington D.C. won't fix the problem.
+            {size !== "small" ? <br /> : <span>&nbsp;</span>}
+            Elect <b>local officials</b> who can actually changes things.
+          </Text>
+        </Box>
+        <Input />
+      </Box>
     </Main>
   );
 };
+
+const Title = styled(Heading)`
+  font-family: "IBM Plex Mono", monospace;
+`;
 
 export default Home;

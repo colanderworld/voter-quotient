@@ -18,6 +18,22 @@
       "shadow": {
         "color": "none"
       }
+    },
+    "breakpoints": {
+      "small": {
+        "value": 800,
+        "borderSize": {
+          "xsmall": "1px",
+          "small": "2px",
+          "medium": "4px",
+          "large": "6px",
+          "xlarge": "12px"
+        }
+      },
+      "medium": {
+        "value": 1536
+      },
+      "large": {}
     }
   },
   "accordion": {
