@@ -13,6 +13,7 @@ import {
 import "@reach/combobox/styles.css";
 import Lookup from "./Lookup";
 import { dummy } from "./DummyData";
+import { Wave } from "better-react-spinkit";
 
 export default () => {
   const [positions, setPositions] = useState([]);
@@ -40,7 +41,7 @@ export default () => {
     setValue(val, false);
     setIsLoading(true);
     axios(
-      `https://dont-wait-api.vercel.app/api?address=${encodeURI(val)}`
+      `https://dont-wait-api-jfqwonj6a.vercel.app/api?address=${encodeURI(val)}`
     ).then(res => {
       console.log(res);
       setPositions(res.data.data);
@@ -80,12 +81,12 @@ export default () => {
       </Combo>
       {/* <Lookup data={dummy.data}></Lookup> */}
       {isLoading ? (
-        <Text size="16px" weight="bold">
-          <span aria-label="embaressed face emoji" role="img">
-            🙃
-          </span>
-          &nbsp;Getting your election data! Please wait.
-        </Text>
+        <Box alignContent="center">
+          <Wave size={50} />
+          <Text size="16px" weight="bold">
+            Getting your election data! Please wait.
+          </Text>
+        </Box>
       ) : (
         isLoaded && <Lookup data={positions}></Lookup>
       )}
@@ -102,6 +103,7 @@ const Popover = styled(ComboboxPopover)`
   font-size: 1.5em;
   line-height: 1.2em;
   max-width: 594px;
+  font-family: sans-serif;
 `;
 
 const Input = styled(ComboboxInput)`

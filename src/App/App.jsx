@@ -6,7 +6,7 @@ import { Grommet, Box } from "grommet";
 // Informational pages
 import Home from "../Pages/Home";
 import About from "../Pages/About";
-import Methods from "../Pages/Methods";
+import Questions from "../Pages/Questions";
 import Contact from "../Pages/Contact";
 
 // Component imports
@@ -24,9 +24,9 @@ export default () => {
           {/* <Header /> */}
           <Router>
             <Home path="/" />
-            {/* <About path="about" />
-            <Methods path="methods" />
-            <Contact path="contact" /> */}
+            <About path="about" />
+            <Questions path="questions" />
+            <Contact path="contact" />
           </Router>
         </Box>
         <Footer />

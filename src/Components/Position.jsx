@@ -10,6 +10,9 @@ import Candidate from "./Candidate";
 import MetaInfo from "./MetaInfo";
 
 export default ({ data }) => {
+
+  // const positions = data.map(pos => )
+
   const {
     normalized_position_name,
     position_name,
