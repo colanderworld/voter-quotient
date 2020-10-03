@@ -1,14 +1,5 @@
 import React, { useContext } from "react";
-// import colanderLogo from "../Icons/tinhat_america.png";
-import {
-  Footer,
-  Box,
-  ResponsiveContext,
-  Button
-  // Text,
-  // Anchor,
-  // Avatar,
-} from "grommet";
+import { Footer, Box, ResponsiveContext, Button } from "grommet";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 
@@ -30,9 +21,6 @@ export default () => {
         <NavLink weight={400} to="contact">
           Contact
         </NavLink>
-        {/* <NavLink weight={400} to="questions">
-              F.A.Q.
-            </NavLink> */}
       </Box>
       <Box direction={size === "small" ? "column" : "row"} gap="small">
         <Button
@@ -47,20 +35,6 @@ export default () => {
           href="PUT-SURVEY-LINK-HERE"
         />
       </Box>
-      {/* <Box direction="column" align="center" gap="small">
-            <Box
-              direction={size === "small" ? "column" : "row"}
-              align="center"
-              gap="small"
-            >
-              <Text style={{ display: size === "small" && "none" }}>
-                A Colander World Project
-              </Text>
-              <Anchor href="https://github.com/colanderworld">
-                <Avatar src={colanderLogo} size="55px" alt="Colander World" />
-              </Anchor>
-            </Box>
-          </Box> */}
     </Footer>
   );
 };
