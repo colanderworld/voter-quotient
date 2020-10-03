@@ -2,10 +2,10 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import _ from "lodash";
-import { Box, Drop, Text, ResponsiveContext } from "grommet";
+import { Box, Text, ResponsiveContext } from "grommet";
 
 // Helper functions
-import { DefineLevel, VoteTally, BoldPostion } from "../Utils/Helpers";
+// import { DefineLevel, VoteTally, BoldPostion } from "../Utils/Helpers";
 
 const MetaData = styled(Text)`
   font-family: "IBM Plex Mono";

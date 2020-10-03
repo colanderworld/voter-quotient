@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Avatar, Text } from "grommet";
 import { User } from "grommet-icons";
 import { getPartyColor } from "../Utils/Helpers";
-import Endorsement from "./Endorsement";
 import _ from "lodash";
 
 export default ({ data }) => {
@@ -16,13 +15,6 @@ export default ({ data }) => {
     education,
     issues
   } = data;
-  const Key = endorsements
-    .filter(({ key }) => key)
-    .map(data => <Endorsement key={data.id} data={data} />);
-
-  const Other = endorsements
-    .filter(({ key }) => !key)
-    .map(data => <Endorsement key={data.id} data={data} />);
 
   return (
     <Box margin={{ vertical: "small" }}>

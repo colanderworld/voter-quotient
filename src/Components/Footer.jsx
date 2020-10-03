@@ -38,12 +38,12 @@ export default () => {
         <Button
           primary
           size={size === "small" ? "medium" : "large"}
-          label="Donate"
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
+          label="VOTE!"
+          href="https://www.ballotready.org/"
         />
         <Button
           size={size === "small" ? "medium" : "large"}
-          label="Survey"
+          label="Feedback"
           href="PUT-SURVEY-LINK-HERE"
         />
       </Box>

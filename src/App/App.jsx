@@ -1,5 +1,5 @@
 // Library imports
-import React, { useContext } from "react";
+import React from "react";
 import { Router } from "@reach/router";
 import { Grommet, Box } from "grommet";
 
@@ -10,7 +10,6 @@ import Questions from "../Pages/Questions";
 import Contact from "../Pages/Contact";
 
 // Component imports
-import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
 // Grommet global theme

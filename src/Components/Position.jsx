@@ -1,6 +1,14 @@
 // LIbrary imports
 import React, { useRef, useState, useContext } from "react";
-import { AccordionPanel, Box, Text, ResponsiveContext, Drop } from "grommet";
+import {
+  AccordionPanel,
+  Box,
+  Text,
+  ResponsiveContext,
+  Drop,
+  Anchor,
+  Heading
+} from "grommet";
 
 // Visual imports
 import { Star } from "grommet-icons";
@@ -10,18 +18,12 @@ import Candidate from "./Candidate";
 import MetaInfo from "./MetaInfo";
 
 export default ({ data }) => {
-
-  // const positions = data.map(pos => )
-
   const {
     normalized_position_name,
     position_name,
     description,
     level,
-    voteMargin,
-    voteRaw,
     tagged,
-    candidates_meta,
     candidates
   } = data;
 
@@ -36,11 +38,11 @@ export default ({ data }) => {
                   -> <Candidate />  (Challenger Candidates)
   */
   const Incumbent = candidates
-    .filter(({ candidacies }) => candidacies[0].incumbent)
+    .filter(({ incumbent }) => incumbent)
     .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
   const Challenger = candidates
-    .filter(({ candidacies }) => !candidacies[0].incumbent)
+    .filter(({ incumbent }) => !incumbent)
     .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
   return (
@@ -84,7 +86,9 @@ export default ({ data }) => {
                 <Text size="small" style={{ display: !tagged && "none" }}>
                   This is one of our <b>highlighted races</b>.
                 </Text>
-                <Text size="small">Click to see the candidates!</Text>
+                <Text size="small">
+                  This position has a <b>direct impact on police</b>.
+                </Text>
               </Box>
             </Drop>
           )}
@@ -106,10 +110,30 @@ export default ({ data }) => {
     >
       <Box direction={size === "small" ? "column" : "row"} pad="xsmall">
         <Box basis={size === "small" ? "full" : "1/2"} direction="column">
-          {Incumbent}
+          {Challenger.length === 0 ? (
+            <Box
+              border={{ color: "brand", size: "xsmall" }}
+              pad="medium"
+              round="medium"
+            >
+              <Heading level={2}>No data yet :(</Heading>{" "}
+              <Text>
+                We use{" "}
+                <Anchor to="https://www.ballotready.org/">BallotReady</Anchor>{" "}
+                for candidate info. <br />
+                Please consult{" "}
+                <Anchor to="https://docs.google.com/spreadsheets/d/1vONk2dmSVJg-6aRbEPbNcPLE08V9K79CGDo5fwGxE6A/edit?mc_cid=3fb5adf7dd&mc_eid=f15ad0889d#gid=2026863387">
+                  their calendar
+                </Anchor>{" "}
+                to see when your data will be available.
+              </Text>
+            </Box>
+          ) : (
+            Challenger
+          )}
         </Box>
         <Box basis={size === "small" ? "full" : "1/2"} direction="column">
-          {Challenger}
+          {Incumbent}
         </Box>
       </Box>
     </AccordionPanel>

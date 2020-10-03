@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import usePlacesAutocomplete from "use-places-autocomplete";
-import { Box, Text, ResponsiveContext } from "grommet";
+import { Box, Text } from "grommet";
 import {
   Combobox,
   ComboboxInput,
@@ -12,14 +12,12 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import Lookup from "./Lookup";
-import { dummy } from "./DummyData";
 import { Wave } from "better-react-spinkit";
 
 export default () => {
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const size = useContext(ResponsiveContext);
 
   const {
     ready,
@@ -79,13 +77,12 @@ export default () => {
           </Popover>
         </Box>
       </Combo>
-      {/* <Lookup data={dummy.data}></Lookup> */}
       {isLoading ? (
-        <Box alignContent="center">
-          <Wave size={50} />
+        <Box align="center" gap="medium">
           <Text size="16px" weight="bold">
             Getting your election data! Please wait.
           </Text>
+          <Wave size={50} />
         </Box>
       ) : (
         isLoaded && <Lookup data={positions}></Lookup>

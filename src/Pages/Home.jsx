@@ -19,7 +19,8 @@ const Home = () => {
             {size !== "small" ? <br /> : <span>&nbsp;</span>}
             Politicians in Washington D.C. won't fix the problem.
             {size !== "small" ? <br /> : <span>&nbsp;</span>}
-            Elect <b>local officials</b> who can actually changes things.
+            Learn about <b>state</b> and <b>local</b> officials who can make a
+            difference.
           </Text>
         </Box>
         <Input />
