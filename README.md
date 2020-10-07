@@ -36,10 +36,6 @@ _Don't Wait — Vote_ is a criminal justice ballot guide that holds politicians 
 
 ## Development
 
-### [Prototyping Notebook](https://observablehq.com/@elibenton/ballotready-api)
-
-_Please check this [Observable Notebook](https://observablehq.com/@elibenton/ballotready-api) before going any further! It contains everything you need to know about how this web app is going to work!_
-
 ### Starting From Scratch! (for the first timers ❤️)
 
 **First:** _Download a code editor_
@@ -86,14 +82,6 @@ _This web app uses [Custom Hooks](https://reactjs.org/docs/hooks-custom.html). N
 #### BallotReady API
 
 [Their documenation](https://developers.civicengine.com/docs/api)
-
-#### Google Civic Info API
-
-[Their reference](https://developers.google.com/civic-information/docs/v2)
-
-#### MIT Election Lab
-
-[Their data](https://electionlab.mit.edu/data)
 
 ## Demployment
 

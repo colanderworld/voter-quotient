@@ -10,7 +10,6 @@ export default ({ data }) => {
     party,
     photo,
     endorsements,
-    candidacies,
     experience,
     education,
     issues
