@@ -91,7 +91,7 @@ export const DefineLevel = level => {
 export const getPartyColor = party => {
   if (party === "Republican") {
     return "red";
-  } else if (party === "Democrat") {
+  } else if (party === "Democratic") {
     return "blue";
   } else {
     return "gray";

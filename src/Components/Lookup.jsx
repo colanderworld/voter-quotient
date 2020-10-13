@@ -1,26 +1,23 @@
-import React, { useContext, useState } from "react";
-import { Accordion, ResponsiveContext, Text, CheckBox, Box } from "grommet";
+import React, { useContext } from "react";
+import { Accordion, ResponsiveContext, Box, Heading } from "grommet";
 import Position from "./Position";
 
 export default ({ data }) => {
   const size = useContext(ResponsiveContext);
-  const [checked, setChecked] = useState(false);
-  const Highlighted = data.filter(({ tagged }) => tagged);
-  const Regular = data.filter(({ tagged }) => !tagged);
+  const State = data.filter(({ level }) => level === "state");
+  const Local = data.filter(
+    ({ level }) => level !== "federal" && level !== "state"
+  );
 
   return (
     <>
-      <Box fill={true} margin={size === "small" ? { horizontal: "medium" } : 0}>
-        <CheckBox
-          checked={checked}
-          label={
-            <Text size="18px" weight="bolc">
-              Show All Positions
-            </Text>
-          }
-          onChange={event => setChecked(event.target.checked)}
-        />
-      </Box>
+      <Box
+        fill={true}
+        margin={size === "small" ? { horizontal: "medium" } : 0}
+      ></Box>
+      <Heading level={1} margin="xsmall">
+        State
+      </Heading>
       <Accordion
         focusIndicator={false}
         fill={true}
@@ -29,14 +26,17 @@ export default ({ data }) => {
         width={size === "small" ? { max: "800px" } : "800px"}
         margin={{ top: "1em", bottom: "8em" }}
       >
-        {Highlighted.length !== 0 &&
-          Highlighted.map(data => (
+        {State.length !== 0 &&
+          State.map(data => (
             <Position key={data.position_id.toString()} data={data} />
           ))}
-
-        {checked &&
-          Regular.length !== 0 &&
-          Regular.map(data => (
+      </Accordion>
+      <Heading level={1} margin="xsmall">
+        Local
+      </Heading>
+      <Accordion>
+        {Local.length !== 0 &&
+          Local.map(data => (
             <Position key={data.position_id.toString()} data={data} />
           ))}
       </Accordion>

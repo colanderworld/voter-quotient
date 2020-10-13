@@ -1,14 +1,5 @@
 import React, { useContext } from "react";
-// import colanderLogo from "../Icons/tinhat_america.png";
-import {
-  Footer,
-  Box,
-  ResponsiveContext,
-  Button
-  // Text,
-  // Anchor,
-  // Avatar,
-} from "grommet";
+import { Footer, Box, ResponsiveContext, Button } from "grommet";
 import { Link } from "@reach/router";
 import styled from "styled-components";
 
@@ -24,43 +15,26 @@ export default () => {
         <NavLink weight={400} to="about">
           About
         </NavLink>
-        <NavLink weight={400} to="methods">
-          Methods
-        </NavLink>
+        {/* <NavLink weight={400} to="questions">
+          Questions
+        </NavLink> */}
         <NavLink weight={400} to="contact">
           Contact
         </NavLink>
-        {/* <NavLink weight={400} to="questions">
-              F.A.Q.
-            </NavLink> */}
       </Box>
       <Box direction={size === "small" ? "column" : "row"} gap="small">
         <Button
           primary
           size={size === "small" ? "medium" : "large"}
-          label="Donate"
-          href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PYXFUUAH9PZRC&source=url"
+          label="VOTE!"
+          href="https://www.ballotready.org/"
         />
         <Button
           size={size === "small" ? "medium" : "large"}
-          label="Survey"
+          label="Feedback"
           href="PUT-SURVEY-LINK-HERE"
         />
       </Box>
-      {/* <Box direction="column" align="center" gap="small">
-            <Box
-              direction={size === "small" ? "column" : "row"}
-              align="center"
-              gap="small"
-            >
-              <Text style={{ display: size === "small" && "none" }}>
-                A Colander World Project
-              </Text>
-              <Anchor href="https://github.com/colanderworld">
-                <Avatar src={colanderLogo} size="55px" alt="Colander World" />
-              </Anchor>
-            </Box>
-          </Box> */}
     </Footer>
   );
 };

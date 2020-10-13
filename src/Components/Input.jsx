@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import usePlacesAutocomplete from "use-places-autocomplete";
-import { Box, Text, ResponsiveContext } from "grommet";
+import { Box, Text } from "grommet";
 import {
   Combobox,
   ComboboxInput,
@@ -12,13 +12,12 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import Lookup from "./Lookup";
-import { dummy } from "./DummyData";
+import { Wave } from "better-react-spinkit";
 
 export default () => {
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const size = useContext(ResponsiveContext);
 
   const {
     ready,
@@ -40,13 +39,21 @@ export default () => {
     setValue(val, false);
     setIsLoading(true);
     axios(
-      `https://dont-wait-api.vercel.app/api?address=${encodeURI(val)}`
+      `https://dont-wait-api-fiwtla3wv.vercel.app/api?address=${encodeURI(val)}`
     ).then(res => {
       console.log(res);
       setPositions(res.data.data);
       setIsLoading(false);
       setIsLoaded(true);
     });
+    // axios(
+    //   `https://dont-wait-api-jfqwonj6a.vercel.app/api?address=${encodeURI(val)}`
+    // ).then(res => {
+    //   console.log(res);
+    //   setPositions(res.data.data);
+    //   setIsLoading(false);
+    //   setIsLoaded(true);
+    // });
   };
 
   return (
@@ -78,14 +85,13 @@ export default () => {
           </Popover>
         </Box>
       </Combo>
-      {/* <Lookup data={dummy.data}></Lookup> */}
       {isLoading ? (
-        <Text size="16px" weight="bold">
-          <span aria-label="embaressed face emoji" role="img">
-            🙃
-          </span>
-          &nbsp;Getting your election data! Please wait.
-        </Text>
+        <Box align="center" gap="medium">
+          <Text size="16px" weight="bold">
+            Getting your election data! Please wait.
+          </Text>
+          <Wave size={50} />
+        </Box>
       ) : (
         isLoaded && <Lookup data={positions}></Lookup>
       )}
@@ -102,6 +108,7 @@ const Popover = styled(ComboboxPopover)`
   font-size: 1.5em;
   line-height: 1.2em;
   max-width: 594px;
+  font-family: sans-serif;
 `;
 
 const Input = styled(ComboboxInput)`

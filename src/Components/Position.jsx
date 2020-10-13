@@ -1,6 +1,14 @@
 // LIbrary imports
 import React, { useRef, useState, useContext } from "react";
-import { AccordionPanel, Box, Text, ResponsiveContext, Drop } from "grommet";
+import {
+  AccordionPanel,
+  Box,
+  Text,
+  ResponsiveContext,
+  Drop,
+  Anchor,
+  Heading
+} from "grommet";
 
 // Visual imports
 import { Star } from "grommet-icons";
@@ -15,29 +23,20 @@ export default ({ data }) => {
     position_name,
     description,
     level,
-    voteMargin,
-    voteRaw,
     tagged,
-    candidates_meta,
     candidates
   } = data;
 
   const size = useContext(ResponsiveContext);
-  const [over, setOver] = useState();
+  const [over, setOver] = useState(false);
   const ref = useRef();
 
-  /*
-  Split the candidates into current office holders and those we don't
-
-  candidatesArray -> <Candidate />  (Incumbent Candidates)
-                  -> <Candidate />  (Challenger Candidates)
-  */
-  const Incumbent = candidates
-    .filter(({ candidacies }) => candidacies[0].incumbent)
+  const Democrat = candidates
+    .filter(({ party }) => party === "Democratic")
     .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
-  const Challenger = candidates
-    .filter(({ candidacies }) => !candidacies[0].incumbent)
+  const Other = candidates
+    .filter(({ party }) => party !== "Democratic")
     .map(filtered => <Candidate key={filtered.name} data={filtered} />);
 
   return (
@@ -81,7 +80,9 @@ export default ({ data }) => {
                 <Text size="small" style={{ display: !tagged && "none" }}>
                   This is one of our <b>highlighted races</b>.
                 </Text>
-                <Text size="small">Click to see the candidates!</Text>
+                <Text size="small">
+                  This position has a <b>direct impact on police</b>.
+                </Text>
               </Box>
             </Drop>
           )}
@@ -102,12 +103,56 @@ export default ({ data }) => {
       }
     >
       <Box direction={size === "small" ? "column" : "row"} pad="xsmall">
-        <Box basis={size === "small" ? "full" : "1/2"} direction="column">
-          {Incumbent}
-        </Box>
-        <Box basis={size === "small" ? "full" : "1/2"} direction="column">
-          {Challenger}
-        </Box>
+        {candidates.length === 0 ? (
+          <Box
+            border={{ color: "brand", size: "xsmall" }}
+            pad="medium"
+            round="medium"
+          >
+            <Heading level={2}>No data yet :(</Heading>{" "}
+            <Text>
+              We use{" "}
+              <Anchor to="https://www.ballotready.org/">BallotReady</Anchor> for
+              candidate info. <br />
+              Please consult{" "}
+              <Anchor to="https://docs.google.com/spreadsheets/d/1vONk2dmSVJg-6aRbEPbNcPLE08V9K79CGDo5fwGxE6A/edit?mc_cid=3fb5adf7dd&mc_eid=f15ad0889d#gid=2026863387">
+                their calendar
+              </Anchor>{" "}
+              to see when your data will be available.
+            </Text>
+          </Box>
+        ) : (
+          <>
+            <Box basis={size === "small" ? "full" : "1/2"} direction="column">
+              {Democrat.length === 0 ? (
+                <Box
+                  border={{ color: "brand", size: "xsmall" }}
+                  pad="medium"
+                  margin="medium"
+                  round="medium"
+                >
+                  <Heading level={2}>Running unopposed</Heading>{" "}
+                </Box>
+              ) : (
+                Democrat
+              )}
+            </Box>
+            <Box basis={size === "small" ? "full" : "1/2"} direction="column">
+              {Other.length === 0 ? (
+                <Box
+                  border={{ color: "brand", size: "xsmall" }}
+                  pad="medium"
+                  margin="medium"
+                  round="medium"
+                >
+                  <Heading level={2}>Running unopposed</Heading>{" "}
+                </Box>
+              ) : (
+                Other
+              )}
+            </Box>
+          </>
+        )}
       </Box>
     </AccordionPanel>
   );
