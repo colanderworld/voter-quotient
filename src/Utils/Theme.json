@@ -47,17 +47,5 @@
     "border": {
       "side": "top"
     }
-  },
-  "Heading": {
-    "font": {
-      "family": "IBM Plex Mono",
-      "size": "14px",
-      "height": "20px"
-    }
-  },
-  "Paragraph": {
-    "font": {
-      "family": "Helvetica"
-    }
   }
 }

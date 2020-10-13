@@ -11,8 +11,8 @@ export default ({ data }) => {
     photo,
     endorsements,
     experience,
-    education,
-    issues
+    education
+    // issues
   } = data;
 
   return (
@@ -65,13 +65,34 @@ export default ({ data }) => {
         <Text size="16px" weight="bold">
           Education
         </Text>
-        <Text size="16px" weight="bold">
+        {_.sortBy(education, "grad_year").map(
+          ({ school, major, degree, grad_year }) => (
+            <Box>
+              <Text size="small">
+                {school}, {grad_year}
+              </Text>
+              <Text size="small">
+                {degree} {major && "of "}
+                {major}
+              </Text>
+            </Box>
+          )
+        )}
+
+        {/* <Text size="16px" weight="bold">
           Candidacies
         </Text>
+        {_.sortBy(endorsements, "name").map(
+          ({ name, description, website_url }) => (
+            <Box>
+              <Text size="small">{name}</Text>
+            </Box>
+          )
+        )}
 
         <Text size="16px" weight="bold">
           Issues
-        </Text>
+        </Text> */}
         <Box direction="row"></Box>
         <Text></Text>
       </Box>

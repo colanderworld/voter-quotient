@@ -17,10 +17,9 @@ import Theme from "../Utils/Theme.json";
 
 export default () => {
   return (
-    <Grommet theme={Theme} full themeMode="light">
+    <Grommet theme={Theme} full>
       <Box fill="vertical">
         <Box flex="grow">
-          {/* <Header /> */}
           <Router>
             <Home path="/" />
             <About path="about" />
