@@ -39,13 +39,21 @@ export default () => {
     setValue(val, false);
     setIsLoading(true);
     axios(
-      `https://dont-wait-api-jfqwonj6a.vercel.app/api?address=${encodeURI(val)}`
+      `https://dont-wait-api-fiwtla3wv.vercel.app/api?address=${encodeURI(val)}`
     ).then(res => {
       console.log(res);
       setPositions(res.data.data);
       setIsLoading(false);
       setIsLoaded(true);
     });
+    // axios(
+    //   `https://dont-wait-api-jfqwonj6a.vercel.app/api?address=${encodeURI(val)}`
+    // ).then(res => {
+    //   console.log(res);
+    //   setPositions(res.data.data);
+    //   setIsLoading(false);
+    //   setIsLoaded(true);
+    // });
   };
 
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Main } from "grommet";
+import { Box, Heading, Main, Text } from "grommet";
 
 export default () => {
   return (
@@ -11,6 +11,12 @@ export default () => {
         >
           Contact
         </Heading>
+        <Text size="medium" textAlign="start">
+          Please direct all questions or concerns to Eli Cohen.
+          <br />
+          <br />
+          <i>eliunited [at] google mail</i>
+        </Text>
       </Box>
     </Main>
   );

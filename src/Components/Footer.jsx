@@ -15,9 +15,9 @@ export default () => {
         <NavLink weight={400} to="about">
           About
         </NavLink>
-        <NavLink weight={400} to="questions">
+        {/* <NavLink weight={400} to="questions">
           Questions
-        </NavLink>
+        </NavLink> */}
         <NavLink weight={400} to="contact">
           Contact
         </NavLink>
