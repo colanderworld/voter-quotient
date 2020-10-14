@@ -11,7 +11,7 @@ import {
 } from "grommet";
 
 // Visual imports
-import { Star } from "grommet-icons";
+// import { Star } from "grommet-icons";
 
 // Component imports
 import Candidate from "./Candidate";
@@ -45,7 +45,7 @@ export default ({ data }) => {
       label={
         <Box
           margin={size === "small" && { horizontal: "small", top: "small" }}
-          direction={size === "small" ? "column" : "row"}
+          direction="column"
           justify="between"
           align="baseline"
           flex="grow"
@@ -55,44 +55,12 @@ export default ({ data }) => {
               weight="bold"
               style={{ fontSize: "1.6em", lineHeight: "1.5em" }}
             >
-              {normalized_position_name}
+              {position_name}
             </Text>
-            {tagged && (
-              <Box
-                ref={ref}
-                onMouseOver={() => size !== "small" && setOver(true)}
-                onMouseOut={() => size !== "small" && setOver(false)}
-              >
-                <Star color="gold" size="30px" />
-              </Box>
-            )}
           </Box>
-          {ref.current && over && (
-            <Drop align={{ bottom: "top" }} target={ref.current} plain>
-              <Box
-                width={tagged ? "250px" : "200px"}
-                pad="xsmall"
-                background="white"
-                margin={{ bottom: "4px" }}
-                border={{ size: "xsmall", color: "black" }}
-                round={{ size: "xsmall" }}
-              >
-                <Text size="small" style={{ display: !tagged && "none" }}>
-                  This is one of our <b>highlighted races</b>.
-                </Text>
-                <Text size="small">
-                  This position has a <b>direct impact on police</b>.
-                </Text>
-              </Box>
-            </Drop>
-          )}
-          <Box
-            direction="row"
-            alignSelf={size === "small" ? "start" : "end"}
-            align="baseline"
-          >
+
+          <Box direction="row" alignSelf="start" align="baseline">
             <MetaInfo
-              margin={size === "small" && { horizontal: "small" }}
               normalizedPosition={normalized_position_name}
               positionName={position_name}
               description={description}

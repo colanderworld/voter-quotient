@@ -4,29 +4,14 @@ import styled from "styled-components";
 import _ from "lodash";
 import { Box, Text, ResponsiveContext } from "grommet";
 
-export default ({ positionName, level }) => {
+export default ({ normalizedPosition }) => {
   const size = useContext(ResponsiveContext);
 
   return (
-    <Box direction={size === "small" ? "row-reverse" : "row"}>
+    <Box direction="row-reverse">
       <Box>
-        <Box
-          align={size === "small" ? "start" : "end"}
-          margin={
-            size === "small" ? { horizontal: "4px" } : { horizontal: "8px" }
-          }
-        >
-          <MetaData>{positionName}</MetaData>
-        </Box>
-      </Box>
-      <MetaData> | </MetaData>
-      <Box>
-        <Box
-          align={size === "small" ? "start" : "end"}
-          width="53px"
-          margin={size === "small" ? { left: "4px" } : { right: "8px" }}
-        >
-          <MetaData>{_.upperFirst(_.lowerCase(level))}</MetaData>
+        <Box align="start">
+          <MetaData>{normalizedPosition}</MetaData>
         </Box>
       </Box>
     </Box>

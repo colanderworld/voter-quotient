@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import usePlacesAutocomplete from "use-places-autocomplete";
-import { Box, Text } from "grommet";
+import { Box, Text, ResponsiveContext } from "grommet";
 import {
   Combobox,
   ComboboxInput,
@@ -15,6 +15,8 @@ import Lookup from "./Lookup";
 import { Wave } from "better-react-spinkit";
 
 export default () => {
+  const size = useContext(ResponsiveContext);
+
   const [positions, setPositions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,12 +53,12 @@ export default () => {
   return (
     <>
       <Combo onSelect={handleSelect} aria-labelledby="demo">
-        <Box fill={true} width={{ max: "600px" }}>
+        <Box fill={true} width={{ max: "650px" }}>
           <Input
             value={value}
             onChange={handleInput}
             disabled={!ready}
-            width="600px"
+            width="650px"
             placeholder="Enter your address to begin 🗳"
           />
           <Popover>
@@ -90,6 +92,10 @@ export default () => {
     </>
   );
 };
+
+const ComboPopover = styled(ComboboxOption)`
+  font-size: size !== "small" ? 2em : 1em  ;
+`;
 
 const Combo = styled(Combobox)`
   margin: 0 0 4em 0;

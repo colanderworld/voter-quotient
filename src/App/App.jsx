@@ -6,7 +6,7 @@ import { Grommet, Box } from "grommet";
 // Informational pages
 import Home from "../Pages/Home";
 import About from "../Pages/About";
-// import Questions from "../Pages/Questions";
+import Questions from "../Pages/Questions";
 import Contact from "../Pages/Contact";
 
 // Component imports
@@ -20,12 +20,16 @@ export default () => {
     <Grommet theme={Theme} full>
       <Box fill="vertical">
         <Box flex="grow" margin={{ bottom: "10em" }}>
-          <Router>
-            <Home path="/" />
-            <About path="about" />
-            {/* <Questions path="questions" /> */}
-            <Contact path="contact" />
-          </Router>
+          <Box align="center">
+            <Box fill align="left" width={{ max: "800px" }}>
+              <Router>
+                <Home path="/" />
+                <About path="about" />
+                <Questions path="questions" />
+                <Contact path="contact" />
+              </Router>
+            </Box>
+          </Box>
         </Box>
         <Footer />
       </Box>

@@ -15,21 +15,23 @@ export default () => {
         <NavLink weight={400} to="about">
           About
         </NavLink>
-        {/* <NavLink weight={400} to="questions">
+        <NavLink weight={400} to="questions">
           Questions
-        </NavLink> */}
+        </NavLink>
         <NavLink weight={400} to="contact">
           Contact
         </NavLink>
       </Box>
       <Box direction={size === "small" ? "column" : "row"} gap="small">
         <Button
+          alignSelf="center"
           primary
           size={size === "small" ? "medium" : "large"}
-          label="VOTE!"
+          label="Vote Now"
           href="https://www.ballotready.org/"
         />
         <Button
+          alignSelf="center"
           size={size === "small" ? "medium" : "large"}
           label="Feedback"
           href="PUT-SURVEY-LINK-HERE"
