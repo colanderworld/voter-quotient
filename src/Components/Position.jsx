@@ -1,17 +1,13 @@
 // LIbrary imports
-import React, { useRef, useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
   AccordionPanel,
   Box,
   Text,
   ResponsiveContext,
-  Drop,
   Anchor,
   Heading
 } from "grommet";
-
-// Visual imports
-// import { Star } from "grommet-icons";
 
 // Component imports
 import Candidate from "./Candidate";
@@ -23,13 +19,10 @@ export default ({ data }) => {
     position_name,
     description,
     level,
-    tagged,
     candidates
   } = data;
 
   const size = useContext(ResponsiveContext);
-  const [over, setOver] = useState(false);
-  const ref = useRef();
 
   const Democrat = candidates
     .filter(({ party }) => party === "Democratic")

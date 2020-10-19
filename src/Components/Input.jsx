@@ -93,10 +93,6 @@ export default () => {
   );
 };
 
-const ComboPopover = styled(ComboboxOption)`
-  font-size: size !== "small" ? 2em : 1em  ;
-`;
-
 const Combo = styled(Combobox)`
   margin: 0 0 4em 0;
 `;

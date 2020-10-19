@@ -8,14 +8,14 @@ const Home = () => {
   const size = useContext(ResponsiveContext);
   return (
     <>
-      <Box margin={size === "small" ? { horizontal: "medium" } : 0}>
+      <Box margin={size === "small" && { horizontal: "medium" }}>
         <Title>Don't Wait, Vote!</Title>
         <Text>
           This summer has proved that policing in America is broken.
           {size !== "small" ? <br /> : <span>&nbsp;</span>}
           Politicians in Washington D.C. won't fix the problem.
           {size !== "small" ? <br /> : <span>&nbsp;</span>}
-          Learn about <b>state</b> and <b>local</b> officials who can make a
+          Learn about the <b>elected offices</b> that can <b>actually</b> make a
           difference.
         </Text>
       </Box>

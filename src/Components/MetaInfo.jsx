@@ -1,12 +1,9 @@
 // Library Imports
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-import _ from "lodash";
-import { Box, Text, ResponsiveContext } from "grommet";
+import { Box, Text } from "grommet";
 
 export default ({ normalizedPosition }) => {
-  const size = useContext(ResponsiveContext);
-
   return (
     <Box direction="row-reverse">
       <Box>
