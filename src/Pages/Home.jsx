@@ -27,6 +27,7 @@ const Home = () => {
 
 const Title = styled(Heading)`
 	font-family: 'IBM Plex Mono', monospace;
+	font-size: 5em;
 `
 
 export default Home
