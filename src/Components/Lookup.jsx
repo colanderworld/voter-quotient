@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Accordion, ResponsiveContext, Box, Heading } from 'grommet'
+import { Accordion, ResponsiveContext, Box, Heading, Text, Anchor } from 'grommet'
 import Position from './Position'
 
 export default ({ data }) => {
@@ -11,6 +11,23 @@ export default ({ data }) => {
 	return (
 		<>
 			<Box fill={true} margin={size === 'small' ? { horizontal: 'medium' } : 0}></Box>
+			<Box
+				margin={{ horizontal: 0, vertical: 'medium' }}
+				border={{ color: 'brand', size: 'xsmall' }}
+				pad='small'
+				round='medium'
+				alignSelf='start'>
+				<Text>
+					We use <Anchor href='https://www.ballotready.org/'>BallotReady</Anchor> for candidate
+					info.
+					<br />
+					Please consult their{' '}
+					<Anchor href='https://about.ballotready.org/research-process'>
+						research methods
+					</Anchor>{' '}
+					to learn about their data.
+				</Text>
+			</Box>
 			<Heading level={1} margin={{ horizontal: 0, vertical: 'small' }}>
 				Federal
 			</Heading>
